@@ -1,3 +1,4 @@
+# https://github.com/AlynxZhou/hexo-theme-aria
 # If a option has many sub-options, and it's optional, then give it a `enable` sub-option. If not optional, don't use `enable`.
 
 menu:
@@ -47,13 +48,13 @@ highlight: atom-one-dark
 # Select all your webfont in a CDN like Google Fonts, and then copy `href` property in the `<link>` tag, like `link: //fonts.googleapis.com/css?family=Lato|Roboto+Condensed|Skranji|Ubuntu|Ubuntu+Mono`.
 # Then set different fonts to different parts here.
 custom_font:
-  enable: false
-  link:
-  all:
-  title:
-  subtitle:
-  main:
-  code:
+  enable: true
+  link: //cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css
+  all: Pretendard Variable
+  title: Pretendard Variable
+  subtitle: Pretendard Variable
+  main: Pretendard Variable
+  code: 
 
 # avatar: images/avatar.png
 
