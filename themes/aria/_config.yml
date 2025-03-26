@@ -152,7 +152,7 @@ lib_cdn:
 # `comment.commentjs.type`: Choose between `github` and `oschina`.
 comment:
   enable: false
-  disqus_shortname:
+  disqus_shortname: 
   commentjs:
     enable: false
     type:
