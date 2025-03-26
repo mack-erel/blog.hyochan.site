@@ -95,8 +95,14 @@
 </header>
 <section class="flex w-full justify-center">
 	<section
-		class="max-w-7xl w-full -mt-14 bg-[#eee] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)]">
-		{@render children()}
+		class="max-w-7xl w-full -mt-14 bg-[#eee] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] flex">
+		<section class="w-[calc(100%-20rem)]">
+			{@render children()}
+		</section>
+		<aside class="w-80 bg-[#ddd] flex flex-col">
+			<section class="bg-[#999] h-14">search</section>
+			asdf
+		</aside>
 	</section>
 </section>
 
