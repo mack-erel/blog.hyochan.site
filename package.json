@@ -6,7 +6,7 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo clean && hexo deploy && hexo server"
   },
   "hexo": {
     "version": "7.3.0"
@@ -21,6 +21,9 @@
     "hexo-renderer-marked": "^7.0.0",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-landscape": "^1.0.0"
+    "hexo-theme-landscape": "^1.0.0",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-renderer-njucks": "github:AlynxZhou/hexo-renderer-nunjucks"
   }
 }
