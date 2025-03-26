@@ -42,6 +42,7 @@ function findKeywords(keywords, prop) {
 function buildSortedMatchedDataProps(datas, keywords) {
   var matchedDataProps = [];
   for (var i = 0; i < datas.length; ++i) {
+    datas[i].content = datas[i].content.replace(/<\!\[CDATA\[(.*?)\]\]>/gim, "$1");
     var prop = {
       "matchedContentKeywords": [],
       "matchedTitleKeywords": [],
