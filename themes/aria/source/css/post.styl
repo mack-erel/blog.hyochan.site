@@ -1,11 +1,22 @@
 @import "variables";
 @import "nib";
 @import "reward";
+.archive.page{
+  .post.article.card{
+    padding: 1em;
+  }
+}
 .post {
   .post-header {
     text-align: center;
     .post-title-simple {
       margin: 0;
+      margin-bottom: 10px;
+      font-size: 20pt;
+
+      & ~ .post-date{
+        font-size: 10pt;
+      }
     }
     .post-title .post-title-link {
       display: inline-block;
