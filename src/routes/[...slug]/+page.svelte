@@ -35,6 +35,10 @@
     .markdown-style {
         @apply px-4;
 
+        :global(p){
+            @apply my-4;
+        }
+
         :global(h2) {
             @apply text-2xl font-bold mt-4 mb-2;
 
