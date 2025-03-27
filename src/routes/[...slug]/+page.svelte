@@ -9,8 +9,6 @@
                 '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
             ),
     );
-
-    console.log(data.content);
 </script>
 
 <article class="bg-white p-2 lg:rounded-lg lg:m-2">
