@@ -1,7 +1,16 @@
 <script lang="ts">
     let { data } = $props();
 
-    console.log(data);
+    let content = $derived(
+        data.content
+            .toString()
+            .replace(
+                /<img([^>]*)alt="([^"]*)"([^>]*)>/g,
+                '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
+            ),
+    );
+
+    console.log(data.content);
 </script>
 
 <article class="bg-white p-2 lg:rounded-lg lg:m-2">
@@ -20,7 +29,7 @@
     <hr class="my-4" />
 
     <div class="markdown-style">
-        {@html data.content}
+        {@html content}
     </div>
 </article>
 
@@ -47,6 +56,18 @@
         :global(pre) {
             @apply -mx-6 bg-[#333] text-white px-6 py-4 text-sm my-4;
             box-shadow: inset 0 -0.5em 1em 0.5em rgba(0, 0, 0, 0.2);
+        }
+
+        :global(figure) {
+            @apply -mx-6 w-[calc(100%+3rem)] max-w-none my-4;
+        }
+
+        :global(img) {
+            @apply w-full;
+        }
+
+        :global(figcaption) {
+            @apply text-center text-sm text-gray-500 mt-2;
         }
     }
 </style>

@@ -14,4 +14,4 @@ thumbnail:
 
 재미있죠?!
 
-![](https://dummyimage.com/600x400/000/fff)
+![asdf](https://dummyimage.com/600x400/000/fff)
