@@ -13,3 +13,5 @@ thumbnail:
 바로 svelte로 만들었답니다!
 
 재미있죠?!
+
+![](https://dummyimage.com/600x400/000/fff)
