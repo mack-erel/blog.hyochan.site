@@ -66,8 +66,8 @@
 	<title>{pageSubject}</title>
 	<meta property="og:title" content={pageSubject} />
 	{#if pageDescription}
-	<meta name="description" content={pageDescription} />
-	<meta property="og:description" content={pageDescription} />
+		<meta name="description" content={pageDescription} />
+		<meta property="og:description" content={pageDescription} />
 	{/if}
 	<meta property="og:type" content="website" />
 	<meta
@@ -180,7 +180,7 @@
 				Henry Jang
 			</span>
 			<span class="text-center mt-2 text-gray-500 text-sm">
-				일하기 싫어하지만,<br>얼레벌레 일하는 개발자
+				일하기 싫어하지만,<br />얼레벌레 일하는 개발자
 			</span>
 			<section class="mt-4 flex justify-center gap-2 mb-4">
 				<a

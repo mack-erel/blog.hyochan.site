@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { md5 } from "js-md5";
+
     import {
         Banana,
         Beer,
@@ -38,9 +40,16 @@
         Ham,
     ];
 
-    function getRandomIcon() {
-        return icons[Math.floor(Math.random() * icons.length)];
-    }
+    // async function getRandomIcon(a: any, b: string) {
+    //     const str = JSON.stringify({ ...a, slug: b });
+    //     const msgBuffer = new TextEncoder().encode(str);
+    //     const hashBuffer = await crypto.subtle.digest("SHA-1", msgBuffer);
+    //     const hashArray = Array.from(new Uint8Array(hashBuffer));
+    //     const hash = hashArray
+    //         .map((b) => b.toString(16).padStart(2, "0"))
+    //         .join("");
+    //     return icons[parseInt(hash.charAt(0), 16) % icons.length];
+    // }
 
     let { data } = $props();
 </script>
@@ -49,7 +58,19 @@
     class="grid grid-cols-1 gap-4 m-4
             sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
     {#each Object.keys(data.posts).slice(0, 9) as slug}
-        {@const Icon = getRandomIcon()}
+        {@const Icon =
+            icons[
+                md5(
+                    JSON.stringify({
+                        ...data.posts[slug],
+                        slug,
+                    }),
+                )
+                    .split("")
+                    .reduce((acc, char) => {
+                        return acc + parseInt(char, 16);
+                    }, 0) % icons.length
+            ]}
         <li class="rounded-lg overflow-hidden bg-white">
             <a
                 href={`/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}`}>
@@ -64,6 +85,7 @@
                     <div
                         class="aspect-video bg-gray-200 flex justify-center items-center">
                         <span class="text-4xl text-gray-400">
+                            <!-- {@const Icon = getRandomIcon(data.posts[slug], slug)} -->
                             <Icon class="w-10 h-10" />
                         </span>
                     </div>
