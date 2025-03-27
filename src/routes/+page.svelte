@@ -5,7 +5,7 @@
 
 <ul
     class="grid grid-cols-1 gap-4 m-4
-            sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+            sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
     {#each Object.keys(data.posts).slice(0, 9) as slug}
         {(console.log(slug, data.posts[slug]), "")}
         <li class="rounded-lg overflow-hidden bg-white">
@@ -28,7 +28,7 @@
                 {/if}
                 <div class="px-4 py-2 flex flex-col">
                     <h2 class="text-lg font-bold">{data.posts[slug].title}</h2>
-                    <p class="text-xs flex items-center gap-1 h-4">
+                    <p class="text-xs flex items-center gap-1 h-5">
                         <CalendarRange class="w-4 h-4 text-gray-400" />
                         {data.posts[slug].date.split(" ")[0]}
                     </p>

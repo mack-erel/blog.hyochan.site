@@ -164,15 +164,15 @@
 <section class="flex w-full justify-center">
 	<section
 		class="max-w-7xl w-full -mt-14 bg-[#eee] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] flex flex-col
-				sm:flex-row">
+				lg:flex-row">
 		<section
 			class="w-full
-						sm:w-[calc(100%-20rem)]">
+						lg:w-[calc(100%-20rem)]">
 			{@render children()}
 		</section>
 		<aside
 			class="w-full bg-[#ddd] flex flex-col
-						sm:w-80">
+						lg:w-80">
 			<section class="bg-[#999] h-14">search</section>
 			<span class="text-center text-2xl font-bold mt-5">
 				Henry Jang
@@ -180,14 +180,16 @@
 			<span class="text-center mt-2 text-gray-500">
 				아무거나 써놓는 블로그
 			</span>
-			<section class="mt-4 flex justify-center gap-2">
+			<section class="mt-4 flex justify-center gap-2 mb-4">
 				<a
 					href="https://github.com/mack-erel"
+					target="_blank"
 					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
 					<Github class="w-4" />
 				</a>
 				<a
 					href="https://instagram.com/yrneh_gnaj"
+					target="_blank"
 					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
 					<Instagram class="w-4" />
 				</a>
