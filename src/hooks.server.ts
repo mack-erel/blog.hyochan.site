@@ -28,8 +28,6 @@ const getPost: Handle = async ({ event, resolve }) => {
         )
     );
 
-    console.log(event.locals.posts);
-
     return resolve(event);
 }
 

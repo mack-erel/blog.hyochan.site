@@ -7,7 +7,6 @@
     class="grid grid-cols-1 gap-4 m-4
             sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
     {#each Object.keys(data.posts).slice(0, 9) as slug}
-        {(console.log(slug, data.posts[slug]), "")}
         <li class="rounded-lg overflow-hidden bg-white">
             <a
                 href={`/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}`}>

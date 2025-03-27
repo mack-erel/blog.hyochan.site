@@ -17,21 +17,20 @@ export async function load({ params }) {
     const filePath = path.join(postsDir, `${lastPart}.md`);
 
     if (!fs.existsSync(filePath))
-        throw error(404, 'Post not found A');
+        throw error(404, 'Post not found');
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
 
     if (!data.date)
-        throw error(404, 'Post not found B');
+        throw error(404, 'Post not found');
 
     const correctDatePath = data.date.toISOString().split("T")[0].replace(/-/g, "/");
 
     if (isDatePath) {
         const datePath = slugParts.slice(0, 3).join('/');
-        // console.log(datePath, correctDatePath);
         if (datePath !== correctDatePath)
-            throw error(404, 'Post not found C');
+            throw error(404, 'Post not found');
     } else
         throw redirect(301, `/${correctDatePath}/${encodeURIComponent(lastPart)}`);
 
@@ -40,7 +39,9 @@ export async function load({ params }) {
         content: marked(content),
         subject: data.title,
         description: data.description,
-        ...data
+        date: data.date.toISOString().replace("T", " ").replace("Z", "").replace(".000", ""),
+        updated: data.updated?.toISOString().replace("T", " ").replace("Z", "").replace(".000", ""),
+        data
     };
 }
 
@@ -62,17 +63,17 @@ export function entries() {
 
         // 파일명에서 확장자 제거
         const slug = path.parse(file).name;
-        
+
         // date가 있으면 날짜 기반 경로 추가
         if (data.date) {
             const correctDatePath = data.date.toISOString().split("T")[0].replace(/-/g, "/");
-            
+
             // 날짜가 있는 경로 추가
             entries.push({
                 slug: `${correctDatePath}/${slug}`
             });
         }
-        
+
         // 날짜가 없는 경로도 추가
         entries.push({ slug });
     }
