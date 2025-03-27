@@ -103,14 +103,14 @@
 				<span>Menu</span>
 			</button>
 			<ul
-				class="flex gap-1 h-full items-center px-2 flex-col sm:flex-row"
+				class="flex gap-0 h-14 items-center px-2 flex-col sm:flex-row sm:gap-1"
 				class:h-[calc(3.5rem*4)]={isMenuOpen}>
 				<li
 					class:bg-[#222]={$page.url.pathname == "/"}
-					class="h-full text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/"
-						class="flex justify-center items-center gap-2 px-4 h-full"
+						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname == "/"}>
 						<House class="w-4" />
 						<span>Home</span>
@@ -118,10 +118,10 @@
 				</li>
 				<li
 					class:bg-[#222]={$page.url.pathname.startsWith("/archives")}
-					class="h-full text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/archives"
-						class="flex justify-center items-center gap-2 px-4 h-full"
+						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname.startsWith(
 							"/archives",
 						)}>
@@ -133,10 +133,10 @@
 					class:bg-[#222]={$page.url.pathname.startsWith(
 						"/categories",
 					)}
-					class="h-full text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/categories"
-						class="flex justify-center items-center gap-2 px-4 h-full"
+						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname.startsWith(
 							"/categories",
 						)}>
@@ -146,10 +146,10 @@
 				</li>
 				<li
 					class:bg-[#222]={$page.url.pathname.startsWith("/tags")}
-					class="h-full text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/tags"
-						class="flex justify-center items-center gap-2 px-4 h-full"
+						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname.startsWith(
 							"/tags",
 						)}>
