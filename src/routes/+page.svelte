@@ -1,5 +1,47 @@
 <script lang="ts">
-    import { Ham, CalendarRange } from "lucide-svelte";
+    import {
+        Banana,
+        Beer,
+        Ghost,
+        IceCream,
+        Pizza,
+        Gamepad2,
+        Bomb,
+        Skull,
+        Rocket,
+        Coffee,
+        Bug,
+        Angry,
+        Sandwich,
+        Snowflake,
+        ThumbsDown,
+        Ham,
+        CalendarRange,
+    } from "lucide-svelte";
+
+    const icons = [
+        Banana,
+        Beer,
+        Ghost,
+        IceCream,
+        Pizza,
+        Gamepad2,
+        Bomb,
+        Skull,
+        Rocket,
+        Coffee,
+        Bug,
+        Angry,
+        Sandwich,
+        Snowflake,
+        ThumbsDown,
+        Ham,
+    ];
+
+    function getRandomIcon() {
+        return icons[Math.floor(Math.random() * icons.length)];
+    }
+
     let { data } = $props();
 </script>
 
@@ -7,6 +49,7 @@
     class="grid grid-cols-1 gap-4 m-4
             sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
     {#each Object.keys(data.posts).slice(0, 9) as slug}
+        {@const Icon = getRandomIcon()}
         <li class="rounded-lg overflow-hidden bg-white">
             <a
                 href={`/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}`}>
@@ -21,7 +64,7 @@
                     <div
                         class="aspect-video bg-gray-200 flex justify-center items-center">
                         <span class="text-4xl text-gray-400">
-                            <Ham class="w-10 h-10" />
+                            <Icon class="w-10 h-10" />
                         </span>
                     </div>
                 {/if}

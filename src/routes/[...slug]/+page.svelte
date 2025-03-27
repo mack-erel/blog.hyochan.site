@@ -19,7 +19,34 @@
 
     <hr class="my-4" />
 
-    <div class="px-4" id="content">
+    <div class="markdown-style">
         {@html data.content}
     </div>
 </article>
+
+<style lang="postcss">
+    .markdown-style {
+        @apply px-4;
+
+        :global(h2) {
+            @apply text-2xl font-bold mt-4 mb-2;
+
+            &:first-child {
+                @apply mt-0;
+            }
+        }
+
+        :global(h3) {
+            @apply text-xl font-bold mt-4 mb-2;
+
+            &:first-child {
+                @apply mt-0;
+            }
+        }
+
+        :global(pre) {
+            @apply -mx-6 bg-[#333] text-white px-6 py-4 text-sm my-4;
+            box-shadow: inset 0 -0.5em 1em 0.5em rgba(0, 0, 0, 0.2);
+        }
+    }
+</style>
