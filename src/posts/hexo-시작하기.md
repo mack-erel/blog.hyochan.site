@@ -1,5 +1,6 @@
 ---
 title: Hexo 시작하기
+description: 하지만 실패했죠?
 date: 2025-03-26 15:38:35
 categories:
   - Node.js

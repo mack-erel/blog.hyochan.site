@@ -20,7 +20,7 @@
 	const siteSubTitle = "개발자의 일상을 담은 블로그";
 
 	const pageSubject = $derived($page.data.subject ?? siteTitle);
-	const pageDescription = $derived($page.data.description ?? siteSubTitle);
+	const pageDescription = $derived($page.data.description ?? false);
 
 	let isMenuOpen = $state(false);
 
@@ -64,9 +64,11 @@
 
 <svelte:head>
 	<title>{pageSubject}</title>
-	<meta name="description" content={pageDescription} />
 	<meta property="og:title" content={pageSubject} />
+	{#if pageDescription}
+	<meta name="description" content={pageDescription} />
 	<meta property="og:description" content={pageDescription} />
+	{/if}
 	<meta property="og:type" content="website" />
 	<meta
 		property="og:url"

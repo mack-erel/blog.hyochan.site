@@ -38,6 +38,8 @@ export async function load({ params }) {
     return {
         slug,
         content: marked(content),
+        subject: data.title,
+        description: data.description,
         ...data
     };
 }
