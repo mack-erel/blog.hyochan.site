@@ -4,6 +4,15 @@
     let content = $derived(
         data.content
             .toString()
+            .replace(/<h([1-5])>([^<]+)<\/h\1>/g, (match, level, text) => {
+                // ID 생성 (공백만 하이픈으로 변환하고 한글은 유지)
+                const id = text
+                    .trim()
+                    .toLowerCase()
+                    .replace(/[^\p{L}\p{N}\s-]/gu, '') // 한글이나 다른 언어 문자도 유지
+                    .replace(/\s+/g, '-');
+                return `<h${level} id="${id}">${text}</h${level}>`;
+            })
             .replace(
                 /<img([^>]*)alt="([^"]*)"([^>]*)>/g,
                 '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
