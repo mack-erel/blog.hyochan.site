@@ -3,7 +3,13 @@
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
+		interface Locals {
+			posts: {
+				[key: string]: {
+					[key: string]: any;
+				};
+			};
+		}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
