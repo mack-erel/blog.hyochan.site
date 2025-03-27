@@ -10,12 +10,16 @@
         <h2 class="text-gray-500 px-4">{data.description}</h2>
     {/if}
 
-    <span class="text-xs text-gray-400 px-4 pt-2 block">
+    <p class="text-xs text-gray-400 px-4 pt-2">
         작성: {data.date}
         {#if data.updated}
-            (수정: {data.updated})
+            <span class="inline-block ml-2">(수정: {data.updated})</span>
         {/if}
-    </span>
+    </p>
 
     <hr class="my-4" />
+
+    <div class="px-4" id="content">
+        {@html data.content}
+    </div>
 </article>
