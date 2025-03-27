@@ -179,8 +179,8 @@
 			<span class="text-center text-2xl font-bold mt-5">
 				Henry Jang
 			</span>
-			<span class="text-center mt-2 text-gray-500">
-				아무거나 써놓는 블로그
+			<span class="text-center mt-2 text-gray-500 text-sm">
+				일하기 싫어하지만,<br>얼레벌레 일하는 개발자
 			</span>
 			<section class="mt-4 flex justify-center gap-2 mb-4">
 				<a
