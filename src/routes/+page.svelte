@@ -3,7 +3,9 @@
     let { data } = $props();
 </script>
 
-<ul class="grid grid-cols-3 gap-4 m-4">
+<ul
+    class="grid grid-cols-1 gap-4 m-4
+            sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
     {#each Object.keys(data.posts).slice(0, 9) as slug}
         {(console.log(slug, data.posts[slug]), "")}
         <li class="rounded-lg overflow-hidden bg-white">

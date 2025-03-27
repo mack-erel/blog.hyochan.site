@@ -9,6 +9,8 @@
 		Tags,
 		Github,
 		Instagram,
+		Menu,
+		X,
 	} from "lucide-svelte";
 	import { onMount } from "svelte";
 
@@ -20,6 +22,8 @@
 	const pageSubject = $derived($page.data.subject ?? siteTitle);
 	const pageDescription = $derived($page.data.description ?? siteSubTitle);
 
+	let isMenuOpen = $state(false);
+
 	onMount(() => {
 		const script = document.createElement("script");
 		script.src =
@@ -29,7 +33,7 @@
 
 		const interval = setInterval(() => {
 			const e = document.querySelector(
-				"#busuanzi_value_site_pv",
+				"#busuanzi_value_site_uv",
 			) as HTMLElement;
 			if (e) {
 				if (e.innerText.includes(",")) {
@@ -43,6 +47,18 @@
 				}
 			}
 		}, 1000);
+	});
+
+	onMount(() => {
+		const handleResize = () => {
+			if (window.innerWidth > 640) {
+				isMenuOpen = false;
+			}
+		};
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
 	});
 </script>
 
@@ -60,7 +76,9 @@
 		href={`https://blog.hyochan.site${$page.url.pathname}`} />
 </svelte:head>
 
-<header class="flex bg-[#333] w-full justify-center h-52">
+<header
+	class="flex bg-[#333] w-full justify-center h-52"
+	class:h-[calc(13rem+3.5rem*4)]={isMenuOpen}>
 	<section class="max-w-7xl w-full">
 		<section class="flex flex-col h-24 justify-center">
 			<h1 class="text-3xl font-bold text-white/90 ml-8">
@@ -70,11 +88,26 @@
 				{siteSubTitle}
 			</h2>
 		</section>
-		<nav class="bg-[#333] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] h-14">
-			<ul class="flex gap-1 h-full items-center px-2">
+		<nav
+			class="bg-[#333] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] h-14"
+			class:h-[calc(3.5rem*5)]={isMenuOpen}>
+			<button
+				onclick={() => (isMenuOpen = !isMenuOpen)}
+				class="flex justify-center items-center gap-2 px-4 h-14 text-white
+							sm:hidden">
+				{#if isMenuOpen}
+					<X class="w-4" />
+				{:else}
+					<Menu class="w-4" />
+				{/if}
+				<span>Menu</span>
+			</button>
+			<ul
+				class="flex gap-1 h-full items-center px-2 flex-col sm:flex-row"
+				class:h-[calc(3.5rem*4)]={isMenuOpen}>
 				<li
 					class:bg-[#222]={$page.url.pathname == "/"}
-					class="h-full text-[#ddd]">
+					class="h-full text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/"
 						class="flex justify-center items-center gap-2 px-4 h-full"
@@ -85,7 +118,7 @@
 				</li>
 				<li
 					class:bg-[#222]={$page.url.pathname.startsWith("/archives")}
-					class="h-full text-[#ddd]">
+					class="h-full text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/archives"
 						class="flex justify-center items-center gap-2 px-4 h-full"
@@ -100,7 +133,7 @@
 					class:bg-[#222]={$page.url.pathname.startsWith(
 						"/categories",
 					)}
-					class="h-full text-[#ddd]">
+					class="h-full text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/categories"
 						class="flex justify-center items-center gap-2 px-4 h-full"
@@ -113,7 +146,7 @@
 				</li>
 				<li
 					class:bg-[#222]={$page.url.pathname.startsWith("/tags")}
-					class="h-full text-[#ddd]">
+					class="h-full text-[#ddd] w-full sm:w-fit">
 					<a
 						href="/tags"
 						class="flex justify-center items-center gap-2 px-4 h-full"
@@ -130,11 +163,16 @@
 </header>
 <section class="flex w-full justify-center">
 	<section
-		class="max-w-7xl w-full -mt-14 bg-[#eee] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] flex">
-		<section class="w-[calc(100%-20rem)]">
+		class="max-w-7xl w-full -mt-14 bg-[#eee] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] flex flex-col
+				sm:flex-row">
+		<section
+			class="w-full
+						sm:w-[calc(100%-20rem)]">
 			{@render children()}
 		</section>
-		<aside class="w-80 bg-[#ddd] flex flex-col">
+		<aside
+			class="w-full bg-[#ddd] flex flex-col
+						sm:w-80">
 			<section class="bg-[#999] h-14">search</section>
 			<span class="text-center text-2xl font-bold mt-5">
 				Henry Jang
@@ -154,9 +192,6 @@
 					<Instagram class="w-4" />
 				</a>
 			</section>
-			<section class="mt-4">
-				<span id="busuanzi_value_site_pv"></span> Hits!
-			</section>
 		</aside>
 	</section>
 </section>
@@ -164,6 +199,9 @@
 	<section class="max-w-7xl w-full">
 		<p class="text-xs text-gray-500 block text-center mt-10">
 			&copy; {siteTitle} - {siteSubTitle}
+		</p>
+		<p class="text-xs text-gray-700 block text-center mt-5">
+			총 <span id="busuanzi_value_site_uv"></span>명이 방문했어요!
 		</p>
 	</section>
 </footer>
