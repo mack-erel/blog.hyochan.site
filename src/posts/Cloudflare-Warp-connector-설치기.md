@@ -19,13 +19,14 @@ thumbnail:
 - [1. 서론](#1-서론)
 - [2. Cloudflare에 가입하기](#2-cloudflare에-가입하기)
 - [3. Zero Trust 설정하기](#3-zero-trust-설정하기)
+  - [3.1. 최초 설정](#31-최초-설정)
   - [3.1. 네트워크 설정](#31-네트워크-설정)
   - [3.2. 접근 정책 만들기](#32-접근-정책-만들기)
 - [4. Warp Connector 설치하기](#4-warp-connector-설치하기)
 
 ## 1. 서론
 
-대부분의 네트워킹 서비스로 Cloudflare를 이용하고 있다.
+필자는 대부분의 네트워킹 서비스로 Cloudflare를 이용하고 있다.
 
 웹 서비스는 Cloudflare Workers와 Pages, DB는 Hyperdrive와 D1, 저장소는 R2를 사용한다.  
 Cloudflare를 이용하면서 가장 큰 장점은 내가 사용 중인 클라우드 업체인 Vultr와의 트래픽 비용이 발생하지 않는다는 점이다.
@@ -41,30 +42,54 @@ Cloudflare에서는 이러한 이슈를 예상했던 것인지 Zero Trust라는 
 
 ## 2. Cloudflare에 가입하기
 
-사실 너무 기본적인 내용이라 이 부분을 써야할지 고민이 되었다.  
-서비스를 사용하기 위해서 당연히 가입을 해야 할 것이고, 이미 많은 사용자들이 있기에 가입을 했을 수도 있을테니까.
+Cloudflare의 서비스를 이용하기 위해서는 먼저 계정을 생성해야 한다.  
+이미 Cloudflare에 계정을 갖고 있다면 이 단계는 건너뛰어도 된다.
 
-하지만, Cloudflare의 카테고리에서 가장 처음 다루는 항목이기 때문에 처음부터 시작을 해볼까 한다.
+먼저 [Cloudflare 공식 홈페이지](https://www.cloudflare.com/)에 접속한다.
 
-자 그럼 먼저 [Cloudflare](https://www.cloudflare.com/)에 접속하면 아래와 같은 화면이 나올 것이다.
+메인 화면에서 **공격을 받고 계신가요?** 문구 옆에 있는 **가입** 버튼을 클릭한다.
 
-![클라우드플레어 메인 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/1.png)
+![Cloudflare 메인 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/1.png)
 
-여기서 "공격을 받고 계신가요?" 라는 문구 옆의 "가입"을 클릭해보자.
+가입 페이지에서는 구글 계정이나 애플 계정으로 간편하게 가입할 수 있으며, 직접 이메일을 입력하여 가입하는 방법도 있다.
 
-![클라우드플레어 가입 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/2.png)
+![Cloudflare 가입 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/2.png)
 
-구글 계정이나 애플 계정을 이용해서도 가입할 수 있으며, 이메일을 직접 입력하여 가입할 수도 있다.
+직접 이메일로 가입할 경우, 이메일 주소와 사용할 비밀번호를 입력한 후 "Sign up" 버튼을 클릭하여 진행한다.
 
-나의 경우에는 이메일과 사용할 비밀번호를 입력하고 "Sign up" 버튼을 눌러 가입을 진행했다.
+가입 양식을 제출하고, 정상적으로 가입이 완료되었다면 다음과 같은 화면이 나타난다.
 
-가입을 완료하면 아래와 같은 화면이 나올 것이다.
+![Cloudflare 가입 완료 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/3.png)
 
-![클라우드플레어 가입 완료 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/3.png)
+가입 절차에서 가장 중요한 단계는 이메일 인증이다.
 
-하지만 가장 중요한 부분은, 이메일을 통해 인증절차를 마무리 하는 것이다.
+가입할 때 사용한 이메일 계정을 확인해보면 Cloudflare에서 보낸 인증 메일이 도착해 있을 것이다.
 
-입력한 이메일 계정을 확인해보면 인증메일이 도착했을 것이고, 메일 내의 링크를 클릭하거나, 인증 토큰을 입력하여 인증 절차를 마무리해주어야 한다.
+![Cloudflare 인증 메일](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/4.png)
 
-![클라우드플레어 인증 메일](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/4.png)
+인증 메일 내의 링크를 클릭하거나, 제공된 인증 토큰을 입력하여 이메일 인증을 완료하면 Cloudflare 계정의 생성이 마무리된다.
 
+## 3. Zero Trust 설정하기
+
+### 3.1. 최초 설정
+
+이제 [Cloudflare Zero Trust 대시보드](https://one.dash.cloudflare.com/)에 접속한다.
+
+Cloudflare 메인 화면에서 접속하려면, 메인 화면에서 **로그인**을 클릭하고 나타나는 대시보드에서 **Zero Trust** 메뉴에 접근하면 된다.
+
+![Cloudflare 대시보드](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/5.png)
+
+Zero Trust 대시보드에 들어서면 **Team name**을 입력하는 화면이 나타난다.  
+팀에 대한 고유한 Connection ID이며, 앞으로 사용할 Warp client에서 쓰일 ID이다.
+
+이후에 수정할 수 있으니 너무 고민하지 말고 간단히 작성해보자.
+
+![Cloudflare Zero Trust 팀 생성 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/6.png)
+
+팀 명을 입력하고 다음 단계를 누르면 요금제를 선택하는 화면이 나타난다.
+
+팀원이 많지 않다면 Free를 사용해도 모두 커버할 수 있다. ~~공짜 좋아하면 대머리 된다던데...~~
+
+![Cloudflare Zero Trust 요금제 선택 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/7.png)
+
+Free를 선택한 뒤에 
