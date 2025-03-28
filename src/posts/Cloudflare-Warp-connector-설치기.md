@@ -54,4 +54,17 @@ Cloudflare에서는 이러한 이슈를 예상했던 것인지 Zero Trust라는 
 
 ![클라우드플레어 가입 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/2.png)
 
-이제 원하는 방식을 이용해 회원가입을 진행하자.
+구글 계정이나 애플 계정을 이용해서도 가입할 수 있으며, 이메일을 직접 입력하여 가입할 수도 있다.
+
+나의 경우에는 이메일과 사용할 비밀번호를 입력하고 "Sign up" 버튼을 눌러 가입을 진행했다.
+
+가입을 완료하면 아래와 같은 화면이 나올 것이다.
+
+![클라우드플레어 가입 완료 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/3.png)
+
+하지만 가장 중요한 부분은, 이메일을 통해 인증절차를 마무리 하는 것이다.
+
+입력한 이메일 계정을 확인해보면 인증메일이 도착했을 것이고, 메일 내의 링크를 클릭하거나, 인증 토큰을 입력하여 인증 절차를 마무리해주어야 한다.
+
+![클라우드플레어 인증 메일](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/4.png)
+
