@@ -12,7 +12,6 @@ tags:
   - VPN
   - Warp Connector
   - Vultr
-  - SSH
 thumbnail: 
 ---
 
@@ -50,3 +49,9 @@ Cloudflare에서는 이러한 이슈를 예상했던 것인지 Zero Trust라는 
 자 그럼 먼저 [Cloudflare](https://www.cloudflare.com/)에 접속하면 아래와 같은 화면이 나올 것이다.
 
 ![클라우드플레어 메인 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/1.png)
+
+여기서 "공격을 받고 계신가요?" 라는 문구 옆의 "가입"을 클릭해보자.
+
+![클라우드플레어 가입 화면](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/2.png)
+
+이제 원하는 방식을 이용해 회원가입을 진행하자.

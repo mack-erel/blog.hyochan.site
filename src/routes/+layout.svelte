@@ -76,6 +76,8 @@
 	<link
 		rel="canonical"
 		href={`https://blog.hyochan.site${$page.url.pathname}`} />
+
+	<meta name="referrer" content="no-referrer" />
 </svelte:head>
 
 <header
@@ -118,7 +120,7 @@
 						<span>Home</span>
 					</a>
 				</li>
-				<li
+				<!-- <li
 					class:bg-[#222]={$page.url.pathname.startsWith("/archives")}
 					class="h-14 text-[#ddd] w-full sm:w-fit">
 					<a
@@ -158,7 +160,7 @@
 						<Tags class="w-4" />
 						<span>Tags</span>
 					</a>
-				</li>
+				</li> -->
 			</ul>
 		</nav>
 	</section>
