@@ -20,6 +20,7 @@
                 const resized = args[1].replace(
                     /https:\/\/blog-files\.hyochan\.site\/(.+?).png/g,
                     "https://blog-files.hyochan.site/cdn-cgi/image/width=944,quality=80/$1.png",
+                    // "https://blog-files.hyochan.site/$1.png",
                 );
                 return `<a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a>`;
             }),

@@ -20,7 +20,7 @@ thumbnail:
 - [2. Cloudflare에 가입하기](#2-cloudflare에-가입하기)
 - [3. Zero Trust 설정하기](#3-zero-trust-설정하기)
   - [3.1. 최초 설정](#31-최초-설정)
-  - [3.1. 네트워크 설정](#31-네트워크-설정)
+  - [3.2. Cloudflare Warp Connector 설치](#32-cloudflare-warp-connector-설치)
   - [3.2. 접근 정책 만들기](#32-접근-정책-만들기)
 - [4. Warp Connector 설치하기](#4-warp-connector-설치하기)
 
@@ -79,17 +79,47 @@ Cloudflare 메인 화면에서 접속하려면, 메인 화면에서 **로그인*
 
 ![Cloudflare 대시보드](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/5.png)
 
-Zero Trust 대시보드에 들어서면 **Team name**을 입력하는 화면이 나타난다.  
-팀에 대한 고유한 Connection ID이며, 앞으로 사용할 Warp client에서 쓰일 ID이다.
+Zero Trust 대시보드에 처음 접속하면 **Team name**을 입력하는 화면이 나타난다.  
+이는 팀에 대한 고유한 Connection ID로, 앞으로 사용할 Warp client에서 활용될 ID이다.
 
-이후에 수정할 수 있으니 너무 고민하지 말고 간단히 작성해보자.
+이후에도 수정이 가능하니 너무 고민하지 말고 간단히 작성해보자.
 
 ![Cloudflare Zero Trust 팀 생성 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/6.png)
 
-팀 명을 입력하고 다음 단계를 누르면 요금제를 선택하는 화면이 나타난다.
+팀 이름을 입력하고 다음 단계를 클릭하면 요금제를 선택하는 화면이 나타난다.
 
-팀원이 많지 않다면 Free를 사용해도 모두 커버할 수 있다. ~~공짜 좋아하면 대머리 된다던데...~~
+팀원이 많지 않다면 무료 요금제(Free)를 선택해도 충분히 사용할 수 있다. ~~공짜 좋아하면 대머리 된다던데...~~
 
 ![Cloudflare Zero Trust 요금제 선택 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/7.png)
 
-Free를 선택한 뒤에 
+무료 요금제를 선택한 뒤 다시 Zero Trust 대시보드로 이동하면 팀 설정이 완료된다.
+
+![Cloudflare Zero Trust 대시보드 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/8-1.png)
+
+### 3.2. VPC 구성 및 서버 구성
+
+이 글에서는 서울과 도쿄 두 지역의 Region에 각각 두대의 instance를 설치하여 서울 Region에서 도쿄 Region, 클라이언트에서 서울 Region, 도쿄 Region에서 클라이언트 세개의 항목을 테스트 할 것이다.
+
+먼저 Region에 대한 VPC를 구성하고, instance를 설정한다.
+
+이 때 필자는 Vultr이라는 클라우드 서비스를 이용할 것이며, 다른 서비스도 유사하지 않을까 싶다.
+
+먼저, VPC를 구성한다. Vultr의 대시보드에서 좌측 메뉴에서 VPC Network를 클릭한다.
+
+![Vultr VPC Network 대시보드 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/9-2.png)
+
+화면 중앙 또는 우측 상단에 있는 **Add VPC Network**버튼을 클릭한다.
+
+![Vultr VPC Network 생성 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/10.png)
+
+Vultr에서 배포할 수 있는 지역이 나타나는데, 먼저 서울에 VPC를 만들어보자. 
+
+Location에서 SEOUL을 선택하고, VPC Network Name에는 원하는 이름으로 지정한다.
+
+기본적으로 10.0.0.0/8 대역에서 /20대역에 대해 자동으로 서브네팅되어 IP Range가 지정되지만, 원하는 경우 수동으로 지정할 수 있다.
+
+별도롤 IP대역을 지정하지 않고 VPC를 생성하겠다.
+
+Tokyo Region에 대해서도 동일하게 진행해주면 된다.
+
+![Vultr VPC Network 생성 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/11.png)
