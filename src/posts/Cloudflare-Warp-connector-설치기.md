@@ -88,7 +88,7 @@ Zero Trust 대시보드에 처음 접속하면 **Team name**을 입력하는 화
 
 팀 이름을 입력하고 다음 단계를 클릭하면 요금제를 선택하는 화면이 나타난다.
 
-팀원이 많지 않다면 무료 요금제(Free)를 선택해도 충분히 사용할 수 있다. ~~공짜 좋아하면 대머리 된다던데...~~
+팀원이 많지 않다면 무료 요금제(Free)를 선택해도 충분히 사용할 수 있다.
 
 ![Cloudflare Zero Trust 요금제 선택 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/7.png)
 
@@ -97,6 +97,8 @@ Zero Trust 대시보드에 처음 접속하면 **Team name**을 입력하는 화
 ![Cloudflare Zero Trust 대시보드 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/8-1.png)
 
 ### 3.2. VPC 구성 및 서버 구성
+
+#### 3.2.1. VPC 생성
 
 이 글에서는 서울과 도쿄 두 지역의 Region에 각각 두대의 instance를 설치하여 서울 Region에서 도쿄 Region, 클라이언트에서 서울 Region, 도쿄 Region에서 클라이언트 세개의 항목을 테스트 할 것이다.
 
@@ -114,12 +116,25 @@ Zero Trust 대시보드에 처음 접속하면 **Team name**을 입력하는 화
 
 Vultr에서 배포할 수 있는 지역이 나타나는데, 먼저 서울에 VPC를 만들어보자. 
 
-Location에서 SEOUL을 선택하고, VPC Network Name에는 원하는 이름으로 지정한다.
+Location에서 SEOUL을 선택하고, VPC Network Name에는 원하는 이름으로 지정한다.  
+다만 이 부분은 필수는 아니다.
 
 기본적으로 10.0.0.0/8 대역에서 /20대역에 대해 자동으로 서브네팅되어 IP Range가 지정되지만, 원하는 경우 수동으로 지정할 수 있다.
 
-별도롤 IP대역을 지정하지 않고 VPC를 생성하겠다.
-
-Tokyo Region에 대해서도 동일하게 진행해주면 된다.
+별도로 IP대역을 지정하지 않고 VPC를 생성하겠다.
 
 ![Vultr VPC Network 생성 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/11.png)
+
+이제 Tokyo Region에 대해서도 동일하게 진행해주면 된다.
+
+그렇다면 아래와 같이 Tokyo와 Seoul에 각각 10.25.96.0/20과 10.34.96.0/20에 대한 VPC가 생성되는 것을 알 수 있다.
+
+![Vultr VPC Network 생성 완료 시 대시보드 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/12.png)
+
+#### 3.2.2. Instance 생성
+
+VPC를 생성했으니, 이제는 각 지역에 맞게 Instance를 생성한다.
+
+각 Region에 두개의 Instance를 구성한다고 했는데, 한개의 Instance는 Cloudflare와의 Gateway역할을 하는 Instance, 하나는 서비스를 운영하는 Instance로 구성한다.
+
+![Vultr Compute 대시보드 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/13.png)
