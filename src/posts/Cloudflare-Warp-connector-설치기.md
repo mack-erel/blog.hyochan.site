@@ -137,4 +137,30 @@ VPC를 생성했으니, 이제는 각 지역에 맞게 Instance를 생성한다.
 
 각 Region에 두개의 Instance를 구성한다고 했는데, 한개의 Instance는 Cloudflare와의 Gateway역할을 하는 Instance, 하나는 서비스를 운영하는 Instance로 구성한다.
 
+Vultr 대시보드 좌측 메뉴에서 Compute 메뉴를 클릭한다.
+
 ![Vultr Compute 대시보드 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/13.png)
+
+가운데에 있는 **Deploy Server** 또는 **Deploy**를 눌러 Instance를 생성하는 페이지로 이동하고, 지역과 서버 사양을 선택한다.
+
+서버 사양은 시연용으로 생성하는 부분이기에 각 Region에서 가장 최소 사양으로 선택했다.
+
+필요한 서버 사양을 선택한 뒤 **Configure**를 눌러 다음단계로 이동한다.
+
+![Vultr Compute 생성 1단계](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/14.png)
+
+OS를 선택하고, 추가기능에서 원하는 기능들을 활성화하거나 비활성화 해준다.
+
+필자의 경우에는 Rocky Linux 9를 주로 사용하는 편이며, IPv6을 인스턴스당 1개까지는 무료로 제공해주니 선택 해 주었다.
+
+또한, Automatic Backups를 해제하고, Limited User Login을 활성화하여 직접적으로 Root 계정의 사용을 최소화한다.
+
+그리고 가장 중요한 VPC Network를 활성화하고, 앞에서 생성한 VPC를 선택하여준다.
+
+VPC는 한 인스턴스에 여러개의 네트워크를 선택할 수 있다.
+
+최종적으로 Deploy Summary에서 생성할 인스턴스 설정이 맞는지 확인 후 Deploy버튼을 눌러 인스턴스를 생성해준다.
+
+![Vultr Compute 생성 2단계 - 1](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/15-1.png)
+![Vultr Compute 생성 2단계 - 2](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/16-1.png)
+![Vultr Compute 생성 2단계 - 3](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/17.png)
