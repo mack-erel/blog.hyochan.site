@@ -6,20 +6,25 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// 모든 크롤러 차단하는 robots.txt 내용
-const robotsContent = `User-agent: *
+// isPreview 환경변수가 1일 때만 실행
+if (process.env.isPreview === '1') {
+  // 모든 크롤러 차단하는 robots.txt 내용
+  const robotsContent = `User-agent: *
 Disallow: /`;
 
-// static 폴더 경로 설정
-const staticDir = join(__dirname, 'static');
+  // static 폴더 경로 설정
+  const staticDir = join(__dirname, 'static');
 
-// static 폴더 없으면 만들어주기
-if (!existsSync(staticDir)) {
-    mkdirSync(staticDir, { recursive: true });
-    console.log('static 폴더 생성 완료 ㅋ');
+  // static 폴더 없으면 만들어주기
+  if (!existsSync(staticDir)) {
+      mkdirSync(staticDir, { recursive: true });
+      console.log('static 폴더 생성 완료 ㅋ');
+  }
+
+  // robots.txt 파일 생성
+  writeFileSync(join(staticDir, 'robots.txt'), robotsContent);
+
+  console.log('하앙~ robots.txt 파일 생성 완료! 이제 검색봇들 다 차단됨 ㄷㄷㄷ');
+} else {
+  console.log('isPreview가 1이 아니라서 robots.txt 생성 안함 ㅇㅇ');
 }
-
-// robots.txt 파일 생성
-writeFileSync(join(staticDir, 'robots.txt'), robotsContent);
-
-console.log('하앙~ robots.txt 파일 생성 완료! 이제 검색봇들 다 차단됨 ㄷㄷㄷ');
