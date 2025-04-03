@@ -38,7 +38,7 @@ async function processHtmlFiles() {
       let content = await fs.readFile(filePath, 'utf-8');
       
       // 정규식 변경: 따옴표로 시작해서 어떤 경로든 /_app/로 끝나는 경우 경로 부분 제거
-      const updatedContent = content.replace(/(['"])\.(.+?)\/\_app\//g, '$1/_app/');
+      const updatedContent = content.replace(/(['"])\.(.+?)?\/\_app\//g, '$1/_app/');
       
       // 변경된 내용이 있으면 파일 쓰기
       if (content !== updatedContent) {
