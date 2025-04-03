@@ -78,6 +78,20 @@
 		href={`https://blog.hyochan.site${$page.url.pathname}`} />
 
 	<meta name="referrer" content="no-referrer" />
+
+	<script
+		async
+		src="https://www.googletagmanager.com/gtag/js?id=G-ME583S1EPB"></script>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-ME583S1EPB");
+	</script>
 </svelte:head>
 
 <header
