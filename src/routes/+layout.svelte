@@ -11,6 +11,8 @@
 		Instagram,
 		Menu,
 		X,
+		FlagTriangleRight,
+		Rss
 	} from "lucide-svelte";
 	import { onMount } from "svelte";
 
@@ -25,28 +27,20 @@
 	let isMenuOpen = $state(false);
 
 	onMount(() => {
-		const script = document.createElement("script");
-		script.src =
-			"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
-		script.async = true;
-		document.head.appendChild(script);
-
-		const interval = setInterval(() => {
-			const e = document.querySelector(
-				"#busuanzi_value_site_uv",
-			) as HTMLElement;
-			if (e) {
-				if (e.innerText.includes(",")) {
-					clearInterval(interval);
-					return;
-				}
-				const t = parseInt(e.innerText);
-				if (!isNaN(t)) {
-					e.innerText = t.toLocaleString();
-					clearInterval(interval);
-				}
+		const callbackScript = document.createElement("script");
+		callbackScript.innerHTML = `
+			function hitterCallback(data){
+				document.getElementById("totalUniqueHits").innerText = parseInt(data.totalUniqueHits).toLocaleString();
 			}
-		}, 1000);
+		`;
+		document.head.appendChild(callbackScript);
+		const script = document.createElement("script");
+		script.src = `//hitter.http-po.st/jsonp?callback=hitterCallback&${new URLSearchParams(
+			{
+				url: window.location.href,
+			},
+		).toString()}`;
+		document.head.appendChild(script);
 	});
 
 	onMount(() => {
@@ -76,6 +70,11 @@
 	<link
 		rel="canonical"
 		href={`https://blog.hyochan.site${$page.url.pathname}`} />
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title="ㅂㄹㄱ - RSS 피드"
+		href="/rss.xml" />
 
 	<meta name="referrer" content="no-referrer" />
 
@@ -175,6 +174,19 @@
 						<span>Tags</span>
 					</a>
 				</li> -->
+				<li
+					class:bg-[#222]={$page.url.pathname.startsWith("/about")}
+					class="h-14 text-[#ddd] w-full sm:w-fit">
+					<a
+						href="/about"
+						class="flex justify-center items-center gap-2 px-4 h-14"
+						class:text-white={$page.url.pathname.startsWith(
+							"/about",
+						)}>
+						<FlagTriangleRight class="w-4" />
+						<span>About</span>
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</section>
@@ -211,6 +223,12 @@
 					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
 					<Instagram class="w-4" />
 				</a>
+				<a
+					href="/rss.xml"
+					target="_blank"
+					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
+					<Rss class="w-4" />
+				</a>
 			</section>
 		</aside>
 	</section>
@@ -221,7 +239,7 @@
 			&copy; {siteTitle} - {siteSubTitle}
 		</p>
 		<p class="text-xs text-gray-700 block text-center mt-5">
-			총 <span id="busuanzi_value_site_uv"></span>명이 방문했어요!
+			총 <span id="totalUniqueHits"></span>명이 방문했어요!
 		</p>
 	</section>
 </footer>

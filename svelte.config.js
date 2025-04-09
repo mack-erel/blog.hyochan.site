@@ -19,7 +19,9 @@ const config = {
 			strict: true
 		}),
 		prerender: {
-			handleMissingId: "warn"
+			handleMissingId: "warn",
+			entries: ['/rss.xml', '*'],
+			handleHttpError: 'warn'
 		}
 	}
 };

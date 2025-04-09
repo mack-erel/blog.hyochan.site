@@ -166,4 +166,7 @@ VPC는 한 Instance에 여러개의 네트워크를 선택할 수 있다.
 ![Vultr Compute 생성 2단계 - 1](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/15-1.png)
 ![Vultr Compute 생성 2단계 - 2](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/16-1.png)
 ![Vultr Compute 생성 2단계 - 3](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/17.png)
+
+Instance를 Deploy하면 대부분 5분 이내로 설치가 완료된다.
+
 ![Vultr Compute 대시보드 페이지](https://blog-files.hyochan.site/Cloudflare-Warp-connector-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5/18.png)
