@@ -12,6 +12,7 @@
 		Menu,
 		X,
 		FlagTriangleRight,
+		Rss
 	} from "lucide-svelte";
 	import { onMount } from "svelte";
 
@@ -69,6 +70,11 @@
 	<link
 		rel="canonical"
 		href={`https://blog.hyochan.site${$page.url.pathname}`} />
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title="ㅂㄹㄱ - RSS 피드"
+		href="/rss.xml" />
 
 	<meta name="referrer" content="no-referrer" />
 
@@ -216,6 +222,12 @@
 					target="_blank"
 					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
 					<Instagram class="w-4" />
+				</a>
+				<a
+					href="/rss.xml"
+					target="_blank"
+					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
+					<Rss class="w-4" />
 				</a>
 			</section>
 		</aside>
