@@ -26,23 +26,26 @@
 	let isMenuOpen = $state(false);
 
 	onMount(() => {
-		const callbackScript = document.createElement("script");
-		callbackScript.innerHTML = `
-			function hitterCallback(data){
-				document.getElementById("totalUniqueHits").innerText = parseInt(data.totalUniqueHits).toLocaleString();
-			}
-		`;
-		document.head.appendChild(callbackScript);
-		const script = document.createElement("script");
-		script.src = `//hitter.http-po.st/jsonp?callback=hitterCallback&${new URLSearchParams(
-			{
-				url: window.location.href,
-			},
-		).toString()}`;
-		document.head.appendChild(script);
-	});
+		fetch(
+			`https://hitter.http-po.st/?${new URLSearchParams({ url: window.location.href }).toString()}`,
+		)
+			.then((response) => response.json())
+			.then((data) => {
+				const hitElement = document.getElementById("totalUniqueHits");
+				if (hitElement) {
+					hitElement.innerText = parseInt(
+						data.totalUniqueHits,
+					).toLocaleString();
+				}
+			})
+			.catch((error) => {
+				console.error("방문자 카운터 로딩 오류:", error);
+				const hitElement = document.getElementById("totalUniqueHits");
+				if (hitElement) {
+					hitElement.innerText = "확인 중";
+				}
+			});
 
-	onMount(() => {
 		const handleResize = () => {
 			if (window.innerWidth > 640) {
 				isMenuOpen = false;
