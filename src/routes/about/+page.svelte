@@ -590,6 +590,6 @@
 
 <style>
     .break-keep-all {
-        @apply [&_p]:break-keep [&_li]:break-keep [&_h1]:break-keep [&_h2]:break-keep [&_h3]:break-keep [&_h4]:break-keep [&_h5]:break-keep [&_span]:break-keep;
+        @apply [&_p]:break-keep [&_li]:break-keep [&_h2]:break-keep [&_h3]:break-keep [&_h4]:break-keep [&_h5]:break-keep [&_span]:break-keep;
     }
 </style>
