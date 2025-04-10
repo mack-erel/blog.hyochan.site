@@ -57,7 +57,7 @@
 </script>
 
 <svelte:head>
-    <title>검색 | 블로그</title>
+    <title>{searchQuery} | 블로그</title>
     <meta name="description" content="블로그 글 검색" />
 </svelte:head>
 
