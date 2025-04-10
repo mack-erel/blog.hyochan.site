@@ -13,7 +13,7 @@
 		X,
 		FlagTriangleRight,
 		Rss,
-		Search
+		Search,
 	} from "lucide-svelte";
 	import { onMount } from "svelte";
 	import { goto } from "$app/navigation";
@@ -27,14 +27,17 @@
 	const pageDescription = $derived($page.data.description ?? false);
 
 	let isMenuOpen = $state(false);
-	let sidebarSearchQuery = $state('');
+	let sidebarSearchQuery = $state($page.url.searchParams.get("q") ?? "");
 
 	function handleSidebarSearch(e: Event) {
 		e.preventDefault();
-		if (sidebarSearchQuery.trim()) {
+		if (sidebarSearchQuery.trim())
 			goto(`/search?q=${encodeURIComponent(sidebarSearchQuery)}`);
-		}
 	}
+	$effect(() => {
+		if ($page.url.pathname === "/search")
+			sidebarSearchQuery = $page.url.searchParams.get("q") ?? "";
+	});
 
 	onMount(() => {
 		const callbackScript = document.createElement("script");
@@ -197,17 +200,6 @@
 						<span>About</span>
 					</a>
 				</li>
-				<li
-					class:bg-[#222]={$page.url.pathname.startsWith("/search")}
-					class="h-14 text-[#ddd] w-full sm:w-fit">
-					<a
-						href="/search"
-						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={$page.url.pathname.startsWith("/search")}>
-						<Search class="w-4" />
-						<span>Search</span>
-					</a>
-				</li>
 			</ul>
 		</nav>
 	</section>
@@ -230,13 +222,11 @@
 						type="text"
 						bind:value={sidebarSearchQuery}
 						placeholder="검색어 입력..."
-						class="w-full p-2 text-sm rounded-md border-none focus:outline-none"
-					/>
+						class="w-full p-2 text-sm rounded-md border-none focus:outline-none" />
 					<button
 						type="submit"
 						class="rounded-md bg-[#333] text-white p-2 flex items-center justify-center"
-						title="검색"
-					>
+						title="검색">
 						<Search class="w-4 h-4" />
 					</button>
 				</form>
