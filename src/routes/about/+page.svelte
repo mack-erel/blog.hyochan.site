@@ -10,43 +10,44 @@
         <h2 class="text-2xl font-semibold mt-8 mb-4">About Me</h2>
         <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8">
             <p>
-                중학교 2학년 때 Visual Basic 6.0을 접하면서 코딩의 세계에 발을
-                들인 웹 개발자입니다.<br />
-                간단한 계산기부터 시작해 게임까지 만들며 프로그래밍의 매력에 흠뻑
-                빠졌죠.
+                중학교 시절 Visual Basic 6.0으로 코딩을 시작한 웹 개발자예요.
+                경남정보고등학교와 한국폴리텍대학에서 IT 교육을 체계적으로
+                받으며 C++, C# 언어 기반의 프로그래밍 역량을 쌓았어요.
             </p>
             <p class="mt-4">
-                경남정보고등학교와 한국폴리텍대학에서 체계적인 개발 교육을
-                받으며 기초를 다졌고, C++, C#을 배우며 프로그래밍 감각을
-                키웠습니다.<br />
-                특히 TTS 기반 전관방송 시스템 개발을 통해 하드웨어와 소프트웨어의
-                통합 개발 경험을 쌓았습니다.
+                한양사이버대학교에서 응용소프트웨어공학과와
+                군경사이버보안전공으로 학사학위를 취득했으며, 현재는 같은 학교
+                경영대학원에서 광고미디어MBA 석사과정을 통해 기술과 경영을
+                융합하는 역량을 키우고 있어요.
             </p>
             <p class="mt-4">
-                한양사이버대학교에서 응용소프트웨어공학과(주전공)와
-                군경사이버보안전공(복수전공)으로 학사 학위를 취득했으며, 현재는
-                같은 학교 경영대학원에서 광고미디어MBA 석사과정을 통해 기술과
-                경영의 융합 역량을 키우고 있습니다.
+                씨아이씨라이프에서 하드웨어-소프트웨어 통합 솔루션 개발을
+                경험했고, 유니파이에서는 웹 서비스 개발과 서버 관리 업무를 맡아
+                3년간 다양한 웹 솔루션을 구축했어요. 현재는 챔프스터디에서 교육
+                플랫폼 개발에 참여하고 있어요.
             </p>
             <p class="mt-4">
-                최근에는 SvelteKit에 매력을 느껴 여러 프로젝트를 진행 중이며,
-                Cloudflare와 AWS 같은 클라우드 서비스를 활용한 웹 개발에 깊은
-                관심을 가지고 있습니다.<br />
-                현재 (주)챔프스터디에서 웹 개발자로 일하며 교육 플랫폼 개발에 참여하고
-                있습니다.
+                기술적으로는 PHP, JavaScript/TypeScript를 주력으로 사용하며,
+                SvelteKit과 같은 모던 웹 기술과 Cloudflare, AWS 같은 클라우드
+                서비스에 깊은 관심을 가지고 있어요. 개인 프로젝트를 통해
+                지속적으로 새로운 기술을 학습하고 있어요.
             </p>
             <p class="mt-4">
-                개발 역량 외에도 GAIQ(Google Analytics Individual
-                Qualification)와 전산회계 자격증을 보유하고 있어 데이터 분석과
-                비즈니스 관점에서의 개발 가치를 중요시합니다.<br />
-                기술적 완성도와 비즈니스 가치를 균형 있게 고려한 솔루션을 개발하는
-                것이 저의 목표입니다.
+                GAIQ(Google Analytics), 전산회계 자격증 보유와 SW개발보안 과정
+                이수를 통해 개발을 넘어선 분석 역량도 갖추고 있어요. 또한 평창
+                동계올림픽을 비롯한 국제 행사 자원봉사 경험과 헌혈 활동을 통해
+                사회적 가치를 실천하고 있어요.
             </p>
             <p class="mt-4">
                 코딩할 때 가장 큰 즐거움은 복잡한 문제를 우아하게 해결하는
-                순간입니다.<br />
+                순간이에요. 기술적 완성도와 비즈니스 가치를 균형있게 고려하여,
+                사용자에게 실질적인 가치를 전달하는 웹 서비스를 만드는 것이
+                목표예요.
+            </p>
+            <p class="mt-4">
                 개발 외에는 영화 감상, 여행을 통해 새로운 아이디어와 영감을 얻고
-                있습니다.
+                있어요. 특히 여행 중 마주치는 새로운 문화와 경험이 개발 시야를
+                넓히는 데 큰 도움이 돼요.
             </p>
         </div>
 
@@ -62,10 +63,9 @@
                 <h3 class="text-lg font-medium">프로그래밍과의 첫 만남</h3>
                 <p class="text-gray-600 dark:text-gray-400">2012년</p>
                 <p class="mt-2">
-                    중학교 시절 Visual Basic 6.0을 통해 프로그래밍을
-                    시작했습니다.<br />
+                    중학교 시절 Visual Basic 6.0을 통해 프로그래밍을 시작했어요.<br />
                     간단한 계산기부터 시작해 미니 게임까지 만들며 코딩의 기본 개념과
-                    문제 해결 능력을 키웠습니다.
+                    문제 해결 능력을 키웠어요.
                 </p>
             </div>
 
@@ -78,10 +78,10 @@
                 <p class="text-gray-600 dark:text-gray-400">2014년 - 2019년</p>
                 <p class="mt-2">
                     경남정보고등학교와 한국폴리텍대학에서 체계적인 IT 교육을
-                    받았습니다.<br />
+                    받았어요.<br />
                     고등학교에서는 컴퓨터 기초와 개발의 기초를 배웠고, 대학에서는
                     C++, C# 언어를 심도 있게 학습하며 객체지향 프로그래밍의 기반을
-                    다졌습니다.
+                    다졌어요.
                 </p>
             </div>
 
@@ -95,12 +95,11 @@
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400">2018년 - 2019년</p>
                 <p class="mt-2">
-                    씨아이씨라이프(주)에서 TTS 기반 전관방송 시스템을
-                    개발했습니다.<br />
+                    씨아이씨라이프에서 TTS 기반 전관방송 시스템을 개발했어요.<br />
                     하드웨어와 소프트웨어 간 통신 프로토콜을 설계하고 구현하는 과정에서
-                    실시간 시스템의 설계와 최적화 능력을 키웠습니다.<br />
-                    또한 전국 현장 출장을 통해 실제 환경에서의 시스템 구축 경험을
-                    쌓았습니다.
+                    실시간 시스템의 설계와 최적화 능력을 키웠어요.<br />
+                    시리얼 통신을 활용해 하드웨어 제어 인터페이스를 개발했고, 전국
+                    현장 출장을 통해 실제 환경에서의 시스템 구축 경험을 쌓았어요.
                 </p>
             </div>
 
@@ -112,11 +111,13 @@
                 <h3 class="text-lg font-medium">웹 개발 전문성 향상</h3>
                 <p class="text-gray-600 dark:text-gray-400">2020년 - 2023년</p>
                 <p class="mt-2">
-                    (주)유니파이에서 웹 개발자로 일하며 프론트엔드와 백엔드 개발
-                    역량을 균형 있게 발전시켰습니다.<br />
-                    레거시 시스템 현대화 프로젝트에 참여하며 코드 리팩토링과 성능
-                    최적화 경험을 쌓았고, 팀 내 신규 개발자 멘토링을 통해 기술적
-                    리더십 역량도 키웠습니다.
+                    유니파이에서 웹 개발자로 일하며 프론트엔드와 백엔드 개발
+                    역량을 균형 있게 발전시켰어요.<br />
+                    PHP, MariaDB 기반 레거시 시스템 현대화 프로젝트에 참여하며 코드
+                    리팩토링과 성능 최적화 경험을 쌓았어요.<br />
+                    인증서 발급 및 적용 프로세스 자동화 시스템을 개발하며 서버 자동화
+                    및 클라우드 서비스 관리 역량을 키웠고, 팀 내 신규 개발자 멘토링을
+                    통해 기술적 리더십 역량도 키웠어요.
                 </p>
             </div>
 
@@ -126,14 +127,14 @@
                     <span class="text-white font-bold">5</span>
                 </div>
                 <h3 class="text-lg font-medium">학문적 깊이 확장</h3>
-                <p class="text-gray-600 dark:text-gray-400">2021년 - 현재</p>
+                <p class="text-gray-600 dark:text-gray-400">2021년 - 2023년</p>
                 <p class="mt-2">
                     한양사이버대학교에서 응용소프트웨어공학과와
-                    군경사이버보안전공을 복수전공하며 이론적 지식을 넓혔습니다.<br />
+                    군경사이버보안전공을 복수전공하며 이론적 지식을 넓혔어요.<br />
                     소프트웨어 아키텍처, 설계 패턴, 네트워크 보안 등 다양한 분야의
-                    학문적 깊이를 더했습니다.<br />
-                    현재는 같은 학교 경영대학원에서 광고미디어MBA 석사과정을 병행하며
-                    기술과 경영을 융합하는 역량을 키우고 있습니다.
+                    학문적 깊이를 더했어요.<br />
+                    GAIQ(Google Analytics) 자격증 취득과 SW개발보안 기본과정 이수를
+                    통해 데이터 분석과 보안에 대한 이해도를 높였어요.
                 </p>
             </div>
 
@@ -142,15 +143,28 @@
                     class="absolute -left-11 w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center">
                     <span class="text-white font-bold">6</span>
                 </div>
-                <h3 class="text-lg font-medium">교육 플랫폼 개발</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                    2024년 2월 - 현재
-                </p>
+                <h3 class="text-lg font-medium">
+                    모던 웹 기술 탐구와 지속적 성장
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400">2023년 - 미래</p>
                 <p class="mt-2">
-                    현재는 (주)챔프스터디에서 웹 개발자로 근무하며 교육 플랫폼
-                    개발에 집중하고 있습니다.<br />
-                    학습 관리 시스템(LMS) 기능 구현과 사용자 경험 향상에 주력하며,
-                    기획팀과의 협업을 통해 사용자 중심의 UI/UX를 구현하고 있습니다.
+                    SvelteKit, TypeScript 등 최신 웹 기술 스택을 학습하며 개인
+                    프로젝트를 진행했어요.<br />
+                    기존 PHP 중심의 기술 스택에서 JavaScript/TypeScript 기반 프레임워크로
+                    영역을 확장했어요.<br />
+                    Cloudflare의 다양한 서비스(Workers, Pages, R2, Zero Trust, D1)를
+                    활용한 서버리스 웹 애플리케이션 개발에 집중하며 클라우드 네이티브
+                    개발 역량을 키웠어요.<br />
+                    한양사이버대학교 경영대학원에서 광고미디어MBA 석사과정을 시작하며
+                    기술과 경영을 융합하는 역량을 키우기 시작했어요.<br /><br />
+                    앞으로는 클라우드 인프라, 보안, 데이터 분석 등 다양한 영역에서의
+                    역량을 확장하며, 사용자에게 의미 있는 가치를 전달하는 웹 서비스를
+                    구축하는 것이 목표예요.<br />
+                    기술적 전문성을 키우는 동시에 비즈니스 가치를 창출하는 개발자로
+                    성장하고자 해요.<br />
+                    경영학 지식을 바탕으로 기술 리더십 역량을 강화하고, 사용자 경험과
+                    비즈니스 목표를 균형 있게 고려하는 개발자가 되는 것이 장기적인
+                    비전이에요.
                 </p>
             </div>
 
@@ -159,18 +173,17 @@
                     class="absolute -left-11 w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center">
                     <span class="text-white font-bold">7</span>
                 </div>
-                <h3 class="text-lg font-medium">지속적 성장</h3>
-                <p class="text-gray-600 dark:text-gray-400">2023년 - 미래</p>
+                <h3 class="text-lg font-medium">교육 플랫폼 개발</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    2024년 2월 - 현재
+                </p>
                 <p class="mt-2">
-                    SvelteKit, TypeScript 등 최신 기술 스택에 집중하며 개인
-                    프로젝트를 진행하고 있습니다.<br />
-                    Cloudflare와 AWS 같은 클라우드 서비스를 활용한 웹 개발에 깊은
-                    관심을 갖고 학습하고 있습니다.<br />
-                    앞으로도 기술적 전문성을 키우는 동시에 비즈니스 가치를 창출하는
-                    개발자로 성장하고자 합니다.<br />
-                    클라우드 인프라, 보안, 데이터 분석 등 다양한 영역에서의 역량을
-                    확장하며, 사용자에게 의미 있는 가치를 전달하는 웹 서비스를 구축하는
-                    것이 목표입니다.
+                    현재는 챔프스터디에서 웹 개발자로 근무하며 교육 플랫폼
+                    개발에 집중하고 있어요.<br />
+                    학습 관리 시스템(LMS) 기능 구현과 사용자 경험 향상에 주력하며,
+                    기획팀과의 협업을 통해 사용자 중심의 UI/UX를 구현하고 있어요.<br />
+                    프로젝트 관리와 개발 프로세스 개선에 참여하며 코드 품질 향상과
+                    개발 생산성 증대에 기여하고 있어요.
                 </p>
             </div>
         </div>
@@ -228,6 +241,281 @@
                     <li>데이터베이스 및 네트워크 기초 교육</li>
                     <li>상업계열 NCS 교육과정 이수</li>
                 </ul>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Experience</h2>
+        <div class="space-y-6">
+            <div class="border-l-4 border-blue-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">(주)챔프스터디</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    기획본부 웹개발3팀 | 프로 | 2024년 2월 - 현재
+                </p>
+                <ul class="list-disc pl-5 mt-2">
+                    <li>웹 기반 교육 플랫폼 개발 및 유지보수</li>
+                    <li>학습 관리 시스템(LMS) 기능 구현 및 성능 최적화</li>
+                    <li>기획팀과 협업을 통한 사용자 중심 UI/UX 개선</li>
+                    <li>최신 웹 기술 도입을 통한 서비스 품질 향상</li>
+                </ul>
+            </div>
+
+            <div class="border-l-4 border-green-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">(주)유니파이</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    YP사업부 개발팀 | 주임 | 2020년 5월 - 2023년 5월
+                </p>
+                <ul class="list-disc pl-5 mt-2">
+                    <li>웹 서비스 백엔드 및 프론트엔드 개발</li>
+                    <li>레거시 시스템 현대화 프로젝트 참여</li>
+                    <li>코드 품질 향상 및 개발 프로세스 개선</li>
+                    <li>신규 개발자 멘토링 및 기술 지원</li>
+                </ul>
+
+                <div class="mt-4">
+                    <h4 class="text-lg font-medium">주요 프로젝트</h4>
+                    <div class="mt-3 space-y-4">
+                        <div
+                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                            <h5 class="font-medium">
+                                인증서 발급 및 적용 프로세스 자동화시스템 개발
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                2022년 1월 - 2023년 3월 (약 1년 2개월)
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">담당 역할:</span> 풀스택
+                                개발
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">기술 스택:</span> PHP 7,
+                                MySQL, Laravel, Apache, Nginx, Oracle Linux 8
+                            </p>
+                            <ul class="list-disc pl-5 mt-1 text-sm">
+                                <li>
+                                    기존 수작업 인증서 발급 프로세스(요청,
+                                    소유권 검증, 적용)의 자동화 시스템 구축
+                                </li>
+                                <li>
+                                    인증서 발급 외부 API 연동 및 발급 자동화
+                                    시스템 개발
+                                </li>
+                                <li>
+                                    웹 서버 인증서 적용 시스템 구현 및 배포
+                                    자동화
+                                </li>
+                                <li>
+                                    수작업 대비 처리 시간 단축 및 업무 효율성
+                                    극대화
+                                </li>
+                                <li>
+                                    인증서 발급 목록 관리 시스템으로 리소스 관리
+                                    개선
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div
+                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                            <h5 class="font-medium">
+                                자체 솔루션 개발 및 유지보수
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                2020년 5월 - 2023년 3월 (약 2년 10개월)
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">담당 역할:</span> 풀스택
+                                개발, 서버 관리
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">기술 스택:</span> PHP 5.x~8,
+                                MySQL/MariaDB, 그누보드, RHEL 5~8, Apache, Nginx
+                            </p>
+                            <ul class="list-disc pl-5 mt-1 text-sm">
+                                <li>
+                                    오픈소스 CMS 기반 자체 웹 제작 솔루션
+                                    유지보수 및 업무 분배
+                                </li>
+                                <li>
+                                    홈페이지 내 예약 시스템 등 커스텀 플러그인
+                                    개발 및 유지보수
+                                </li>
+                                <li>
+                                    서버 환경 관리 및 최적화(OS, 웹서버,
+                                    데이터베이스)
+                                </li>
+                                <li>
+                                    개발 복잡도가 높은 작업 직접 처리 및 해결
+                                    방안 공유
+                                </li>
+                                <li>
+                                    클라이언트 요청에 대한 기능 분석 및 유관
+                                    부서 커뮤니케이션
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-l-4 border-red-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">씨아이씨라이프(주)</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    자동안내방송사업부 | 사원 | 2018년 09월 - 2019년 10월
+                </p>
+                <ul class="list-disc pl-5 mt-2">
+                    <li>C++ 기반 TTS 전관방송 솔루션 개발</li>
+                    <li>하드웨어-소프트웨어 연동 프로토콜 설계 및 구현</li>
+                    <li>전국 현장 출장 설치 및 기술 지원</li>
+                    <li>자동안내방송 시스템 유지보수 및 성능 개선</li>
+                </ul>
+
+                <div class="mt-4">
+                    <h4 class="text-lg font-medium">주요 프로젝트</h4>
+                    <div class="mt-3 space-y-4">
+                        <div
+                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                            <h5 class="font-medium">
+                                상황인지형 스마트 센서노드 기반의 해상재난안전
+                                자동안내시스템 (국책사업)
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                2018년 9월 - 2018년 10월 (약 1개월)
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">발주처:</span> 창원대학교
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">담당 역할:</span> 백엔드
+                                개발, 하드웨어 검수
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">기술 스택:</span> C#, Arduino,
+                                MySQL
+                            </p>
+                            <ul class="list-disc pl-5 mt-1 text-sm">
+                                <li>
+                                    창원대학교 주관 산학협력 연구 프로젝트 참여
+                                </li>
+                                <li>센서 데이터 수신 및 분석 모듈 개발</li>
+                                <li>재난 상황 무선방송 시스템 구현</li>
+                                <li>
+                                    C# 기반 관리 프로그램 및 TTS 솔루션 연동
+                                </li>
+                                <li>
+                                    하드웨어 프로토콜 구현 및 센서 데이터 실시간
+                                    처리 시스템 개발
+                                </li>
+                                <li>
+                                    해양 환경에서의 신뢰성 있는 통신 프로토콜
+                                    설계
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-l-4 border-yellow-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">프리랜서 개발자</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    웹 개발 프로젝트 | 2017년 - 현재
+                </p>
+                <ul class="list-disc pl-5 mt-2">
+                    <li>PHP, SvelteKit 기반 웹 애플리케이션 개발</li>
+                    <li>고객 요구사항 분석 및 맞춤형 솔루션 제공</li>
+                    <li>레거시 시스템 유지보수 및 성능 최적화</li>
+                    <li>Cloudflare 서비스를 활용한 인프라 구축</li>
+                </ul>
+
+                <div class="mt-4">
+                    <h4 class="text-lg font-medium">주요 프로젝트</h4>
+                    <div class="mt-3 space-y-4">
+                        <div
+                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                            <h5 class="font-medium">
+                                강남아미치과 웹 예약 및 투명교정 페이지
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                2017년 3월 - 2017년 4월 (약 1개월)
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">담당 역할:</span> 풀스택
+                                개발
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">기술 스택:</span> PHP 5,
+                                MySQL, jQuery, 그누보드
+                            </p>
+                            <ul class="list-disc pl-5 mt-1 text-sm">
+                                <li>
+                                    병원 내부 시스템 연동을 통한 실시간 예약
+                                    페이지 개발
+                                </li>
+                                <li>병원 소개 페이지 및 커뮤니티 제작</li>
+                                <li>
+                                    기관 내 예약 솔루션 API 및 구글캘린더 연동
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div
+                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                            <h5 class="font-medium">
+                                영수증 프린터 이미지 출력 시스템
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                2022년 8월 - 2022년 9월 (약 2개월)
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">담당 역할:</span> 풀스택
+                                개발
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">기술 스택:</span> PHP 7,
+                                MySQL, Laravel, C#, 시리얼통신
+                            </p>
+                            <ul class="list-disc pl-5 mt-1 text-sm">
+                                <li>
+                                    ESC/POS 프로토콜 기반 써멀프린터 통신 시스템
+                                    개발
+                                </li>
+                                <li>
+                                    무작위 이미지 출력을 위한 이미지 관리 서비스
+                                    구현
+                                </li>
+                                <li>
+                                    C# 기반 프린터 드라이버와 웹 서비스 간 연동
+                                    구축
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div
+                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                            <h5 class="font-medium">
+                                시너지과학학원 수강관리 시스템
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                2022년 10월 - 2022년 11월 (약 2개월)
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">담당 역할:</span> 풀스택
+                                개발
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">
+                                <span class="font-medium">기술 스택:</span> PHP 7,
+                                MySQL, 그누보드
+                            </p>
+                            <ul class="list-disc pl-5 mt-1 text-sm">
+                                <li>학원 홈페이지 제작 및 커뮤니티 구축</li>
+                                <li>학원 수강신청 및 출결관리 시스템 개발</li>
+                                <li>
+                                    관리자 대시보드 및 데이터 분석 기능 구현
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -304,145 +592,118 @@
             </div>
         </div>
 
-        <h2 class="text-2xl font-semibold mt-8 mb-4">Experience</h2>
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Volunteer Activities</h2>
         <div class="space-y-6">
-            <div class="border-l-4 border-blue-500 pl-4 py-1">
-                <h3 class="text-xl font-medium">(주)챔프스터디</h3>
+            <div class="border-l-4 border-rose-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">
+                    2024 강원 동계청소년올림픽대회 조직위원회
+                </h3>
                 <p class="text-gray-600 dark:text-gray-400">
-                    기획본부 웹개발3팀 | 프로 | 2024년 2월 - 현재
+                    2024년 1월 - 2024년 2월
                 </p>
-                <ul class="list-disc pl-5 mt-2">
-                    <li>웹 기반 교육 플랫폼 개발 및 유지보수</li>
-                    <li>학습 관리 시스템(LMS) 기능 구현 및 성능 최적화</li>
-                    <li>기획팀과 협업을 통한 사용자 중심 UI/UX 개선</li>
-                    <li>최신 웹 기술 도입을 통한 서비스 품질 향상</li>
-                </ul>
+                <p class="mt-1">
+                    2024 강원 동계청소년올림픽대회 자원봉사, 선수촌 지원
+                </p>
             </div>
 
-            <div class="border-l-4 border-green-500 pl-4 py-1">
-                <h3 class="text-xl font-medium">(주)유니파이</h3>
+            <div class="border-l-4 border-fuchsia-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">
+                    2018 평창 동계올림픽대회 및 동계패럴림픽대회 조직위원회
+                </h3>
                 <p class="text-gray-600 dark:text-gray-400">
-                    YP사업부 개발팀 | 주임 | 2020년 5월 - 2023년 5월
+                    2018년 2월 - 2018년 3월
                 </p>
-                <ul class="list-disc pl-5 mt-2">
-                    <li>웹 서비스 백엔드 및 프론트엔드 개발</li>
-                    <li>레거시 시스템 현대화 프로젝트 참여</li>
-                    <li>코드 품질 향상 및 개발 프로세스 개선</li>
-                    <li>신규 개발자 멘토링 및 기술 지원</li>
-                </ul>
+                <p class="mt-1">
+                    2018 평창 동계올림픽대회 및 동계패럴림픽대회 자원봉사,
+                    정보기술 지원
+                </p>
             </div>
 
             <div class="border-l-4 border-red-500 pl-4 py-1">
-                <h3 class="text-xl font-medium">씨아이씨라이프(주)</h3>
+                <h3 class="text-xl font-medium">대한적십자사 혈액관리본부</h3>
                 <p class="text-gray-600 dark:text-gray-400">
-                    자동안내방송사업부 | 사원 | 2018년 09월 - 2019년 10월
+                    2014년 12월 - 2018년 3월
                 </p>
-                <ul class="list-disc pl-5 mt-2">
-                    <li>C++ 기반 TTS 전관방송 솔루션 개발</li>
-                    <li>하드웨어-소프트웨어 연동 프로토콜 설계 및 구현</li>
-                    <li>전국 현장 출장 설치 및 기술 지원</li>
-                    <li>자동안내방송 시스템 유지보수 및 성능 개선</li>
-                </ul>
+                <p class="mt-1">헌혈 (29회)</p>
+            </div>
+        </div>
 
-                <div class="mt-4">
-                    <h4 class="text-lg font-medium">주요 프로젝트</h4>
-                    <div class="mt-3 space-y-4">
-                        <div
-                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
-                            <h5 class="font-medium">
-                                상황인지형 스마트 센서노드 기반의 해상재난안전
-                                자동안내시스템 (국책사업)
-                            </h5>
-                            <p class="text-gray-600 dark:text-gray-400">
-                                2018년 9월 - 2018년 10월
-                            </p>
-                            <ul class="list-disc pl-5 mt-1 text-sm">
-                                <li>
-                                    창원대학교 주관 산학협력 연구 프로젝트 참여
-                                </li>
-                                <li>
-                                    C# 기반 관리 프로그램 및 TTS 솔루션 연동
-                                </li>
-                                <li>
-                                    하드웨어 프로토콜 구현 및 센서 데이터 실시간
-                                    처리 시스템 개발
-                                </li>
-                                <li>
-                                    재난 상황 감지 시 자동 경보 및 안내방송
-                                    시스템 구현
-                                </li>
-                                <li>
-                                    해양 환경에서의 신뢰성 있는 통신 프로토콜
-                                    설계
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Awards</h2>
+        <div class="space-y-6">
+            <div class="border-l-4 border-amber-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">
+                    평창 동계올림픽 및 동계패럴림픽 기장
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    문화체육관광부장관 | 2019년 7월
+                </p>
+                <p class="mt-1">
+                    2018 평창 동계올림픽 및 동계패럴림픽 자원봉사 활동 공로 인정
+                </p>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">Additional Training</h2>
+        <div class="space-y-6">
+            <div class="border-l-4 border-teal-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">한국인터넷진흥원</h3>
+                <p class="text-gray-600 dark:text-gray-400">2022년 10월</p>
+                <p class="mt-1">SW개발보안 기본과정 (개발자 대상)</p>
             </div>
 
-            <div class="border-l-4 border-yellow-500 pl-4 py-1">
-                <h3 class="text-xl font-medium">프리랜서 개발자</h3>
+            <div class="border-l-4 border-sky-500 pl-4 py-1">
+                <h3 class="text-xl font-medium">
+                    경남정보고등학교 NCS 교육 이수
+                </h3>
                 <p class="text-gray-600 dark:text-gray-400">
-                    웹 개발 프로젝트 | 2017년 - 현재
+                    2016년 3월 - 2017년 2월
                 </p>
-                <ul class="list-disc pl-5 mt-2">
-                    <li>PHP, SvelteKit 기반 웹 애플리케이션 개발</li>
-                    <li>고객 요구사항 분석 및 맞춤형 솔루션 제공</li>
-                    <li>레거시 시스템 유지보수 및 성능 최적화</li>
-                    <li>Cloudflare 서비스를 활용한 인프라 구축</li>
-                </ul>
-
-                <div class="mt-4">
-                    <h4 class="text-lg font-medium">주요 프로젝트</h4>
-                    <div class="mt-3 space-y-4">
-                        <div
-                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
-                            <h5 class="font-medium">주식회사 아미헬스케어</h5>
-                            <p class="text-gray-600 dark:text-gray-400">
-                                2017년 3월 - 2017년 4월
-                            </p>
-                            <ul class="list-disc pl-5 mt-1 text-sm">
-                                <li>
-                                    강남아미치과 웹 예약 및 투명교정 페이지 개발
-                                </li>
-                                <li>PHP 그누보드 기반 커스텀 솔루션 구현</li>
-                                <li>
-                                    기관 내 예약 솔루션 API 및 구글캘린더 연동
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div
-                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
-                            <h5 class="font-medium">주식회사 모야드</h5>
-                            <p class="text-gray-600 dark:text-gray-400">
-                                2022년 8월 - 2022년 9월
-                            </p>
-                            <ul class="list-disc pl-5 mt-1 text-sm">
-                                <li>
-                                    영수증 프린터를 활용한 무작위 이미지 출력
-                                    소프트웨어 개발
-                                </li>
-                                <li>C#, PHP Laravel 프레임워크 활용</li>
-                                <li>
-                                    ESC/POS 프로토콜을 이용한 하드웨어 제어 구현
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div
-                            class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
-                            <h5 class="font-medium">시너지과학학원</h5>
-                            <p class="text-gray-600 dark:text-gray-400">
-                                2022년 10월 - 2022년 11월
-                            </p>
-                            <ul class="list-disc pl-5 mt-1 text-sm">
-                                <li>학원 홈페이지 제작</li>
-                                <li>PHP 그누보드 기반 커스텀 솔루션 개발</li>
-                                <li>수강신청 솔루션 자체 개발 및 구현</li>
-                            </ul>
-                        </div>
+                <div class="mt-2 space-y-4">
+                    <div>
+                        <p class="font-medium">
+                            스마트문화앱콘텐츠제작 - 앱 개발계획
+                        </p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            2016년 3월 - 2017년 2월<br />
+                            능력단위코드: 0803020904_13v1<br />
+                            이수시간: 29시간
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-medium">
+                            스마트문화앱콘텐츠제작 - 앱 개발
+                        </p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            2016년 8월 - 2017년 2월<br />
+                            능력단위코드: 0803020907_13v1<br />
+                            이수시간: 31시간
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-medium">
+                            스마트문화앱콘텐츠제작 - 마케팅관리
+                        </p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            2016년 8월 - 2017년 2월<br />
+                            능력단위코드: 0803020908_13v1<br />
+                            이수시간: 14시간
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-medium">인사 - 복리후생</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            2016년 8월 - 2017년 2월<br />
+                            능력단위코드: 0202020110_13v1<br />
+                            이수시간: 43시간
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-medium">인사 - 퇴직관리</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            2016년 8월 - 2017년 2월<br />
+                            능력단위코드: 0202020112_13v1<br />
+                            이수시간: 31시간
+                        </p>
                     </div>
                 </div>
             </div>
@@ -450,38 +711,135 @@
 
         <h2 class="text-2xl font-semibold mt-8 mb-4">Skills</h2>
         <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8">
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="text-lg font-medium mb-2">백엔드</h3>
-                    <p>PHP, Node.js, C#, C++, MySQL, PostgreSQL</p>
+                    <h3
+                        class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                        백엔드 개발
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">언어:</span>
+                            <span>PHP, Node.js, C#, C++</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">데이터베이스:</span>
+                            <span>MySQL, MariaDB, PostgreSQL, SQLite</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">프레임워크:</span>
+                            <span>Laravel</span>
+                        </li>
+                    </ul>
                 </div>
+
                 <div>
-                    <h3 class="text-lg font-medium mb-2">프론트엔드</h3>
-                    <p>JavaScript, TypeScript, Svelte, SvelteKit, HTML/CSS</p>
+                    <h3
+                        class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                        프론트엔드 개발
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">언어:</span>
+                            <span>JavaScript, TypeScript</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">프레임워크:</span>
+                            <span>Svelte, SvelteKit</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">마크업/스타일:</span>
+                            <span>HTML, CSS, TailwindCSS</span>
+                        </li>
+                    </ul>
                 </div>
+
                 <div>
-                    <h3 class="text-lg font-medium mb-2">클라우드 / DevOps</h3>
-                    <p>Cloudflare (Workers, Pages, R2), AWS, Git</p>
+                    <h3
+                        class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                        클라우드 & 인프라
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">클라우드:</span>
+                            <span
+                                >Cloudflare (Workers, Pages, R2, Zero Trust,
+                                D1), AWS</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">웹서버:</span>
+                            <span>Apache, Nginx</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">OS:</span>
+                            <span>Linux, Windows Server</span>
+                        </li>
+                    </ul>
                 </div>
+
                 <div>
-                    <h3 class="text-lg font-medium mb-2">도구 / 기타</h3>
-                    <p>Visual Studio, VS Code, GitHub, Linux</p>
+                    <h3
+                        class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                        도구 & 분석
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">개발 도구:</span>
+                            <span>Git, GitHub, VS Code, Visual Studio</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">보안:</span>
+                            <span>SSL/TLS 인증서 관리, 기본 웹 보안</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-center">
+                            <span class="font-medium">분석:</span>
+                            <span>Google Analytics, 데이터 시각화</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h3
+                        class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                        특수 역량
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="grid grid-cols-[6.5rem_1fr] items-start">
+                            <span class="font-medium mt-0.5"
+                                >하드웨어 연동:</span>
+                            <span
+                                >시리얼 통신 개발, 하드웨어-소프트웨어 프로토콜
+                                설계, ESC/POS 프린터 통신</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-start">
+                            <span class="font-medium mt-0.5">교육 시스템:</span>
+                            <span
+                                >학습 관리 시스템(LMS), 수강 관리, 콘텐츠 서비스
+                                개발</span>
+                        </li>
+                        <li class="grid grid-cols-[6.5rem_1fr] items-start">
+                            <span class="font-medium mt-0.5">업무 자동화:</span>
+                            <span
+                                >자동화 시스템 개발, 워크플로우 최적화, 배포
+                                자동화</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <h2 class="text-2xl font-semibold mt-8 mb-4">이 블로그에서는...</h2>
         <ul class="list-disc pl-6 space-y-2">
-            <li>개발 중 마주친 문제와 해결 과정</li>
-            <li>새로운 기술 학습 노트</li>
-            <li>클라우드 서비스 활용 팁</li>
-            <li>일상의 소소한 기록들</li>
-            <li>개인 프로젝트 진행 상황</li>
+            <li>개발 중 마주친 문제와 해결 과정을 공유해요</li>
+            <li>새로운 기술 학습 노트를 기록해요</li>
+            <li>클라우드 서비스 활용 팁을 알려드려요</li>
+            <li>일상의 소소한 기록들을 남겨요</li>
+            <li>개인 프로젝트 진행 상황을 공유해요</li>
         </ul>
 
         <p class="mt-8">
-            간혹 기술적인 내용에 오류가 있을 수 있습니다. 발견하신다면 댓글이나
-            이메일로 알려주시면 감사하겠습니다.
+            간혹 기술적인 내용에 오류가 있을 수 있어요. 발견하신다면 댓글이나
+            이메일로 알려주시면 감사해요.
         </p>
 
         <h2 class="text-2xl font-semibold mt-8 mb-4">Contact</h2>
@@ -574,15 +932,15 @@
 
             <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
                 이 블로그는 Cloudflare Pages에서 호스팅되며, SvelteKit과
-                TypeScript로 개발되었습니다. TailwindCSS를 활용한 모던 UI와
-                최적화된 성능을 자랑합니다.
+                TypeScript로 개발되었어요. TailwindCSS를 활용한 모던 UI와
+                최적화된 성능을 자랑해요.
                 <span class="italic"
                     >자세한 정보는 <a
                         href="https://github.com/mack-erel/blog.hyochan.site"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="text-blue-500 underline">GitHub 저장소</a
-                    >에서 확인하실 수 있습니다.</span>
+                    >에서 확인하실 수 있어요.</span>
             </p>
         </div>
     </div>
