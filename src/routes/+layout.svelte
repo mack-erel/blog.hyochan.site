@@ -34,6 +34,7 @@
 		if (sidebarSearchQuery.trim())
 			goto(`/search?q=${encodeURIComponent(sidebarSearchQuery)}`);
 	}
+
 	$effect(() => {
 		if ($page.url.pathname === "/search")
 			sidebarSearchQuery = $page.url.searchParams.get("q") ?? "";
@@ -109,22 +110,26 @@
 <header
 	class="flex bg-[#333] w-full justify-center h-52"
 	class:h-[calc(13rem+3.5rem*4)]={isMenuOpen}>
-	<section class="max-w-7xl w-full">
-		<section class="flex flex-col h-24 justify-center">
+	<div class="max-w-7xl w-full">
+		<div class="flex flex-col h-24 justify-center">
 			<h1 class="text-3xl font-bold text-white/90 ml-8">
 				<a href="/">{siteTitle}</a>
 			</h1>
 			<h2 class="text-xs font-light text-white/60 ml-8">
 				{siteSubTitle}
 			</h2>
-		</section>
+		</div>
 		<nav
 			class="bg-[#333] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] h-14"
-			class:h-[calc(3.5rem*5)]={isMenuOpen}>
+			class:h-[calc(3.5rem*5)]={isMenuOpen}
+			aria-label="메인 메뉴">
 			<button
 				onclick={() => (isMenuOpen = !isMenuOpen)}
 				class="flex justify-center items-center gap-2 px-4 h-14 text-white
-							sm:hidden">
+							sm:hidden"
+				aria-expanded={isMenuOpen}
+				aria-controls="main-menu"
+				aria-label="메뉴 열기/닫기">
 				{#if isMenuOpen}
 					<X class="w-4" />
 				{:else}
@@ -133,28 +138,38 @@
 				<span>Menu</span>
 			</button>
 			<ul
+				id="main-menu"
 				class="flex gap-0 h-14 items-center px-2 flex-col sm:flex-row sm:gap-1"
-				class:h-[calc(3.5rem*5)]={isMenuOpen}>
+				class:h-[calc(3.5rem*5)]={isMenuOpen}
+				role="menubar">
 				<li
 					class:bg-[#222]={$page.url.pathname == "/"}
-					class="h-14 text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit"
+					role="none">
 					<a
 						href="/"
 						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={$page.url.pathname == "/"}>
+						class:text-white={$page.url.pathname == "/"}
+						role="menuitem"
+						aria-current={$page.url.pathname == "/"
+							? "page"
+							: undefined}>
 						<House class="w-4" />
 						<span>Home</span>
 					</a>
 				</li>
 				<!-- <li
 					class:bg-[#222]={$page.url.pathname.startsWith("/archives")}
-					class="h-14 text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit"
+					role="none">
 					<a
 						href="/archives"
 						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname.startsWith(
 							"/archives",
-						)}>
+						)}
+						role="menuitem"
+						aria-current={$page.url.pathname.startsWith("/archives") ? "page" : undefined}>
 						<Archive class="w-4" />
 						<span>Archives</span>
 					</a>
@@ -163,112 +178,145 @@
 					class:bg-[#222]={$page.url.pathname.startsWith(
 						"/categories",
 					)}
-					class="h-14 text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit"
+					role="none">
 					<a
 						href="/categories"
 						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname.startsWith(
 							"/categories",
-						)}>
+						)}
+						role="menuitem"
+						aria-current={$page.url.pathname.startsWith("/categories") ? "page" : undefined}>
 						<TextQuote class="w-4" />
 						<span>Categories</span>
 					</a>
 				</li>
 				<li
 					class:bg-[#222]={$page.url.pathname.startsWith("/tags")}
-					class="h-14 text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit"
+					role="none">
 					<a
 						href="/tags"
 						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname.startsWith(
 							"/tags",
-						)}>
+						)}
+						role="menuitem"
+						aria-current={$page.url.pathname.startsWith("/tags") ? "page" : undefined}>
 						<Tags class="w-4" />
 						<span>Tags</span>
 					</a>
 				</li> -->
 				<li
 					class:bg-[#222]={$page.url.pathname.startsWith("/about")}
-					class="h-14 text-[#ddd] w-full sm:w-fit">
+					class="h-14 text-[#ddd] w-full sm:w-fit"
+					role="none">
 					<a
 						href="/about"
 						class="flex justify-center items-center gap-2 px-4 h-14"
 						class:text-white={$page.url.pathname.startsWith(
 							"/about",
-						)}>
+						)}
+						role="menuitem"
+						aria-current={$page.url.pathname.startsWith("/about")
+							? "page"
+							: undefined}>
 						<FlagTriangleRight class="w-4" />
 						<span>About</span>
 					</a>
 				</li>
 			</ul>
 		</nav>
-	</section>
+	</div>
 </header>
-<section class="flex w-full justify-center">
-	<section
+
+<main class="flex w-full justify-center" role="main">
+	<div
 		class="max-w-7xl w-full -mt-14 bg-[#eee] shadow-[0_-0.5em_1em_0.5em_rgba(0,0,0,0.2)] flex flex-col
 				lg:flex-row">
-		<section
+		<article
 			class="w-full
-						lg:w-[calc(100%-20rem)]">
+						lg:w-[calc(100%-20rem)]"
+			aria-label="콘텐츠 영역">
 			{@render children()}
-		</section>
+		</article>
 		<aside
 			class="w-full bg-[#ddd] flex flex-col
-						lg:w-80">
-			<section class="bg-[#444] h-auto p-2">
-				<form class="flex gap-1" onsubmit={handleSidebarSearch}>
+						lg:w-80"
+			aria-label="사이드바">
+			<div class="bg-[#999] h-14 flex items-center justify-center px-3">
+				<form
+					class="w-full flex gap-1"
+					onsubmit={handleSidebarSearch}
+					role="search"
+					aria-label="사이트 검색">
+					<label for="sidebarSearch" class="sr-only"
+						>검색어 입력</label>
 					<input
-						type="text"
+						id="sidebarSearch"
+						type="search"
 						bind:value={sidebarSearchQuery}
 						placeholder="검색어 입력..."
-						class="w-full p-2 text-sm rounded-md border-none focus:outline-none" />
+						class="w-full p-2 text-sm rounded-md border-none h-8 focus:outline-none" />
 					<button
 						type="submit"
-						class="rounded-md bg-[#333] text-white p-2 flex items-center justify-center"
+						class="rounded-md bg-[#333] text-white p-2 flex items-center justify-center h-8 w-8 shrink-0"
 						title="검색">
 						<Search class="w-4 h-4" />
+						<span class="sr-only">검색하기</span>
 					</button>
 				</form>
-			</section>
-			<span class="text-center text-2xl font-bold mt-5">
-				Henry Jang
-			</span>
-			<span class="text-center mt-2 text-gray-500 text-sm">
-				일하기 싫어하지만,<br />얼레벌레 일하는 개발자
-			</span>
-			<section class="mt-4 flex justify-center gap-2 mb-4">
-				<a
-					href="https://github.com/mack-erel"
-					target="_blank"
-					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
-					<Github class="w-4" />
-				</a>
-				<a
-					href="https://instagram.com/yrneh_gnaj"
-					target="_blank"
-					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
-					<Instagram class="w-4" />
-				</a>
-				<a
-					href="/rss.xml"
-					target="_blank"
-					class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
-					<Rss class="w-4" />
-				</a>
+			</div>
+			<section class="profile-section">
+				<h3 class="text-center text-2xl font-bold mt-5">Henry Jang</h3>
+				<p class="text-center mt-2 text-gray-500 text-sm">
+					일하기 싫어하지만,<br />얼레벌레 일하는 개발자
+				</p>
+				<nav
+					class="social-links mt-4 flex justify-center gap-2 mb-4"
+					aria-label="소셜 미디어 링크">
+					<a
+						href="https://github.com/mack-erel"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="GitHub 프로필"
+						class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
+						<Github class="w-4" />
+					</a>
+					<a
+						href="https://instagram.com/yrneh_gnaj"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Instagram 프로필"
+						class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
+						<Instagram class="w-4" />
+					</a>
+					<a
+						href="/rss.xml"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="RSS 피드"
+						class="rounded-full w-10 h-10 bg-gray-700 flex justify-center items-center text-white">
+						<Rss class="w-4" />
+					</a>
+				</nav>
 			</section>
 		</aside>
-	</section>
-</section>
+	</div>
+</main>
+
 <footer class="flex w-full justify-center">
-	<section class="max-w-7xl w-full">
+	<div class="max-w-7xl w-full">
 		<p class="text-xs text-gray-500 block text-center mt-10">
-			&copy; {siteTitle} - {siteSubTitle}
+			&copy; <time datetime={new Date().getFullYear().toString()}
+				>{new Date().getFullYear()}</time>
+			{siteTitle} - {siteSubTitle}
 		</p>
 		<p class="text-xs text-gray-700 block text-center mt-5">
 			총 <span id="totalUniqueHits"></span>명이 방문했어요!
 		</p>
-	</section>
+	</div>
 </footer>
 
 <style>
