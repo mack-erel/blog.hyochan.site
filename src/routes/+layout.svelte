@@ -2,6 +2,7 @@
 	import "../app.css";
 	import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 	import { page } from "$app/stores";
+	import { browser } from "$app/environment";
 	import {
 		House,
 		Archive,
@@ -27,34 +28,56 @@
 	const pageDescription = $derived($page.data.description ?? false);
 
 	let isMenuOpen = $state(false);
-	let sidebarSearchQuery = $state($page.url.searchParams.get("q") ?? "");
+	let sidebarSearchQuery = $state("");
 
 	function handleSidebarSearch(e: Event) {
 		e.preventDefault();
 		if (sidebarSearchQuery.trim())
 			goto(`/search?q=${encodeURIComponent(sidebarSearchQuery)}`);
 	}
-
+	
 	$effect(() => {
-		if ($page.url.pathname === "/search")
-			sidebarSearchQuery = $page.url.searchParams.get("q") ?? "";
+		if (browser) {
+			try {
+				const pathname = $page.url.pathname;
+				if (pathname === "/search") {
+					sidebarSearchQuery = $page.url.searchParams.get("q") ?? "";
+				}
+			} catch (e) {
+				console.error("Failed to access URL properties:", e);
+			}
+		}
 	});
 
 	onMount(() => {
-		const callbackScript = document.createElement("script");
-		callbackScript.innerHTML = `
-			function hitterCallback(data){
-				document.getElementById("totalUniqueHits").innerText = parseInt(data.totalUniqueHits).toLocaleString();
+		// 브라우저에서만 실행되는 코드이므로 안전
+		if (browser) {
+			try {
+				sidebarSearchQuery = $page.url.searchParams.get("q") ?? "";
+			} catch (e) {
+				console.error("Failed to access searchParams:", e);
 			}
-		`;
-		document.head.appendChild(callbackScript);
-		const script = document.createElement("script");
-		script.src = `//hitter.http-po.st/jsonp?callback=hitterCallback&${new URLSearchParams(
-			{
-				url: window.location.href,
-			},
-		).toString()}`;
-		document.head.appendChild(script);
+			
+			const callbackScript = document.createElement("script");
+			callbackScript.innerHTML = `
+				function hitterCallback(data){
+					document.getElementById("totalUniqueHits").innerText = parseInt(data.totalUniqueHits).toLocaleString();
+				}
+			`;
+			document.head.appendChild(callbackScript);
+			
+			try {
+				const script = document.createElement("script");
+				script.src = `//hitter.http-po.st/jsonp?callback=hitterCallback&${new URLSearchParams(
+					{
+						url: window.location.href,
+					},
+				).toString()}`;
+				document.head.appendChild(script);
+			} catch (e) {
+				console.error("Failed to create hitter script:", e);
+			}
+		}
 	});
 
 	onMount(() => {
@@ -78,12 +101,21 @@
 		<meta property="og:description" content={pageDescription} />
 	{/if}
 	<meta property="og:type" content="website" />
-	<meta
-		property="og:url"
-		content={`https://blog.hyochan.site${$page.url.pathname}`} />
-	<link
-		rel="canonical"
-		href={`https://blog.hyochan.site${$page.url.pathname}`} />
+	{#if browser}
+		<meta
+			property="og:url"
+			content={`https://blog.hyochan.site${$page.url.pathname}`} />
+		<link
+			rel="canonical"
+			href={`https://blog.hyochan.site${$page.url.pathname}`} />
+	{:else}
+		<meta
+			property="og:url"
+			content="https://blog.hyochan.site" />
+		<link
+			rel="canonical"
+			href="https://blog.hyochan.site" />
+	{/if}
 	<link
 		rel="alternate"
 		type="application/rss+xml"
@@ -143,15 +175,15 @@
 				class:h-[calc(3.5rem*5)]={isMenuOpen}
 				role="menubar">
 				<li
-					class:bg-[#222]={$page.url.pathname == "/"}
+					class:bg-[#222]={browser && $page.url.pathname == "/"}
 					class="h-14 text-[#ddd] w-full sm:w-fit"
 					role="none">
 					<a
 						href="/"
 						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={$page.url.pathname == "/"}
+						class:text-white={browser && $page.url.pathname == "/"}
 						role="menuitem"
-						aria-current={$page.url.pathname == "/"
+						aria-current={browser && $page.url.pathname == "/"
 							? "page"
 							: undefined}>
 						<House class="w-4" />
@@ -159,23 +191,23 @@
 					</a>
 				</li>
 				<!-- <li
-					class:bg-[#222]={$page.url.pathname.startsWith("/archives")}
+					class:bg-[#222]={browser && $page.url.pathname.startsWith("/archives")}
 					class="h-14 text-[#ddd] w-full sm:w-fit"
 					role="none">
 					<a
 						href="/archives"
 						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={$page.url.pathname.startsWith(
+						class:text-white={browser && $page.url.pathname.startsWith(
 							"/archives",
 						)}
 						role="menuitem"
-						aria-current={$page.url.pathname.startsWith("/archives") ? "page" : undefined}>
+						aria-current={browser && $page.url.pathname.startsWith("/archives") ? "page" : undefined}>
 						<Archive class="w-4" />
 						<span>Archives</span>
 					</a>
 				</li>
 				<li
-					class:bg-[#222]={$page.url.pathname.startsWith(
+					class:bg-[#222]={browser && $page.url.pathname.startsWith(
 						"/categories",
 					)}
 					class="h-14 text-[#ddd] w-full sm:w-fit"
@@ -183,43 +215,43 @@
 					<a
 						href="/categories"
 						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={$page.url.pathname.startsWith(
+						class:text-white={browser && $page.url.pathname.startsWith(
 							"/categories",
 						)}
 						role="menuitem"
-						aria-current={$page.url.pathname.startsWith("/categories") ? "page" : undefined}>
+						aria-current={browser && $page.url.pathname.startsWith("/categories") ? "page" : undefined}>
 						<TextQuote class="w-4" />
 						<span>Categories</span>
 					</a>
 				</li>
 				<li
-					class:bg-[#222]={$page.url.pathname.startsWith("/tags")}
+					class:bg-[#222]={browser && $page.url.pathname.startsWith("/tags")}
 					class="h-14 text-[#ddd] w-full sm:w-fit"
 					role="none">
 					<a
 						href="/tags"
 						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={$page.url.pathname.startsWith(
+						class:text-white={browser && $page.url.pathname.startsWith(
 							"/tags",
 						)}
 						role="menuitem"
-						aria-current={$page.url.pathname.startsWith("/tags") ? "page" : undefined}>
+						aria-current={browser && $page.url.pathname.startsWith("/tags") ? "page" : undefined}>
 						<Tags class="w-4" />
 						<span>Tags</span>
 					</a>
 				</li> -->
 				<li
-					class:bg-[#222]={$page.url.pathname.startsWith("/about")}
+					class:bg-[#222]={browser && $page.url.pathname.startsWith("/about")}
 					class="h-14 text-[#ddd] w-full sm:w-fit"
 					role="none">
 					<a
 						href="/about"
 						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={$page.url.pathname.startsWith(
+						class:text-white={browser && $page.url.pathname.startsWith(
 							"/about",
 						)}
 						role="menuitem"
-						aria-current={$page.url.pathname.startsWith("/about")
+						aria-current={browser && $page.url.pathname.startsWith("/about")
 							? "page"
 							: undefined}>
 						<FlagTriangleRight class="w-4" />

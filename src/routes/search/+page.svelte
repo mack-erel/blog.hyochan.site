@@ -3,11 +3,12 @@
     import type { PostData } from "./+page.server";
     import { page } from "$app/stores";
     import { replaceState } from "$app/navigation";
+    import { browser } from "$app/environment";
 
     let { data } = $props();
     let posts = data.posts;
 
-    let searchQuery = $state($page.url.searchParams.get("q") ?? "");
+    let searchQuery = $state("");
     let searchResults = $state<PostData[]>([]);
     let isSearching = $state(false);
 
@@ -42,9 +43,26 @@
 
     // URL 파라미터 변경 감지하여 검색 수행
     $effect(() => {
-        const urlQuery = $page.url.searchParams.get("q") ?? "";
-        searchQuery = urlQuery;
-        performSearch();
+        if (browser) {
+            try {
+                const urlQuery = $page.url.searchParams.get("q") ?? "";
+                searchQuery = urlQuery;
+                performSearch();
+            } catch (e) {
+                console.error("Failed to access URL searchParams:", e);
+            }
+        }
+    });
+
+    onMount(() => {
+        if (browser) {
+            try {
+                searchQuery = $page.url.searchParams.get("q") ?? "";
+                performSearch();
+            } catch (e) {
+                console.error("Failed to access URL searchParams:", e);
+            }
+        }
     });
 
     // 검색어 하이라이트 함수
