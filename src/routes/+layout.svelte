@@ -12,9 +12,11 @@
 		Menu,
 		X,
 		FlagTriangleRight,
-		Rss
+		Rss,
+		Search
 	} from "lucide-svelte";
 	import { onMount } from "svelte";
+	import { goto } from "$app/navigation";
 
 	let { children } = $props();
 
@@ -25,6 +27,14 @@
 	const pageDescription = $derived($page.data.description ?? false);
 
 	let isMenuOpen = $state(false);
+	let sidebarSearchQuery = $state('');
+
+	function handleSidebarSearch(e: Event) {
+		e.preventDefault();
+		if (sidebarSearchQuery.trim()) {
+			goto(`/search?q=${encodeURIComponent(sidebarSearchQuery)}`);
+		}
+	}
 
 	onMount(() => {
 		const callbackScript = document.createElement("script");
@@ -121,7 +131,7 @@
 			</button>
 			<ul
 				class="flex gap-0 h-14 items-center px-2 flex-col sm:flex-row sm:gap-1"
-				class:h-[calc(3.5rem*4)]={isMenuOpen}>
+				class:h-[calc(3.5rem*5)]={isMenuOpen}>
 				<li
 					class:bg-[#222]={$page.url.pathname == "/"}
 					class="h-14 text-[#ddd] w-full sm:w-fit">
@@ -187,6 +197,17 @@
 						<span>About</span>
 					</a>
 				</li>
+				<li
+					class:bg-[#222]={$page.url.pathname.startsWith("/search")}
+					class="h-14 text-[#ddd] w-full sm:w-fit">
+					<a
+						href="/search"
+						class="flex justify-center items-center gap-2 px-4 h-14"
+						class:text-white={$page.url.pathname.startsWith("/search")}>
+						<Search class="w-4" />
+						<span>Search</span>
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</section>
@@ -203,7 +224,23 @@
 		<aside
 			class="w-full bg-[#ddd] flex flex-col
 						lg:w-80">
-			<section class="bg-[#999] h-14">search</section>
+			<section class="bg-[#444] h-auto p-2">
+				<form class="flex gap-1" onsubmit={handleSidebarSearch}>
+					<input
+						type="text"
+						bind:value={sidebarSearchQuery}
+						placeholder="검색어 입력..."
+						class="w-full p-2 text-sm rounded-md border-none focus:outline-none"
+					/>
+					<button
+						type="submit"
+						class="rounded-md bg-[#333] text-white p-2 flex items-center justify-center"
+						title="검색"
+					>
+						<Search class="w-4 h-4" />
+					</button>
+				</form>
+			</section>
 			<span class="text-center text-2xl font-bold mt-5">
 				Henry Jang
 			</span>
