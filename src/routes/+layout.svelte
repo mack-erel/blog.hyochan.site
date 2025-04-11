@@ -301,7 +301,14 @@
 				</form>
 			</div>
 			<section class="profile-section">
-				<h3 class="text-center text-2xl font-bold mt-5">Henry Jang</h3>
+				<div class="flex justify-center mt-5">
+					<img 
+						src="https://blog-files.hyochan.site/profiles/20250411.jpeg" 
+						alt="Henry Jang 프로필 이미지" 
+						class=" w-32 h-32 rounded-full object-cover border-2 border-gray-300"
+					/>
+				</div>
+				<h3 class="text-center text-2xl font-bold mt-3">Henry Jang</h3>
 				<p class="text-center mt-2 text-gray-500 text-sm">
 					일하기 싫어하지만,<br />얼레벌레 일하는 개발자
 				</p>

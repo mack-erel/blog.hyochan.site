@@ -39,8 +39,8 @@ export async function load() {
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(fileContent);
     
-    // 필요한 데이터가 없으면 건너뛰기
-    if (!data.title || !data.date) continue;
+    // 필요한 데이터가 없거나 deploy가 false인 경우 건너뛰기
+    if (!data.title || !data.date || data.deploy === false) continue;
     
     // 파일명에서 확장자 제거
     const slug = path.parse(file).name;

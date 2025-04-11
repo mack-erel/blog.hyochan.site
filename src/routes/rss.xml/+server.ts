@@ -36,8 +36,8 @@ export async function GET({ request }) {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
         
-        // date가 없는 게시글은 건너뛰기
-        if (!data.date) continue;
+        // date가 없는 게시글이나 deploy가 false인 게시글은 건너뛰기
+        if (!data.date || data.deploy === false) continue;
         
         // Markdown의 날짜는 KST로 간주하고 경로 생성 (날짜는 그대로 유지)
         const slug = path.parse(file).name;
