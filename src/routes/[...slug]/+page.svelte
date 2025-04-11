@@ -105,6 +105,13 @@
 </script>
 
 <article class="bg-white p-2 lg:rounded-lg lg:m-2">
+    <!-- 카테고리 트리형 표시 (제목 위에 작은 텍스트로) -->
+    {#if data.data?.category && data.data.category.length > 0}
+        <p class="text-xs text-gray-500 px-4 pt-4 mt-2">
+            {data.data.category.join(" > ")}
+        </p>
+    {/if}
+
     <h1 class="text-2xl font-bold px-4 pt-2">{data.subject}</h1>
     {#if data.description}
         <h2 class="text-gray-500 px-4">{data.description}</h2>
@@ -116,6 +123,17 @@
             <span class="inline-block ml-2">(수정: {data.updated})</span>
         {/if}
     </p>
+
+    <!-- 태그 표시 -->
+    {#if data.data?.tags && data.data.tags.length > 0}
+        <div class="flex flex-wrap gap-2 mt-2 px-4">
+            {#each data.data.tags as tag}
+                <span class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-600">
+                    {tag}
+                </span>
+            {/each}
+        </div>
+    {/if}
 
     <hr class="my-4" />
 

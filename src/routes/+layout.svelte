@@ -35,7 +35,7 @@
 		if (sidebarSearchQuery.trim())
 			goto(`/search?q=${encodeURIComponent(sidebarSearchQuery)}`);
 	}
-	
+
 	$effect(() => {
 		if (browser) {
 			try {
@@ -57,7 +57,7 @@
 			} catch (e) {
 				console.error("Failed to access searchParams:", e);
 			}
-			
+
 			const callbackScript = document.createElement("script");
 			callbackScript.innerHTML = `
 				function hitterCallback(data){
@@ -65,7 +65,7 @@
 				}
 			`;
 			document.head.appendChild(callbackScript);
-			
+
 			try {
 				const script = document.createElement("script");
 				script.src = `//hitter.http-po.st/jsonp?callback=hitterCallback&${new URLSearchParams(
@@ -109,12 +109,8 @@
 			rel="canonical"
 			href={`https://blog.hyochan.site${$page.url.pathname}`} />
 	{:else}
-		<meta
-			property="og:url"
-			content="https://blog.hyochan.site" />
-		<link
-			rel="canonical"
-			href="https://blog.hyochan.site" />
+		<meta property="og:url" content="https://blog.hyochan.site" />
+		<link rel="canonical" href="https://blog.hyochan.site" />
 	{/if}
 	<link
 		rel="alternate"
@@ -207,24 +203,6 @@
 					</a>
 				</li>
 				<li
-					class:bg-[#222]={browser && $page.url.pathname.startsWith(
-						"/categories",
-					)}
-					class="h-14 text-[#ddd] w-full sm:w-fit"
-					role="none">
-					<a
-						href="/categories"
-						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={browser && $page.url.pathname.startsWith(
-							"/categories",
-						)}
-						role="menuitem"
-						aria-current={browser && $page.url.pathname.startsWith("/categories") ? "page" : undefined}>
-						<TextQuote class="w-4" />
-						<span>Categories</span>
-					</a>
-				</li>
-				<li
 					class:bg-[#222]={browser && $page.url.pathname.startsWith("/tags")}
 					class="h-14 text-[#ddd] w-full sm:w-fit"
 					role="none">
@@ -241,17 +219,37 @@
 					</a>
 				</li> -->
 				<li
-					class:bg-[#222]={browser && $page.url.pathname.startsWith("/about")}
+					class:bg-[#222]={browser &&
+						$page.url.pathname.startsWith("/category")}
+					class="h-14 text-[#ddd] w-full sm:w-fit"
+					role="none">
+					<a
+						href="/category"
+						class="flex justify-center items-center gap-2 px-4 h-14"
+						class:text-white={browser &&
+							$page.url.pathname.startsWith("/category")}
+						role="menuitem"
+						aria-current={browser &&
+						$page.url.pathname.startsWith("/category")
+							? "page"
+							: undefined}>
+						<TextQuote class="w-4" />
+						<span>Category</span>
+					</a>
+				</li>
+				<li
+					class:bg-[#222]={browser &&
+						$page.url.pathname.startsWith("/about")}
 					class="h-14 text-[#ddd] w-full sm:w-fit"
 					role="none">
 					<a
 						href="/about"
 						class="flex justify-center items-center gap-2 px-4 h-14"
-						class:text-white={browser && $page.url.pathname.startsWith(
-							"/about",
-						)}
+						class:text-white={browser &&
+							$page.url.pathname.startsWith("/about")}
 						role="menuitem"
-						aria-current={browser && $page.url.pathname.startsWith("/about")
+						aria-current={browser &&
+						$page.url.pathname.startsWith("/about")
 							? "page"
 							: undefined}>
 						<FlagTriangleRight class="w-4" />
@@ -302,11 +300,10 @@
 			</div>
 			<section class="profile-section">
 				<div class="flex justify-center mt-5">
-					<img 
-						src="https://blog-files.hyochan.site/profiles/20250411.jpeg" 
-						alt="Henry Jang 프로필 이미지" 
-						class=" w-32 h-32 rounded-full object-cover border-2 border-gray-300"
-					/>
+					<img
+						src="https://blog-files.hyochan.site/profiles/20250411.jpeg"
+						alt="Henry Jang 프로필 이미지"
+						class=" w-32 h-32 rounded-full object-cover border-2 border-gray-300" />
 				</div>
 				<h3 class="text-center text-2xl font-bold mt-3">Henry Jang</h3>
 				<p class="text-center mt-2 text-gray-500 text-sm">

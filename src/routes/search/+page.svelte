@@ -28,7 +28,7 @@
         searchResults = posts.filter((post) => {
             const titleMatch = post.title.toLowerCase().includes(query);
             const contentMatch = post.content.toLowerCase().includes(query);
-            const categoryMatch = post.categories.some((cat) =>
+            const categoryMatch = post.category.some((cat) =>
                 cat.toLowerCase().includes(query),
             );
             const tagMatch = post.tags.some((tag) =>
@@ -122,9 +122,9 @@
                                             searchQuery,
                                         )}
                                     </p>
-                                    {#if post.categories.length > 0}
+                                    {#if post.category.length > 0}
                                         <div class="flex flex-wrap gap-2 mt-2">
-                                            {#each post.categories as category}
+                                            {#each post.category as category}
                                                 <span
                                                     class="inline-block px-2 py-1 text-xs rounded-md bg-blue-50 text-blue-600">
                                                     {@html highlightText(

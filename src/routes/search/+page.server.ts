@@ -7,7 +7,7 @@ export interface PostData {
   slug: string;
   title: string;
   date: string;
-  categories: string[];
+  category: string[];
   tags: string[];
   content: string;
   excerpt: string;
@@ -61,7 +61,7 @@ export async function load() {
       slug,
       title: data.title,
       date: data.date.toISOString().replace("T", " ").replace("Z", "").replace(".000", ""),
-      categories: data.categories || [],
+      category: data.category || [],
       tags: data.tags || [],
       content: plainText,
       excerpt,

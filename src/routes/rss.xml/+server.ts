@@ -53,8 +53,8 @@ export async function GET({ request }) {
             date: data.date, // 원본 날짜(KST로 간주)
             content: htmlContent,
             url,
-            categories: Array.isArray(data.categories) ? data.categories : 
-                       (data.categories ? [data.categories] : []),
+            category: Array.isArray(data.category) ? data.category : 
+                       (data.category ? [data.category] : []),
             updated: data.updated || null
         });
     }
@@ -95,7 +95,7 @@ export async function GET({ request }) {
             ${kstUpdatedDate ? `<p>수정일: ${kstUpdatedDate.toISOString().replace('T', ' ').replace(/\.\d+Z$/, '')} (KST)</p>` : ''}
             ${post.content}
         ]]></content:encoded>
-        ${post.categories.map(category => `<category>${category}</category>`).join('')}
+        ${post.category.map(category => `<category>${category}</category>`).join('')}
     </item>`;
     }).join('')}
 </channel>

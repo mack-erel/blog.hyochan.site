@@ -2,7 +2,7 @@
 title: Cloudflare Warp connector 설치기
 description: Cloudflare의 Zero Trust 서비스를 활용해 Private Network 구축을 해보자.
 date: 2025-03-27 22:20:00
-categories:
+category:
   - Cloudflare
   - Zero Trust
 tags:
