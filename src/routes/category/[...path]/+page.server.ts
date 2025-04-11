@@ -19,7 +19,10 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '');
 }
 
-export async function load({ params }) {
+export async function load({ params, depends }) {
+  // 데이터 의존성 선언 - 이 ID로 무효화(invalidate) 가능
+  depends('app:category');
+  
   const { path: categoryPath } = params;
   const categorySegments = categoryPath.split('/');
 

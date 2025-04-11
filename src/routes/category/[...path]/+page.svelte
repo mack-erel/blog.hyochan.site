@@ -1,26 +1,59 @@
 <script lang="ts">
     import type { PostData } from './+page.server';
+    import { afterNavigate, invalidate } from '$app/navigation';
+    import { goto } from '$app/navigation';
     
     let { data } = $props();
-    let posts = data.posts;
-    let categoryTitle = data.categoryTitle;
-    let categoryPath = data.categoryPath;
+    let posts = $state(data.posts);
+    let categoryTitle = $state(data.categoryTitle);
+    let categoryPath = $state(data.categoryPath);
     
     // 경로 분리
-    let pathSegments = categoryPath.split('/');
+    let pathSegments = $derived(categoryPath.split('/'));
     
     // 브레드크럼 경로 생성
-    let breadcrumbs = [];
-    let currentPath = '';
-    
-    for (let i = 0; i < pathSegments.length; i++) {
-        const segment = pathSegments[i];
-        currentPath = currentPath ? `${currentPath}/${segment}` : segment;
+    function createBreadcrumbs() {
+        let crumbs = [];
+        let currentPath = '';
         
-        breadcrumbs.push({
-            name: segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-            path: `/category/${currentPath}`
-        });
+        for (let i = 0; i < pathSegments.length; i++) {
+            const segment = pathSegments[i];
+            currentPath = currentPath ? `${currentPath}/${segment}` : segment;
+            
+            crumbs.push({
+                name: segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                path: `/category/${currentPath}`
+            });
+        }
+        return crumbs;
+    }
+    
+    let breadcrumbs = $derived(createBreadcrumbs());
+
+    // 데이터가 변경되면 업데이트
+    $effect(() => {
+        posts = data.posts;
+        categoryTitle = data.categoryTitle;
+        categoryPath = data.categoryPath;
+    });
+
+    // 내비게이션 후 현재 URL의 데이터 다시 불러오기
+    afterNavigate(async () => {
+        await invalidate('app:category');
+    });
+
+    // 브레드크럼 네비게이션 핸들러
+    async function handleNavigation(event: MouseEvent, path: string): Promise<void> {
+        event.preventDefault(); // 기본 브라우저 네비게이션 방지
+        
+        // 현재 경로와 동일하면 무시
+        if (path === `/category/${categoryPath}`) {
+            return;
+        }
+        
+        // 무효화 후 goto로 페이지 이동
+        await invalidate('app:category');
+        await goto(path, { replaceState: false });
     }
 </script>
 
@@ -30,7 +63,8 @@
         <nav class="text-sm text-gray-500 mb-4">
             <ol class="flex flex-wrap items-center gap-2">
                 <li>
-                    <a href="/category" class="hover:text-blue-600 hover:underline">카테고리</a>
+                    <a href="/category" class="hover:text-blue-600 hover:underline" 
+                       onclick={(e) => handleNavigation(e, '/category')}>카테고리</a>
                 </li>
                 {#each breadcrumbs as crumb, i}
                     <li class="flex items-center gap-2">
@@ -38,7 +72,8 @@
                         {#if i === breadcrumbs.length - 1}
                             <span class="font-medium text-gray-700">{crumb.name}</span>
                         {:else}
-                            <a href={crumb.path} class="hover:text-blue-600 hover:underline">{crumb.name}</a>
+                            <a href={crumb.path} class="hover:text-blue-600 hover:underline"
+                               onclick={(e) => handleNavigation(e, crumb.path)}>{crumb.name}</a>
                         {/if}
                     </li>
                 {/each}
