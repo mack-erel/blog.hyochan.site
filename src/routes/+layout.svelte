@@ -307,7 +307,7 @@
 				</div>
 				<h3 class="text-center text-2xl font-bold mt-3">Henry Jang</h3>
 				<p class="text-center mt-2 text-gray-500 text-sm">
-					일하기 싫어하지만,<br />얼레벌레 일하는 개발자
+					일하기 싫어하지만,<br />얼렁뚱땅 일하는 개발자
 				</p>
 				<nav
 					class="social-links mt-4 flex justify-center gap-2 mb-4"
