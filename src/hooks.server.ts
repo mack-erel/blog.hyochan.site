@@ -14,6 +14,12 @@ const getPost: Handle = async ({ event, resolve }) => {
         const content = fs.readFileSync(filePath, 'utf8');
         const { data } = matter(content);
         const slug = file.replace('.md', '');
+        
+        // deploy가 명시적으로 false인 경우 목록에 포함하지 않음
+        if (data.deploy === false) {
+            return acc;
+        }
+        
         acc[slug] = {
             ...data,
             date: data.date.toISOString().replace("T", " ").replace("Z", "").replace(".000", "") || '1970-01-01 00:00:00' // date가 없으면 최초 날짜로 설정

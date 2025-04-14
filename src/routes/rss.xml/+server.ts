@@ -36,8 +36,8 @@ export async function GET({ request }) {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const { data, content } = matter(fileContent);
         
-        // date가 없는 게시글은 건너뛰기
-        if (!data.date) continue;
+        // date가 없는 게시글이나 deploy가 false인 게시글은 건너뛰기
+        if (!data.date || data.deploy === false) continue;
         
         // Markdown의 날짜는 KST로 간주하고 경로 생성 (날짜는 그대로 유지)
         const slug = path.parse(file).name;
@@ -53,8 +53,8 @@ export async function GET({ request }) {
             date: data.date, // 원본 날짜(KST로 간주)
             content: htmlContent,
             url,
-            categories: Array.isArray(data.categories) ? data.categories : 
-                       (data.categories ? [data.categories] : []),
+            category: Array.isArray(data.category) ? data.category : 
+                       (data.category ? [data.category] : []),
             updated: data.updated || null
         });
     }
@@ -95,7 +95,7 @@ export async function GET({ request }) {
             ${kstUpdatedDate ? `<p>수정일: ${kstUpdatedDate.toISOString().replace('T', ' ').replace(/\.\d+Z$/, '')} (KST)</p>` : ''}
             ${post.content}
         ]]></content:encoded>
-        ${post.categories.map(category => `<category>${category}</category>`).join('')}
+        ${post.category.map(category => `<category>${category}</category>`).join('')}
     </item>`;
     }).join('')}
 </channel>

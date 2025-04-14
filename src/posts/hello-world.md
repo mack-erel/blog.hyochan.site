@@ -1,7 +1,8 @@
 ---
 title: Hello World
 date: 2025-03-25 15:38:35
-categories:
+category:
+  - Develop
   - Hello World
 ---
 
