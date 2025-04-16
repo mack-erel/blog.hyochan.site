@@ -1,7 +1,6 @@
 <script lang="ts">
     import { md5 } from "js-md5";
     import { page } from "$app/stores";
-    import { browser } from "$app/environment";
 
     import {
         Banana,
@@ -55,30 +54,11 @@
 
     let { data } = $props();
 
-    // 포스트 클릭시 GA 이벤트 발송 함수
-    function trackPostClick(e: MouseEvent, slug: string, title: string) {
-        if (!$page.data.isPreview && browser && typeof window.gtag === 'function') {
-            // // 링크 기본 동작 일시 중지
-            // e.preventDefault();
-            
-            // 이동할 URL
-            const url = `/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}`;
-            
-            // GA 이벤트 발송
-            window.gtag('event', 'click', {
-                'event_category': 'post_list',
-                'event_label': '홈에서 포스트 클릭',
-                'source': 'home',
-                'content_type': 'post',
-                'item_id': slug,
-                'item_name': title
-            });
-            
-            // // 약간의 지연 후 페이지 이동 (이벤트가 발송될 시간 확보)
-            // setTimeout(() => {
-            //     window.location.href = url;
-            // }, 100);
-        }
+    // UTM 매개변수 생성 함수
+    function getUtmParams(slug: string) {
+        if (!$page.data.isPreview)
+            return `?utm_source=home&utm_medium=post_list&utm_campaign=internal&utm_content=${slug}`;
+        return "";
     }
 </script>
 
@@ -101,8 +81,7 @@
             ]}
         <li class="rounded-lg overflow-hidden bg-white">
             <a
-                href={`/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}`}
-                onclick={(e) => trackPostClick(e, slug, data.posts[slug].title)}>
+                href={`/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}${getUtmParams(slug)}`}>
                 {#if data.posts[slug].thumbnail}
                     <div class="aspect-video">
                         <img
