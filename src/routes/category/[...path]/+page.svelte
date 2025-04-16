@@ -2,6 +2,7 @@
     import type { PostData } from './+page.server';
     import { afterNavigate, invalidate } from '$app/navigation';
     import { goto } from '$app/navigation';
+    import { page } from "$app/stores";
     
     let { data } = $props();
     let posts = $state(data.posts);
@@ -55,6 +56,13 @@
         await invalidate('app:category');
         await goto(path, { replaceState: false });
     }
+
+    // UTM 매개변수 생성 함수
+    function getUtmParams(postTitle: string) {
+        if (!$page.data.isPreview)
+            return `?utm_source=category&utm_medium=post_list&utm_campaign=internal&utm_content=${encodeURIComponent(postTitle)}`;
+        return "";
+    }
 </script>
 
 <div class="bg-white p-2 lg:rounded-lg lg:m-2">
@@ -95,7 +103,7 @@
                 {#each posts as post}
                     <li class="py-4">
                         <article>
-                            <a href={post.path} class="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
+                            <a href={`${post.path}${getUtmParams(post.title)}`} class="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
                                 <!-- 게시글의 카테고리 경로 표시 -->
                                 {#if post.category && post.category.length > 0}
                                     <p class="text-xs text-gray-500">

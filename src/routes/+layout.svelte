@@ -120,19 +120,21 @@
 
 	<meta name="referrer" content="no-referrer" />
 
-	<script
-		async
-		src="https://www.googletagmanager.com/gtag/js?id=G-ME583S1EPB"></script>
+	{#if !$page.data.isPreview}
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-ME583S1EPB"></script>
 
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag("js", new Date());
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-		gtag("config", "G-ME583S1EPB");
-	</script>
+			gtag("config", "G-ME583S1EPB");
+		</script>
+	{/if}
 </svelte:head>
 
 <header
@@ -292,7 +294,7 @@
 					<button
 						type="submit"
 						class="rounded-md bg-[#333] text-white p-2 flex items-center justify-center h-8 w-8 shrink-0"
-						title="검색"> 
+						title="검색">
 						<Search class="w-4 h-4" />
 						<span class="sr-only">검색하기</span>
 					</button>
