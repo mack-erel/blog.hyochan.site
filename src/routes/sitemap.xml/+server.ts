@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 // 정적 빌드 시 사용할 URL (배포 환경)
-const SITE_URL = '//blog.hyochan.site';
+const SITE_URL = 'https://blog.hyochan.site';
 
 // 개발 환경과 정적 빌드 환경 모두 지원하는 GET 핸들러
 export async function GET({ request }) {
