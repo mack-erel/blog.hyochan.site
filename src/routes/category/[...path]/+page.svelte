@@ -3,6 +3,7 @@
     import { afterNavigate, invalidate } from '$app/navigation';
     import { goto } from '$app/navigation';
     import { page } from "$app/stores";
+    import { browser } from "$app/environment";
     
     let { data } = $props();
     let posts = $state(data.posts);
@@ -52,16 +53,44 @@
             return;
         }
         
+        // GA 이벤트 발송 (isPreview가 아닐 때만)
+        if (!$page.data.isPreview && browser && typeof window.gtag === 'function') {
+            window.gtag('event', 'click', {
+                'event_category': 'breadcrumb_navigation',
+                'event_label': '브레드크럼 내비게이션',
+                'source': 'category_detail',
+                'content_type': 'navigation',
+                'item_id': path
+            });
+        }
+        
         // 무효화 후 goto로 페이지 이동
         await invalidate('app:category');
         await goto(path, { replaceState: false });
     }
 
-    // UTM 매개변수 생성 함수
-    function getUtmParams(postTitle: string) {
-        if (!$page.data.isPreview)
-            return `?utm_source=category&utm_medium=post_list&utm_campaign=internal&utm_content=${encodeURIComponent(postTitle)}`;
-        return "";
+    // 포스트 클릭시 GA 이벤트 발송 함수
+    function trackPostClick(e: MouseEvent, post: PostData) {
+        if (!$page.data.isPreview && browser && typeof window.gtag === 'function') {
+            // // 링크 기본 동작 일시 중지
+            // e.preventDefault();
+            
+            // GA 이벤트 발송
+            window.gtag('event', 'click', {
+                'event_category': 'post_list',
+                'event_label': '카테고리에서 포스트 클릭',
+                'source': 'category_detail',
+                'content_type': 'post',
+                'item_id': post.slug,
+                'item_name': post.title,
+                'category': categoryTitle
+            });
+            
+            // // 약간의 지연 후 페이지 이동 (이벤트가 발송될 시간 확보)
+            // setTimeout(() => {
+            //     window.location.href = post.path;
+            // }, 100);
+        }
     }
 </script>
 
@@ -103,7 +132,8 @@
                 {#each posts as post}
                     <li class="py-4">
                         <article>
-                            <a href={`${post.path}${getUtmParams(post.title)}`} class="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
+                            <a href={post.path} class="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors"
+                               onclick={(e) => trackPostClick(e, post)}>
                                 <!-- 게시글의 카테고리 경로 표시 -->
                                 {#if post.category && post.category.length > 0}
                                     <p class="text-xs text-gray-500">

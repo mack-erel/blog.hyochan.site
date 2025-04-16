@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { CategoryNode } from "./+page.server";
     import { page } from "$app/stores";
+    import { browser } from "$app/environment";
 
     let { data } = $props();
     let categoryTree = data.categoryTree;
@@ -20,11 +21,27 @@
         });
     }
 
-    // UTM 매개변수 생성 함수
-    function getUtmParams(categoryName: string) {
-        if (!$page.data.isPreview)
-            return `?utm_source=category_index&utm_medium=category_list&utm_campaign=internal&utm_content=${encodeURIComponent(categoryName)}`;
-        return "";
+    // 카테고리 클릭시 GA 이벤트 발송 함수
+    function trackCategoryClick(e: MouseEvent, categoryName: string, path: string, depth: number = 0) {
+        if (!$page.data.isPreview && browser && typeof window.gtag === 'function') {
+            // // 링크 기본 동작 일시 중지
+            // e.preventDefault();
+            
+            // GA 이벤트 발송
+            window.gtag('event', 'click', {
+                'event_category': 'category_navigation',
+                'event_label': `카테고리 클릭 (${depth}단계)`,
+                'source': 'category_index',
+                'content_type': 'category',
+                'item_id': path,
+                'item_name': categoryName
+            });
+            
+            // // 약간의 지연 후 페이지 이동 (이벤트가 발송될 시간 확보)
+            // setTimeout(() => {
+            //     window.location.href = path;
+            // }, 100);
+        }
     }
 </script>
 
@@ -55,7 +72,8 @@
                                 class="flex items-center hover:bg-gray-100 rounded px-2 py-1.5">
                                 <!-- 카테고리 이름과 링크 -->
                                 <a
-                                    href={`${item.path}${getUtmParams(item.name)}`}
+                                    href={item.path}
+                                    onclick={(e) => trackCategoryClick(e, item.name, item.path, 0)}
                                     class="flex-grow text-gray-700 hover:text-blue-600 hover:underline">
                                     {item.name}
                                 </a>
@@ -76,7 +94,8 @@
                                                 class="flex items-center hover:bg-gray-100 rounded px-2 py-1.5 ml-5">
                                                 <!-- 카테고리 이름과 링크 -->
                                                 <a
-                                                    href={`${child.path}${getUtmParams(child.name)}`}
+                                                    href={child.path}
+                                                    onclick={(e) => trackCategoryClick(e, child.name, child.path, 1)}
                                                     class="flex-grow text-gray-700 hover:text-blue-600 hover:underline">
                                                     {child.name}
                                                 </a>
@@ -97,7 +116,8 @@
                                                                 class="flex items-center hover:bg-gray-100 rounded px-2 py-1.5 ml-10">
                                                                 <!-- 카테고리 이름과 링크 -->
                                                                 <a
-                                                                    href={`${grandchild.path}${getUtmParams(grandchild.name)}`}
+                                                                    href={grandchild.path}
+                                                                    onclick={(e) => trackCategoryClick(e, grandchild.name, grandchild.path, 2)}
                                                                     class="flex-grow text-gray-700 hover:text-blue-600 hover:underline">
                                                                     {grandchild.name}
                                                                 </a>
