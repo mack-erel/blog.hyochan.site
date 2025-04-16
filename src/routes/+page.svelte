@@ -53,13 +53,6 @@
     // }
 
     let { data } = $props();
-
-    // UTM 매개변수 생성 함수
-    function getUtmParams(slug: string) {
-        if (!$page.data.isPreview)
-            return `?utm_source=home&utm_medium=post_list&utm_campaign=internal&utm_content=${slug}`;
-        return "";
-    }
 </script>
 
 <ul
@@ -81,7 +74,7 @@
             ]}
         <li class="rounded-lg overflow-hidden bg-white">
             <a
-                href={`/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}${getUtmParams(slug)}`}>
+                href={`/${data.posts[slug].date.split(" ")[0].replace(/-/g, "/")}/${slug}`}>
                 {#if data.posts[slug].thumbnail}
                     <div class="aspect-video">
                         <img

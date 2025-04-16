@@ -1,34 +1,36 @@
 <script lang="ts">
-    import type { PostData } from './+page.server';
-    import { afterNavigate, invalidate } from '$app/navigation';
-    import { goto } from '$app/navigation';
+    import type { PostData } from "./+page.server";
+    import { afterNavigate, invalidate } from "$app/navigation";
+    import { goto } from "$app/navigation";
     import { page } from "$app/stores";
-    
+
     let { data } = $props();
     let posts = $state(data.posts);
     let categoryTitle = $state(data.categoryTitle);
     let categoryPath = $state(data.categoryPath);
-    
+
     // 경로 분리
-    let pathSegments = $derived(categoryPath.split('/'));
-    
+    let pathSegments = $derived(categoryPath.split("/"));
+
     // 브레드크럼 경로 생성
     function createBreadcrumbs() {
         let crumbs = [];
-        let currentPath = '';
-        
+        let currentPath = "";
+
         for (let i = 0; i < pathSegments.length; i++) {
             const segment = pathSegments[i];
             currentPath = currentPath ? `${currentPath}/${segment}` : segment;
-            
+
             crumbs.push({
-                name: segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-                path: `/category/${currentPath}`
+                name: segment
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase()),
+                path: `/category/${currentPath}`,
             });
         }
         return crumbs;
     }
-    
+
     let breadcrumbs = $derived(createBreadcrumbs());
 
     // 데이터가 변경되면 업데이트
@@ -40,28 +42,24 @@
 
     // 내비게이션 후 현재 URL의 데이터 다시 불러오기
     afterNavigate(async () => {
-        await invalidate('app:category');
+        await invalidate("app:category");
     });
 
     // 브레드크럼 네비게이션 핸들러
-    async function handleNavigation(event: MouseEvent, path: string): Promise<void> {
+    async function handleNavigation(
+        event: MouseEvent,
+        path: string,
+    ): Promise<void> {
         event.preventDefault(); // 기본 브라우저 네비게이션 방지
-        
+
         // 현재 경로와 동일하면 무시
         if (path === `/category/${categoryPath}`) {
             return;
         }
-        
-        // 무효화 후 goto로 페이지 이동
-        await invalidate('app:category');
-        await goto(path, { replaceState: false });
-    }
 
-    // UTM 매개변수 생성 함수
-    function getUtmParams(postTitle: string) {
-        if (!$page.data.isPreview)
-            return `?utm_source=category&utm_medium=post_list&utm_campaign=internal&utm_content=${encodeURIComponent(postTitle)}`;
-        return "";
+        // 무효화 후 goto로 페이지 이동
+        await invalidate("app:category");
+        await goto(path, { replaceState: false });
     }
 </script>
 
@@ -71,17 +69,24 @@
         <nav class="text-sm text-gray-500 mb-4">
             <ol class="flex flex-wrap items-center gap-2">
                 <li>
-                    <a href="/category" class="hover:text-blue-600 hover:underline" 
-                       onclick={(e) => handleNavigation(e, '/category')}>카테고리</a>
+                    <a
+                        href="/category"
+                        class="hover:text-blue-600 hover:underline"
+                        onclick={(e) => handleNavigation(e, "/category")}
+                        >카테고리</a>
                 </li>
                 {#each breadcrumbs as crumb, i}
                     <li class="flex items-center gap-2">
                         <span class="text-gray-400">&gt;</span>
                         {#if i === breadcrumbs.length - 1}
-                            <span class="font-medium text-gray-700">{crumb.name}</span>
+                            <span class="font-medium text-gray-700"
+                                >{crumb.name}</span>
                         {:else}
-                            <a href={crumb.path} class="hover:text-blue-600 hover:underline"
-                               onclick={(e) => handleNavigation(e, crumb.path)}>{crumb.name}</a>
+                            <a
+                                href={crumb.path}
+                                class="hover:text-blue-600 hover:underline"
+                                onclick={(e) => handleNavigation(e, crumb.path)}
+                                >{crumb.name}</a>
                         {/if}
                     </li>
                 {/each}
@@ -97,36 +102,40 @@
                 총 {posts.length}개의 게시물
             </p>
         </header>
-        
+
         <section>
             <ul class="divide-y divide-gray-200">
                 {#each posts as post}
                     <li class="py-4">
                         <article>
-                            <a href={`${post.path}${getUtmParams(post.title)}`} class="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
+                            <a
+                                href={post.path}
+                                class="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors">
                                 <!-- 게시글의 카테고리 경로 표시 -->
                                 {#if post.category && post.category.length > 0}
                                     <p class="text-xs text-gray-500">
-                                        {post.category.join(' > ')}
+                                        {post.category.join(" > ")}
                                     </p>
                                 {/if}
 
-                                <h2 class="text-xl font-semibold text-gray-800 hover:text-blue-600">
+                                <h2
+                                    class="text-xl font-semibold text-gray-800 hover:text-blue-600">
                                     {post.title}
                                 </h2>
-                                
+
                                 <p class="mt-1 text-sm text-gray-500">
                                     {post.date}
                                 </p>
-                                
+
                                 <p class="mt-2 text-gray-600">
                                     {@html post.excerpt}
                                 </p>
-                                
+
                                 {#if post.tags.length > 0}
                                     <div class="flex flex-wrap gap-2 mt-3">
                                         {#each post.tags as tag}
-                                            <span class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-600">
+                                            <span
+                                                class="inline-block px-2 py-1 text-xs rounded-md bg-gray-100 text-gray-600">
                                                 {tag}
                                             </span>
                                         {/each}
@@ -139,4 +148,4 @@
             </ul>
         </section>
     </div>
-</div> 
+</div>
