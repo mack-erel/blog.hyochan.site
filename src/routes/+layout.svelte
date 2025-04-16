@@ -292,7 +292,7 @@
 					<button
 						type="submit"
 						class="rounded-md bg-[#333] text-white p-2 flex items-center justify-center h-8 w-8 shrink-0"
-						title="검색">
+						title="검색"> 
 						<Search class="w-4 h-4" />
 						<span class="sr-only">검색하기</span>
 					</button>
@@ -301,7 +301,7 @@
 			<section class="profile-section">
 				<div class="flex justify-center mt-5">
 					<img
-						src="https://blog-files.hyochan.site/profiles/20250411.jpeg"
+						src="https://blog-files.hyochan.site/cdn-cgi/image/width=128,quality=80,format=webp/profiles/20250411.jpeg"
 						alt="Henry Jang 프로필 이미지"
 						class=" w-32 h-32 rounded-full object-cover border-2 border-gray-300" />
 				</div>
