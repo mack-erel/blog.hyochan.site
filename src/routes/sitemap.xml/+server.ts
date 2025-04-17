@@ -40,7 +40,15 @@ export async function GET({ request }) {
         priority: '0.8',
         changefreq: 'weekly'
     });
-    
+
+    // about 페이지 추가 (존나 중요함 ㅋㅋ)
+    urls.push({
+        url: `${baseUrl}/about`,
+        lastmod: new Date().toISOString().split('T')[0],
+        priority: '0.7',
+        changefreq: 'monthly'
+    });
+
     // 검색 페이지 추가
     urls.push({
         url: `${baseUrl}/search`,
