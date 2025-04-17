@@ -231,7 +231,7 @@
         }
 
         :global(code:not(pre code)) {
-            @apply bg-gray-100 text-red-600 px-1.5 py-0.5 mx-0.5 rounded text-sm font-mono;
+            @apply bg-gray-100 text-red-600 px-1.5 py-0.5 mx-0.5 rounded text-sm;
         }
 
         :global(.code-block-wrapper) {
@@ -239,8 +239,12 @@
         }
 
         :global(pre) {
-            @apply -mx-6 bg-[#333] text-white px-6 py-4 text-sm my-4 overflow-x-auto font-mono;
+            @apply -mx-6 bg-[#333] text-white px-6 py-4 text-sm my-4 overflow-x-auto;
             box-shadow: inset 0 -0.5em 1em 0.5em rgba(0, 0, 0, 0.2);
+        }
+
+        :global(pre, code){
+            font-family: 'D2Coding';
         }
 
         :global(pre code) {
