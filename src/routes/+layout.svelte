@@ -21,8 +21,8 @@
 	import { goto } from "$app/navigation";
 
 	let { children, data } = $props();
-	
-	// 서버에서 전달된 isPreview 값 
+
+	// 서버에서 전달된 isPreview 값
 	const isPreview = $derived(data.isPreview ?? false);
 
 	const siteTitle = "ㅂㄹㄱ";
@@ -43,12 +43,12 @@
 	// 히터 스크립트 실행 함수
 	function runHitterScript() {
 		if (!browser) return;
-		
+
 		try {
 			// 이전 스크립트 제거
 			const oldScript = document.getElementById("hitter-script");
 			if (oldScript) oldScript.remove();
-			
+
 			// 새 스크립트 생성
 			const script = document.createElement("script");
 			script.id = "hitter-script";
@@ -144,10 +144,10 @@
 	<meta name="referrer" content="no-referrer" />
 
 	{#if !$page.data.isPreview}
+		<!-- Google tag (gtag.js) -->
 		<script
 			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-ME583S1EPB"></script>
-
+			src="https://www.googletagmanager.com/gtag/js?id=G-LZ50PVK36D"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
@@ -155,7 +155,7 @@
 			}
 			gtag("js", new Date());
 
-			gtag("config", "G-ME583S1EPB");
+			gtag("config", "G-LZ50PVK36D");
 		</script>
 	{/if}
 </svelte:head>
