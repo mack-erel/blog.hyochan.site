@@ -36,7 +36,7 @@ tags:
 Cloudflare 환경 구성은 나중에 다루기로 하고,  
 우선 SvelteKit의 Vite를 사용해 preview 환경에서 개발을 진행해보고자 한다.
 
-먼저 SvelteKit을 설치해보자. Shadcn-svelte를 사용하기 위해서는 sv@0.6.18 버전을 사용해야 한다.
+먼저 SvelteKit을 설치해보자. Shadcn-svelte를 사용하기 위해서는 sv\@0.6.18 버전을 사용해야 한다.
 
 ```bash
 / % npx sv@0.6.18 create blog.hyochan.site # blog.hyochan.site는 프로젝트 폴더 명을 뜻한다.
