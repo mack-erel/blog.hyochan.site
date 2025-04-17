@@ -114,8 +114,10 @@
         <p class="text-xs text-gray-500 px-4 pt-4 mt-2">
             {#each data.data.category as tag, i}
                 {@html (() => {
-                    let path = data.data.category.slice(0, i + 1).map(encodeURIComponent).join('/').toLowerCase();
-                    return `<a href=\"/category/${path}\" class=\"hover:underline text-blue-600\">${tag}</a>${i < data.data.category.length - 1 ? ' > ' : ''}`;
+                    let path = data.data.category.slice(0, i + 1)
+                        .map((str: string) => str.trim().toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-'))
+                        .join('/');
+                    return `<a href="/category/${path}" class="hover:underline text-blue-600">${tag}</a>${i < data.data.category.length - 1 ? ' > ' : ''}`;
                 })()}
             {/each}
         </p>
