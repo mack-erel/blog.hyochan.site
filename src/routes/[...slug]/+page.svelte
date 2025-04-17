@@ -19,6 +19,10 @@
                 /<img([^>]*)alt="([^"]*)"([^>]*)>/g,
                 '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
             )
+            .replace(
+                /<a([^>]*)>/g,
+                '<a$1target="_blank">',
+            )
             .replace(/<img([^>]*)src="([^"]*)"([^>]*)>/g, (match, ...args) => {
                 const resized = args[1].replace(
                     /https:\/\/blog-files\.hyochan\.site\/(.+?).png/g,
