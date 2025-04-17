@@ -1,6 +1,6 @@
 ---
 title: "[블로그 만들기 #1] SvelteKit과 ShadcnUI 설치하기"
-description: 
+description: 나만의 블로그를 만들기 위한 가장 중요한 기초 공사
 date: 2025-04-17 12:02:00
 category:
   - Develop
