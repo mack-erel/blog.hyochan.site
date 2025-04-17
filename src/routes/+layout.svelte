@@ -3,6 +3,7 @@
 	import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 	import { page } from "$app/stores";
 	import { browser } from "$app/environment";
+	import { afterNavigate } from "$app/navigation";
 	import {
 		House,
 		Archive,
@@ -19,7 +20,10 @@
 	import { onMount } from "svelte";
 	import { goto } from "$app/navigation";
 
-	let { children } = $props();
+	let { children, data } = $props();
+	
+	// 서버에서 전달된 isPreview 값 
+	const isPreview = $derived(data.isPreview ?? false);
 
 	const siteTitle = "ㅂㄹㄱ";
 	const siteSubTitle = "개발자의 일상을 담은 블로그";
@@ -34,6 +38,29 @@
 		e.preventDefault();
 		if (sidebarSearchQuery.trim())
 			goto(`/search?q=${encodeURIComponent(sidebarSearchQuery)}`);
+	}
+
+	// 히터 스크립트 실행 함수
+	function runHitterScript() {
+		if (!browser) return;
+		
+		try {
+			// 이전 스크립트 제거
+			const oldScript = document.getElementById("hitter-script");
+			if (oldScript) oldScript.remove();
+			
+			// 새 스크립트 생성
+			const script = document.createElement("script");
+			script.id = "hitter-script";
+			script.src = `//hitter.http-po.st/jsonp?callback=hitterCallback&${new URLSearchParams(
+				{
+					url: window.location.href,
+				},
+			).toString()}`;
+			document.head.appendChild(script);
+		} catch (e) {
+			console.error("Failed to create hitter script:", e);
+		}
 	}
 
 	$effect(() => {
@@ -66,18 +93,14 @@
 			`;
 			document.head.appendChild(callbackScript);
 
-			try {
-				const script = document.createElement("script");
-				script.src = `//hitter.http-po.st/jsonp?callback=hitterCallback&${new URLSearchParams(
-					{
-						url: window.location.href,
-					},
-				).toString()}`;
-				document.head.appendChild(script);
-			} catch (e) {
-				console.error("Failed to create hitter script:", e);
-			}
+			// 최초 페이지 로드시 히터 스크립트 실행
+			runHitterScript();
 		}
+	});
+
+	// 페이지 이동 후에도 히터 스크립트 실행
+	afterNavigate(() => {
+		runHitterScript();
 	});
 
 	onMount(() => {
