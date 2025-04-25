@@ -13,7 +13,7 @@ tags:
   - Cloudflare Pages
   - Static page
   - TypeScript
-serise: "블로그 만들기"
+series: "블로그 만들기"
 ---
 
 일상을 살아오면서 별다른 활동 없이 인스타그램만 계속하다가,  
