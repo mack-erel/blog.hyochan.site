@@ -12,7 +12,7 @@ export async function load({ params }) {
     const slugParts = slug.split('/');
     const lastPart = slugParts[slugParts.length - 1];
 
-    const isDatePath = /^\d{4}\/\d{2}\/\d{2}\/.+$/.test(slug);
+    const isDatePath = /^\d{4}\/\d{2}\/\d{2}\/.*$/.test(slug);
 
     const filePath = path.join(postsDir, `${lastPart}.md`);
 
@@ -34,6 +34,33 @@ export async function load({ params }) {
     } else
         throw redirect(301, `/${correctDatePath}/${encodeURIComponent(lastPart)}`);
 
+    // 시리즈 네비게이션용 데이터 추가
+    let seriesList = [];
+    if (data.series) {
+        // 모든 .md 파일에서 같은 series를 가진 글만 추출
+        const files = fs.readdirSync(postsDir).filter(file => file.endsWith('.md'));
+        seriesList = files.map(file => {
+            const filePath = path.join(postsDir, file);
+            const fileContent = fs.readFileSync(filePath, 'utf-8');
+            const { data: fm } = matter(fileContent);
+            if (fm.deploy === false) return null;
+            if (!fm.series || fm.series !== data.series) return null;
+            const slug = path.parse(file).name;
+            let fullSlug = slug;
+            if (fm.date) {
+                const datePath = fm.date.toISOString().split("T")[0].replace(/-/g, "/");
+                fullSlug = `${datePath}/${slug}`;
+            }
+            return {
+                slug: fullSlug,
+                title: fm.title,
+                date: fm.date ? new Date(fm.date) : null,
+                series: fm.series
+            };
+        }).filter(Boolean)
+        .sort((a, b) => a.date - b.date);
+    }
+
     return {
         slug,
         content: marked(content),
@@ -41,7 +68,8 @@ export async function load({ params }) {
         description: data.description,
         date: data.date.toISOString().replace("T", " ").replace("Z", "").replace(".000", ""),
         updated: data.updated?.toISOString().replace("T", " ").replace("Z", "").replace(".000", ""),
-        data
+        data,
+        seriesList
     };
 }
 

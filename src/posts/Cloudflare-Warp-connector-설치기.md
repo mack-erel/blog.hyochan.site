@@ -1,6 +1,6 @@
 ---
-title: "[Cloudflare Zero Trust 활용기 #1] Cloudflare Warp connector 설치기"
-description: Cloudflare의 Zero Trust 서비스를 활용해 Private Network 구축을 해보자.
+title: "[Cloudflare Zero Trust 활용기 #1] 서비스 활성화와 인스턴스 및 네트워크 구성"
+description: "Cloudflare ZTA를 이용하기 위한 사전 작업을 진행해본다."
 date: 2025-03-27 22:20:00
 category:
   - Cloudflare

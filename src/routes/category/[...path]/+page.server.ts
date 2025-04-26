@@ -101,7 +101,7 @@ export async function load({ params, depends }) {
     posts.push({
       slug,
       title: data.title,
-      date: data.date.toISOString().replace("T", " ").replace("Z", "").replace(".000", ""),
+      date: data.date.toISOString().replace("T", " ").replace(/:\d\d(\.\d+)?Z?$/, ""),
       category: data.category || [],
       tags: data.tags || [],
       excerpt,

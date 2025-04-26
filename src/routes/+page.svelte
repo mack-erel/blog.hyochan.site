@@ -95,7 +95,7 @@
                     <h2 class="text-lg font-bold">{data.posts[slug].title}</h2>
                     <p class="text-xs flex items-center gap-1 h-5">
                         <CalendarRange class="w-4 h-4 text-gray-400" />
-                        {data.posts[slug].date.split(" ")[0]}
+                        {data.posts[slug].date.replace(/:\d\d(\.\d+)?Z?$/, "")}
                     </p>
                 </div>
             </a>

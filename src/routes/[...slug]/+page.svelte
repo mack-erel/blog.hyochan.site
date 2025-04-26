@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { Copy, Check } from "lucide-svelte";
+    import SeriesNav from "$lib/SeriesNav.svelte";
 
     let { data } = $props();
 
@@ -20,8 +21,8 @@
                 '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
             )
             .replace(
-                /<a([^>]*)>/g,
-                '<a$1target="_blank">',
+                /<a([^>]*href=['"]?(?!#)[^'">]+['"]?[^>]*)>/g,
+                '<a$1 target="_blank">'
             )
             .replace(/<img([^>]*)src="([^"]*)"([^>]*)>/g, (match, ...args) => {
                 const resized = args[1].replace(
@@ -129,9 +130,9 @@
     {/if}
 
     <p class="text-xs text-gray-400 px-4 pt-2">
-        작성: {data.date}
+        작성: {data.date.replace(/:\d\d$/, "")}
         {#if data.updated}
-            <span class="inline-block ml-2">(수정: {data.updated})</span>
+            <span class="inline-block ml-2">(수정: {data.updated.replace(/:\d\d$/, "")})</span>
         {/if}
     </p>
 
@@ -147,6 +148,10 @@
     {/if}
 
     <hr class="my-4" />
+
+    {#if data.seriesList && data.seriesList.length >= 1}
+        <SeriesNav seriesList={data.seriesList} currentSlug={data.slug} />
+    {/if}
 
     <div class="markdown-style">
         {@html content}
