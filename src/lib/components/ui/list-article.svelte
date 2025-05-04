@@ -72,18 +72,26 @@
     });
 </script>
 
-<a class="flex text-left bg-white rounded-lg" href={`/${post.permalink}`}>
-    <section class="w-48 flex items-center justify-center shrink-0 grow-0">
+<a
+    class="flex text-left bg-white rounded-lg mx-2 flex-col
+           sm:flex-row"
+    href={`/${post.permalink}`}>
+    <section
+        class="w-full flex items-center justify-center shrink-0 grow-0 aspect-video
+               sm:aspect-auto sm:w-48">
         {#if post.thumbnail}
             <img src={post.thumbnail} alt={post.withOutSeries} />
         {:else}
             <span
-                class="bg-gray-100 w-full h-full flex items-center justify-center rounded-s-lg">
-                <Icon class="text-gray-400" />
+                class="bg-gray-100 w-full h-full flex items-center justify-center rounded-t-lg
+                       sm:!rounded-s-lg sm:rounded-t-none">
+                <Icon
+                    class="text-gray-400 w-20 h-20
+                           sm:w-10 sm:h-10" />
             </span>
         {/if}
     </section>
-    <section class="flex flex-col p-4 min-w-0">
+    <section class="flex flex-col px-6 py-4 min-w-0">
         <span class="text-xs block">{post.category.join(" > ")}</span>
         {#if post.series}
             <span class="text-base block font-semibold text-gray-500">
@@ -93,9 +101,19 @@
         <h2 class="text-xl font-bold block truncate w-full">
             {post.withOutSeries}
         </h2>
-        <h3 class="text-sm text-gray-500">
+        <h3 class="text-sm text-gray-500 two-line-truncate">
             {post.description}
         </h3>
-        <span class="text-xs block">{displayDate}</span>
+        <span class="text-xs block mt-3">{displayDate}</span>
     </section>
 </a>
+
+<style>
+    .two-line-truncate {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
