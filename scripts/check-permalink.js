@@ -12,6 +12,8 @@ try {
     process.exit(0);
   }
 
+  console.log(execSync("pwd", {encoding: "utf8"}));
+
   if (
     diffFiles.length === 1 &&
     (diffFiles[0] === 'src/permalink-history.txt' || diffFiles[0] === '/src/permalink-history.txt')
