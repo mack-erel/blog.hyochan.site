@@ -5,7 +5,7 @@ import { marked } from 'marked';
 // import { error, redirect } from '@sveltejs/kit';
 
 import { error } from '@sveltejs/kit';
-import { getPosts } from '$lib/utils';
+import { getPosts } from '$lib/utils.server';
 
 export function load({ params, locals }) {
     // console.log(locals.posts);

@@ -1,4 +1,4 @@
-import { getPosts } from "$lib/utils";
+import { getPosts } from "$lib/utils.server";
 
 export function load() {
     let posts = getPosts();
