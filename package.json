@@ -10,7 +10,8 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"new": "node new-article.js"
+		"new": "node scripts/new-article.js",
+		"push": "node scripts/git-push.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.8",

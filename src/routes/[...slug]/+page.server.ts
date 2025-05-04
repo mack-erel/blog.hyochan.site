@@ -1,3 +1,5 @@
 export function entries() {
-    return [];
+    return [
+        { slug: "test" }
+    ];
 };
