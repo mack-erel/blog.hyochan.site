@@ -19,13 +19,15 @@ function getCurrentDateTime() {
 }
 
 let main = () => {
-    const template = `---\nuid: ${uuidv4()}\ntitle: \ndescription: \ndate: ${getCurrentDateTime()}\ncategory: \n  - \ntags: \n  - \nthumbnail: \n---\n`;
+    const uuid = uuidv4();
+    const template = `---\nuid: ${uuid}\ntitle: \ndescription: \ndate: ${getCurrentDateTime()}\ncategory: \n  - \ntags: \n  - \nthumbnail: \nseries: \n---\n`;
 
     const outDir = path.join(process.cwd(), 'src', 'posts');
     if (!fs.existsSync(outDir)) {
         fs.mkdirSync(outDir, { recursive: true });
     }
-    const outPath = path.join(outDir, 'new-article.md');
+    const filename = uuid.slice(0, 8) + '.md';
+    const outPath = path.join(outDir, filename);
     fs.writeFileSync(outPath, template, 'utf8');
     console.log(`생성 완료: ${outPath}`);
 };

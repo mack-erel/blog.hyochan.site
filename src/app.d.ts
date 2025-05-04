@@ -3,11 +3,24 @@
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
+		interface Locals {
+			posts: {
+				uid: string;
+				title: string;
+				description: string;
+				date: string;
+				updated?: string;
+				category: string[];
+				tags: string[];
+				thumbnail?: string;
+				series?: string;
+				permalink: string;
+			}[];
+		}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
 	}
 }
 
-export {};
+export { };
