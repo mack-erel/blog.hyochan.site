@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# src/permalink-history.txt만 변경됐는지 체크
+if git diff --name-only $CF_PAGES_COMMIT_SHA_BEFORE $CF_PAGES_COMMIT_SHA | grep -v '^src/permalink-history.txt$' | grep -q .; then
+  # 다른 파일도 변경됨 → 빌드 진행
+  exit 1
+else
+  # permalink-history.txt만 변경됨 → 빌드 스킵
+  exit 0
+fi
