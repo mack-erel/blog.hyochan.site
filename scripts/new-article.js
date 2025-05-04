@@ -21,7 +21,7 @@ function getCurrentDateTime() {
 let main = () => {
     const template = `---\nuid: ${uuidv4()}\ntitle: \ndescription: \ndate: ${getCurrentDateTime()}\ncategory: \n  - \ntags: \n  - \nthumbnail: \n---\n`;
 
-    const outDir = path.join(__dirname, 'src', 'posts');
+    const outDir = path.join(process.cwd(), 'src', 'posts');
     if (!fs.existsSync(outDir)) {
         fs.mkdirSync(outDir, { recursive: true });
     }
