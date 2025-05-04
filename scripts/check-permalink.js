@@ -1,6 +1,8 @@
 import { execSync } from 'child_process';
 
 try {
+
+    console.log(execSync("pwd", {encoding: "utf8"}));
   // HEAD~1이 없을 수도 있으니 예외처리
   let diffFiles = '';
   try {
@@ -11,8 +13,6 @@ try {
     // HEAD~1이 없으면(첫 커밋 등) 그냥 통과
     process.exit(0);
   }
-
-  console.log(execSync("pwd", {encoding: "utf8"}));
 
   if (
     diffFiles.length === 1 &&
