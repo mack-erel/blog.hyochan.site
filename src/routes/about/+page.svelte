@@ -3,7 +3,7 @@
         <h1 class="text-4xl font-bold mb-8">안녕하세요, Henry입니다 👋</h1>
     </header>
 
-    <article class="prose prose-lg dark:prose-invert break-keep-all">
+    <article class="prose prose-lg break-keep-all">
         <p class="text-xl mb-6">
             이 블로그는 개발하면서 겪는 시행착오와 일상의 소소한 이야기를
             기록하는 공간입니다.
@@ -11,7 +11,7 @@
 
         <section>
             <h2 class="text-2xl font-semibold mt-8 mb-4">About Me</h2>
-            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8">
+            <div class="bg-gray-100 p-6 rounded-lg mb-8">
                 <p>
                     중학교 시절 Visual Basic 6.0으로 코딩을 시작한 웹
                     개발자예요. 경남정보고등학교와 한국폴리텍대학에서 IT 교육을
@@ -58,8 +58,7 @@
 
         <section>
             <h2 class="text-2xl font-semibold mt-8 mb-4">개발 여정</h2>
-            <div
-                class="relative border-l-2 border-gray-300 dark:border-gray-700 ml-3 pl-8 py-4">
+            <div class="relative border-l-2 border-gray-300 ml-3 pl-8 py-4">
                 <!-- 타임라인 아이템 -->
                 <article class="mb-10 relative">
                     <div
@@ -67,7 +66,7 @@
                         <span class="text-white font-bold">1</span>
                     </div>
                     <h3 class="text-lg font-medium">프로그래밍과의 첫 만남</h3>
-                    <p class="text-gray-600 dark:text-gray-400">2012년</p>
+                    <p class="text-gray-600">2012년</p>
                     <p class="mt-2">
                         중학교 시절 Visual Basic 6.0을 통해 프로그래밍을
                         시작했어요.<br />
@@ -82,9 +81,7 @@
                         <span class="text-white font-bold">2</span>
                     </div>
                     <h3 class="text-lg font-medium">IT 전문 교육</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2014년 - 2019년
-                    </p>
+                    <p class="text-gray-600">2014년 - 2019년</p>
                     <p class="mt-2">
                         경남정보고등학교와 한국폴리텍대학에서 체계적인 IT 교육을
                         받았어요.<br />
@@ -102,9 +99,7 @@
                     <h3 class="text-lg font-medium">
                         하드웨어와 소프트웨어 융합 개발
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2018년 - 2019년
-                    </p>
+                    <p class="text-gray-600">2018년 - 2019년</p>
                     <p class="mt-2">
                         씨아이씨라이프에서 TTS 기반 전관방송 시스템을
                         개발했어요.<br />
@@ -122,9 +117,7 @@
                         <span class="text-white font-bold">4</span>
                     </div>
                     <h3 class="text-lg font-medium">웹 개발 전문성 향상</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2020년 - 2023년
-                    </p>
+                    <p class="text-gray-600">2020년 - 2023년</p>
                     <p class="mt-2">
                         유니파이에서 웹 개발자로 일하며 프론트엔드와 백엔드 개발
                         역량을 균형 있게 발전시켰어요.<br />
@@ -142,9 +135,7 @@
                         <span class="text-white font-bold">5</span>
                     </div>
                     <h3 class="text-lg font-medium">학문적 깊이 확장</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2021년 - 2023년
-                    </p>
+                    <p class="text-gray-600">2021년 - 2023년</p>
                     <p class="mt-2">
                         한양사이버대학교에서 응용소프트웨어공학과와
                         군경사이버보안전공을 복수전공하며 이론적 지식을
@@ -164,9 +155,7 @@
                     <h3 class="text-lg font-medium">
                         모던 웹 기술 탐구와 지속적 성장
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2023년 - 미래
-                    </p>
+                    <p class="text-gray-600">2023년 - 미래</p>
                     <p class="mt-2">
                         SvelteKit, TypeScript 등 최신 웹 기술 스택을 학습하며
                         개인 프로젝트를 진행했어요.<br />
@@ -194,9 +183,7 @@
                         <span class="text-white font-bold">7</span>
                     </div>
                     <h3 class="text-lg font-medium">교육 플랫폼 개발</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2024년 2월 - 현재
-                    </p>
+                    <p class="text-gray-600">2024년 2월 - 현재</p>
                     <p class="mt-2">
                         현재는 챔프스터디에서 웹 개발자로 근무하며 교육 플랫폼
                         개발에 집중하고 있어요.<br />
@@ -216,7 +203,7 @@
                     <h3 class="text-xl font-medium">
                         한양사이버대학교 경영대학원
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         광고미디어MBA | 2023년 3월 - 현재 (휴학중)
                     </p>
                     <ul class="list-disc pl-5 mt-2">
@@ -231,7 +218,7 @@
 
                 <article class="border-l-4 border-purple-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">한양사이버대학교</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         응용소프트웨어공학과(주전공),
                         군경사이버보안전공(복수전공) | 2021년 3월 - 2023년 2월
                     </p>
@@ -247,7 +234,7 @@
                     <h3 class="text-xl font-medium">
                         한국폴리텍대학 항공캠퍼스
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         항공제어시스템과 | 2017년 3월 - 2019년 2월
                     </p>
                     <ul class="list-disc pl-5 mt-2">
@@ -260,7 +247,7 @@
 
                 <article class="border-l-4 border-teal-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">경남정보고등학교</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         컴퓨터정보과 | 2014년 3월 - 2017년 2월
                     </p>
                     <ul class="list-disc pl-5 mt-2">
@@ -277,7 +264,7 @@
             <div class="space-y-6">
                 <article class="border-l-4 border-blue-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">(주)챔프스터디</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         기획본부 웹개발3팀 | 프로 | 2024년 2월 - 현재
                     </p>
                     <ul class="list-disc pl-5 mt-2">
@@ -290,7 +277,7 @@
 
                 <article class="border-l-4 border-green-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">(주)유니파이</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         YP사업부 개발팀 | 주임 | 2020년 5월 - 2023년 5월
                     </p>
                     <ul class="list-disc pl-5 mt-2">
@@ -304,21 +291,19 @@
                         <h4 class="text-lg font-medium">주요 프로젝트</h4>
                         <div class="mt-3 space-y-4">
                             <article
-                                class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                                class="border-l-2 border-gray-300 pl-4 py-1">
                                 <h5 class="font-medium">
                                     인증서 발급 및 적용 프로세스 자동화시스템
                                     개발
                                 </h5>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-gray-600">
                                     2022년 1월 - 2023년 3월 (약 1년 2개월)
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">담당 역할:</span> 풀스택
                                     개발
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">기술 스택:</span> PHP
                                     7, MySQL, Laravel, Apache, Nginx, Oracle Linux
                                     8
@@ -348,20 +333,18 @@
                             </article>
 
                             <article
-                                class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                                class="border-l-2 border-gray-300 pl-4 py-1">
                                 <h5 class="font-medium">
                                     자체 솔루션 개발 및 유지보수
                                 </h5>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-gray-600">
                                     2020년 5월 - 2023년 3월 (약 2년 10개월)
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">담당 역할:</span> 풀스택
                                     개발, 서버 관리
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">기술 스택:</span> PHP
                                     5.x~8, MySQL/MariaDB, 그누보드, RHEL 5~8, Apache,
                                     Nginx
@@ -395,7 +378,7 @@
 
                 <article class="border-l-4 border-red-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">씨아이씨라이프(주)</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         자동안내방송사업부 | 사원 | 2018년 09월 - 2019년 10월
                     </p>
                     <ul class="list-disc pl-5 mt-2">
@@ -409,25 +392,22 @@
                         <h4 class="text-lg font-medium">주요 프로젝트</h4>
                         <div class="mt-3 space-y-4">
                             <article
-                                class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                                class="border-l-2 border-gray-300 pl-4 py-1">
                                 <h5 class="font-medium">
                                     상황인지형 스마트 센서노드 기반의
                                     해상재난안전 자동안내시스템 (국책사업)
                                 </h5>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-gray-600">
                                     2018년 9월 - 2018년 10월 (약 1개월)
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">발주처:</span> 창원대학교
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">담당 역할:</span> 백엔드
                                     개발, 하드웨어 검수
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">기술 스택:</span> C#,
                                     Arduino, MySQL
                                 </p>
@@ -457,7 +437,7 @@
 
                 <article class="border-l-4 border-yellow-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">프리랜서 개발자</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         웹 개발 프로젝트 | 2017년 - 현재
                     </p>
                     <ul class="list-disc pl-5 mt-2">
@@ -471,20 +451,18 @@
                         <h4 class="text-lg font-medium">주요 프로젝트</h4>
                         <div class="mt-3 space-y-4">
                             <article
-                                class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                                class="border-l-2 border-gray-300 pl-4 py-1">
                                 <h5 class="font-medium">
                                     강남아미치과 웹 예약 및 투명교정 페이지
                                 </h5>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-gray-600">
                                     2017년 3월 - 2017년 4월 (약 1개월)
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">담당 역할:</span> 풀스택
                                     개발
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">기술 스택:</span> PHP
                                     5, MySQL, jQuery, 그누보드
                                 </p>
@@ -502,20 +480,18 @@
                             </article>
 
                             <article
-                                class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                                class="border-l-2 border-gray-300 pl-4 py-1">
                                 <h5 class="font-medium">
                                     영수증 프린터 이미지 출력 시스템
                                 </h5>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-gray-600">
                                     2022년 8월 - 2022년 9월 (약 2개월)
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">담당 역할:</span> 풀스택
                                     개발
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">기술 스택:</span> PHP
                                     7, MySQL, Laravel, C#, 시리얼통신
                                 </p>
@@ -536,20 +512,18 @@
                             </article>
 
                             <article
-                                class="border-l-2 border-gray-300 dark:border-gray-600 pl-4 py-1">
+                                class="border-l-2 border-gray-300 pl-4 py-1">
                                 <h5 class="font-medium">
                                     시너지과학학원 수강관리 시스템
                                 </h5>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <p class="text-gray-600">
                                     2022년 10월 - 2022년 11월 (약 2개월)
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">담당 역할:</span> 풀스택
                                     개발
                                 </p>
-                                <p
-                                    class="text-gray-600 dark:text-gray-400 mt-1">
+                                <p class="text-gray-600 mt-1">
                                     <span class="font-medium">기술 스택:</span> PHP
                                     7, MySQL, 그누보드
                                 </p>
@@ -574,7 +548,7 @@
             <div class="space-y-6">
                 <article class="border-l-4 border-amber-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">정보기기운용기능사</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         한국산업인력공단 | 2016년 7월 취득
                     </p>
                     <p class="mt-1 text-sm">
@@ -585,7 +559,7 @@
 
                 <article class="border-l-4 border-blue-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">컴퓨터활용능력 2급</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         대한상공회의소 | 2014년 11월 취득
                     </p>
                     <p class="mt-1 text-sm">
@@ -598,9 +572,7 @@
                     <h3 class="text-xl font-medium">
                         GAIQ (Google Analytics Individual Qualification)
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        Google | 2021년 7월 취득
-                    </p>
+                    <p class="text-gray-600">Google | 2021년 7월 취득</p>
                     <p class="mt-1 text-sm">
                         Google Analytics 도구를 활용한 웹 데이터 분석 및 마케팅
                         측정 능력을 인증하는 Google 공식 자격증
@@ -611,7 +583,7 @@
                     <h3 class="text-xl font-medium">
                         GTQ (Graphics Technology Qualification) 2급
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         한국생산성본부 | 2014년 11월 취득
                     </p>
                     <p class="mt-1 text-sm">
@@ -622,9 +594,7 @@
 
                 <article class="border-l-4 border-yellow-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">전산회계 2급</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        한국세무사회 | 2015년 9월 취득
-                    </p>
+                    <p class="text-gray-600">한국세무사회 | 2015년 9월 취득</p>
                     <p class="mt-1 text-sm">
                         전산화된 회계시스템을 이용한 회계 업무 처리 능력을
                         인증하는 자격증
@@ -633,7 +603,7 @@
 
                 <article class="border-l-4 border-orange-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">전산회계운용사 3급</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <p class="text-gray-600">
                         대한상공회의소 | 2016년 7월 취득
                     </p>
                     <p class="mt-1 text-sm">
@@ -653,9 +623,7 @@
                     <h3 class="text-xl font-medium">
                         2024 강원 동계청소년올림픽대회 조직위원회
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2024년 1월 - 2024년 2월
-                    </p>
+                    <p class="text-gray-600">2024년 1월 - 2024년 2월</p>
                     <p class="mt-1">
                         2024 강원 동계청소년올림픽대회 자원봉사, 선수촌 지원
                     </p>
@@ -665,9 +633,7 @@
                     <h3 class="text-xl font-medium">
                         2018 평창 동계올림픽대회 및 동계패럴림픽대회 조직위원회
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2018년 2월 - 2018년 3월
-                    </p>
+                    <p class="text-gray-600">2018년 2월 - 2018년 3월</p>
                     <p class="mt-1">
                         2018 평창 동계올림픽대회 및 동계패럴림픽대회 자원봉사,
                         정보기술 지원
@@ -678,9 +644,7 @@
                     <h3 class="text-xl font-medium">
                         대한적십자사 혈액관리본부
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2014년 12월 - 2018년 3월
-                    </p>
+                    <p class="text-gray-600">2014년 12월 - 2018년 3월</p>
                     <p class="mt-1">헌혈 (29회)</p>
                 </article>
             </div>
@@ -693,9 +657,7 @@
                     <h3 class="text-xl font-medium">
                         평창 동계올림픽 및 동계패럴림픽 기장
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        문화체육관광부장관 | 2019년 7월
-                    </p>
+                    <p class="text-gray-600">문화체육관광부장관 | 2019년 7월</p>
                     <p class="mt-1">
                         2018 평창 동계올림픽 및 동계패럴림픽 자원봉사 활동 공로
                         인정
@@ -711,7 +673,7 @@
             <div class="space-y-6">
                 <article class="border-l-4 border-teal-500 pl-4 py-1">
                     <h3 class="text-xl font-medium">한국인터넷진흥원</h3>
-                    <p class="text-gray-600 dark:text-gray-400">2022년 10월</p>
+                    <p class="text-gray-600">2022년 10월</p>
                     <p class="mt-1">SW개발보안 기본과정 (개발자 대상)</p>
                 </article>
 
@@ -719,15 +681,13 @@
                     <h3 class="text-xl font-medium">
                         경남정보고등학교 NCS 교육 이수
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        2016년 3월 - 2017년 2월
-                    </p>
+                    <p class="text-gray-600">2016년 3월 - 2017년 2월</p>
                     <div class="mt-2 space-y-4">
                         <div>
                             <p class="font-medium">
                                 스마트문화앱콘텐츠제작 - 앱 개발계획
                             </p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                            <p class="text-sm text-gray-600">
                                 2016년 3월 - 2017년 2월<br />
                                 능력단위코드: 0803020904_13v1<br />
                                 이수시간: 29시간
@@ -737,7 +697,7 @@
                             <p class="font-medium">
                                 스마트문화앱콘텐츠제작 - 앱 개발
                             </p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                            <p class="text-sm text-gray-600">
                                 2016년 8월 - 2017년 2월<br />
                                 능력단위코드: 0803020907_13v1<br />
                                 이수시간: 31시간
@@ -747,7 +707,7 @@
                             <p class="font-medium">
                                 스마트문화앱콘텐츠제작 - 마케팅관리
                             </p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                            <p class="text-sm text-gray-600">
                                 2016년 8월 - 2017년 2월<br />
                                 능력단위코드: 0803020908_13v1<br />
                                 이수시간: 14시간
@@ -755,7 +715,7 @@
                         </div>
                         <div>
                             <p class="font-medium">인사 - 복리후생</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                            <p class="text-sm text-gray-600">
                                 2016년 8월 - 2017년 2월<br />
                                 능력단위코드: 0202020110_13v1<br />
                                 이수시간: 43시간
@@ -763,7 +723,7 @@
                         </div>
                         <div>
                             <p class="font-medium">인사 - 퇴직관리</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                            <p class="text-sm text-gray-600">
                                 2016년 8월 - 2017년 2월<br />
                                 능력단위코드: 0202020112_13v1<br />
                                 이수시간: 31시간
@@ -776,11 +736,11 @@
 
         <section>
             <h2 class="text-2xl font-semibold mt-8 mb-4">Skills</h2>
-            <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8">
+            <div class="bg-gray-100 p-6 rounded-lg mb-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <h3
-                            class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                            class="text-lg font-medium mb-3 border-b border-gray-300 pb-1">
                             백엔드 개발
                         </h3>
                         <ul class="space-y-2">
@@ -804,7 +764,7 @@
 
                     <div>
                         <h3
-                            class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                            class="text-lg font-medium mb-3 border-b border-gray-300 pb-1">
                             프론트엔드 개발
                         </h3>
                         <ul class="space-y-2">
@@ -828,7 +788,7 @@
 
                     <div>
                         <h3
-                            class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                            class="text-lg font-medium mb-3 border-b border-gray-300 pb-1">
                             클라우드 & 인프라
                         </h3>
                         <ul class="space-y-2">
@@ -854,7 +814,7 @@
 
                     <div>
                         <h3
-                            class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                            class="text-lg font-medium mb-3 border-b border-gray-300 pb-1">
                             도구 & 분석
                         </h3>
                         <ul class="space-y-2">
@@ -878,26 +838,26 @@
 
                     <div class="md:col-span-2">
                         <h3
-                            class="text-lg font-medium mb-3 border-b border-gray-300 dark:border-gray-600 pb-1">
+                            class="text-lg font-medium mb-3 border-b border-gray-300 pb-1">
                             특수 역량
                         </h3>
                         <ul class="space-y-2">
                             <li class="grid grid-cols-[6.5rem_1fr] items-start">
-                                <span class="font-medium mt-0.5"
+                                <span class="font-medium"
                                     >하드웨어 연동:</span>
                                 <span
                                     >시리얼 통신 개발, 하드웨어-소프트웨어
                                     프로토콜 설계, ESC/POS 프린터 통신</span>
                             </li>
                             <li class="grid grid-cols-[6.5rem_1fr] items-start">
-                                <span class="font-medium mt-0.5"
+                                <span class="font-medium"
                                     >교육 시스템:</span>
                                 <span
                                     >학습 관리 시스템(LMS), 수강 관리, 콘텐츠
                                     서비스 개발</span>
                             </li>
                             <li class="grid grid-cols-[6.5rem_1fr] items-start">
-                                <span class="font-medium mt-0.5"
+                                <span class="font-medium"
                                     >업무 자동화:</span>
                                 <span
                                     >자동화 시스템 개발, 워크플로우 최적화, 배포
@@ -939,7 +899,7 @@
             </p>
 
             <div
-                class="mt-12 p-6 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-lg shadow-sm">
+                class="mt-12 p-6 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg shadow-sm">
                 <h2 class="text-xl font-semibold mb-4 flex items-center">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -961,7 +921,7 @@
 
                 <div class="flex flex-wrap gap-4 items-center">
                     <div
-                        class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
+                        class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
                         <a
                             href="https://svelte.dev"
                             target="_blank"
@@ -975,7 +935,7 @@
                     </div>
 
                     <div
-                        class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
+                        class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
                         <a
                             href="https://pages.cloudflare.com"
                             target="_blank"
@@ -988,7 +948,7 @@
                     </div>
 
                     <div
-                        class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
+                        class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
                         <a
                             href="https://tailwindcss.com"
                             target="_blank"
@@ -1001,7 +961,7 @@
                     </div>
 
                     <div
-                        class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
+                        class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">
                         <a
                             href="https://www.typescriptlang.org"
                             target="_blank"
@@ -1014,7 +974,7 @@
                     </div>
                 </div>
 
-                <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                <p class="mt-4 text-sm text-gray-600">
                     이 블로그는 Cloudflare Pages에서 호스팅되며, SvelteKit과
                     TypeScript로 개발되었어요. TailwindCSS를 활용한 모던 UI와
                     최적화된 성능을 자랑해요.
