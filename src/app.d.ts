@@ -15,6 +15,9 @@ declare global {
 				thumbnail?: string;
 				series?: string;
 				permalink: string;
+				content: string;
+				withOutSeries: string;
+				seriesIndex?: number;
 			}[];
 		}
 		// interface PageData {}

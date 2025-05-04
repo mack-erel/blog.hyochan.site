@@ -73,9 +73,10 @@
 </script>
 
 <a
-    class="flex text-left bg-white rounded-lg mx-2 flex-col
+    class="flex text-left bg-white rounded-lg flex-col
            sm:flex-row"
-    href={`/${post.permalink}`}>
+    href={`/${post.permalink}`}
+    title={post.title}>
     <section
         class="w-full flex items-center justify-center shrink-0 grow-0 aspect-video
                sm:aspect-auto sm:w-48">
@@ -92,18 +93,27 @@
         {/if}
     </section>
     <section class="flex flex-col px-6 py-4 min-w-0">
-        <span class="text-xs block">{post.category.join(" > ")}</span>
+        <span class="text-xs block mb-1">{post.category.join(" > ")}</span>
         {#if post.series}
-            <span class="text-base block font-semibold text-gray-500">
+            <span
+                class="mt-1 text-base block font-semibold text-gray-500 leading-3">
                 {post.series} #{post.seriesIndex}
             </span>
         {/if}
-        <h2 class="text-xl font-bold block truncate w-full">
+        <h2 class="text-lg font-bold block truncate w-full">
             {post.withOutSeries}
         </h2>
         <h3 class="text-sm text-gray-500 two-line-truncate">
             {post.description}
         </h3>
+        <div class="flex gap-1 text-xs mt-2 flex-wrap">
+            {#each post.tags as tag}
+                <span
+                    class="text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-md">
+                    {tag}
+                </span>
+            {/each}
+        </div>
         <span class="text-xs block mt-3">{displayDate}</span>
     </section>
 </a>

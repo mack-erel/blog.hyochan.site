@@ -19,8 +19,8 @@ export function getPosts() {
 
 	for (const file of files) {
 		const filePath = path.join(postsDir, file);
-		const content = fs.readFileSync(filePath, "utf8");
-		const { data } = matter(content);
+		const _content = fs.readFileSync(filePath, "utf8");
+		const { data, content } = matter(_content);
 
 		let _title = data.title.replace(/\(([^)]*?)\)/g, "");
 		let seriesIndex = null;
@@ -33,18 +33,12 @@ export function getPosts() {
 		}
 
 		// 한글 유니코드 포함, normalize로 조합형 정리
-		let permalink = _title
-			.normalize("NFC")
-			.replace(/ /g, "-")
-			.toLowerCase()
-			.replace(/-+/g, "-")
-			.replace(/[^\p{Script=Hangul}a-z0-9-]/gu, "")
-			.replace(/^-+|-+$/g, "");
+		const permalink = getPermalink(_title);
 
 		temp.push({
 			permalink,
 			date: data.date,
-			data: { ...data, withOutSeries: _title, seriesIndex }
+			data: { ...data, withOutSeries: _title, seriesIndex, content }
 		});
 	}
 
@@ -66,4 +60,14 @@ export function getPosts() {
 	}
 
 	return posts;
+}
+
+export function getPermalink(title: string) {
+	return title
+		.normalize("NFC")
+		.replace(/ /g, "-")
+		.toLowerCase()
+		.replace(/-+/g, "-")
+		.replace(/[^\p{Script=Hangul}a-z0-9-]/gu, "")
+		.replace(/^-+|-+$/g, "");
 }

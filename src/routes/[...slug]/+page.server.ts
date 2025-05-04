@@ -1,5 +1,5 @@
 // import matter from "gray-matter";
-// import { marked } from 'marked';
+import { marked } from 'marked';
 // import fs from "fs";
 // import path from "path";
 // import { error, redirect } from '@sveltejs/kit';
@@ -15,9 +15,9 @@ export function load({ params, locals }) {
     if (!post)
         return error(404, "Not found");
 
-    console.log(post);
+    const content = marked(post.content);
 
-    return { post };
+    return { post, content };
 }
 
 export function entries() {
