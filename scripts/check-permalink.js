@@ -15,7 +15,7 @@ if (
   changed.length === 1 &&
   changed[0] === 'src/permalink-history.txt'
 ) {
-  process.exit(0); // 빌드 스킵
+  process.exit(false); // 빌드 스킵
 } else {
-  process.exit(1); // 빌드 진행
+  process.exit(true); // 빌드 진행
 }
