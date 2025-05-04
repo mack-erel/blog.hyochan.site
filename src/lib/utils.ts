@@ -23,8 +23,14 @@ export function getPosts() {
 		const { data } = matter(content);
 
 		let _title = data.title.replace(/\(([^)]*?)\)/g, "");
-		if (data?.series)
-			_title = _title.replace(new RegExp(`^\\[${data.series} #\\d+\\] `), "");
+		let seriesIndex = null;
+		if (data?.series) {
+			const match = _title.match(new RegExp(`^\\[${data.series} #(\\d+)\\] `));
+			if (match) {
+				seriesIndex = parseInt(match[1], 10);
+				_title = _title.replace(new RegExp(`^\\[${data.series} #\\d+\\] `), "");
+			}
+		}
 
 		// 한글 유니코드 포함, normalize로 조합형 정리
 		let permalink = _title
@@ -38,7 +44,7 @@ export function getPosts() {
 		temp.push({
 			permalink,
 			date: data.date,
-			data
+			data: { ...data, withOutSeries: _title, seriesIndex }
 		});
 	}
 

@@ -15,7 +15,7 @@ function getCurrentDateTime() {
     const HH = pad(now.getHours());
     const ii = pad(now.getMinutes());
     const ss = pad(now.getSeconds());
-    return `${yyyy}-${mm}-${dd} ${HH}:${ii}:${ss}`;
+    return `${yyyy}-${mm}-${dd}T${HH}:${ii}:${ss}+09:00`;
 }
 
 let main = () => {

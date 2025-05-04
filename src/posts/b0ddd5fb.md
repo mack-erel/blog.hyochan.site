@@ -2,7 +2,7 @@
 uid: b0ddd5fb-be2b-459c-8cb6-5d9d83a7134f
 title: "Cloudflare의 Model Context Protocol(MCP) 서버 13개 공개 - AI 시대의 새로운 개발자 도구"
 description: Cloudflare가 13개의 MCP 서버를 공개하여 Claude.ai와 같은 MCP 클라이언트에서 Cloudflare 도구와 리소스에 직접 접근할 수 있게 되었다.
-date: 2025-05-04 17:35:22
+date: 2025-05-04T17:35:22+09:00
 category: 
   - IT Trend
   - AI
