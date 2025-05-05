@@ -7,7 +7,7 @@ declare global {
 			posts: {
 				uid: string;
 				title: string;
-				description: string;
+				description?: string;
 				date: string;
 				updated?: string;
 				category: string[];
@@ -16,7 +16,7 @@ declare global {
 				series?: string;
 				permalink: string;
 				content: string;
-				withOutSeries: string;
+				withOutSeries?: string;
 				seriesIndex?: number;
 			}[];
 		}

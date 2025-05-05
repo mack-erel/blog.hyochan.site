@@ -6,13 +6,14 @@
     import { fly } from "svelte/transition";
     import { cubicOut } from "svelte/easing";
     import { onMount } from "svelte";
-
+    import { getStructuredData } from "$lib/utils";
     let menu = $derived.by(() => {
         const routeId = page.route.id || "";
 
         if (routeId?.startsWith("/about")) return "About";
         if (routeId?.startsWith("/category")) return "Category";
         if (routeId?.startsWith("/tags")) return "Tags";
+        if (routeId?.startsWith("/search")) return "Search";
         if (routeId?.startsWith("/[...slug]")) return "Article";
         if (routeId === "/") return "Home";
 
@@ -23,6 +24,7 @@
         { href: "/about", label: "About" },
         { href: "/category", label: "Category" },
         { href: "/tags", label: "Tags" },
+        { href: "/search", label: "Search" },
     ];
 
     let { children } = $props();
@@ -38,10 +40,115 @@
         return () =>
             mediaQuery.removeEventListener("change", handleMediaChange);
     });
+
+    let head_title = $derived.by(() => {
+        const routeId = page.route.id || "";
+
+        if (routeId?.startsWith("/about")) return "About";
+        if (routeId?.startsWith("/category")) return "Category";
+        if (routeId?.startsWith("/tags")) return "Tags";
+        if (routeId?.startsWith("/search")) return "Search";
+        if (routeId?.startsWith("/[...slug]"))
+            return (
+                page.data.post?.withOutSeries ||
+                page.data.post?.title ||
+                "ㅂㄹㄱ"
+            );
+
+        return "ㅂㄹㄱ";
+    });
+
+    let head_description = $derived.by(() => {
+        const routeId = page.route.id || "";
+
+        if (routeId?.startsWith("/about"))
+            return "저에 대한 소개와 함께 블로그 소개를 정리해보았어요.";
+        if (routeId?.startsWith("/category"))
+            return "이 블로그에 게시된 글들의 카테고리를 정리해보았어요.";
+        if (routeId?.startsWith("/tags"))
+            return "이 블로그에 게시된 글들의 태그를 정리해보았어요.";
+        if (routeId?.startsWith("/search"))
+            return "블로그에서 필요한 정보가 있다면 검색해보세요! 결과를 보여줄게요.";
+        if (routeId?.startsWith("/[...slug]"))
+            return page.data.post?.description || "";
+
+        return "개발자의 일상을 담은 블로그";
+    });
+
+    let head_image = $derived.by(() => {
+        const routeId = page.route.id || "";
+        if (routeId?.startsWith("/[...slug]"))
+            return (
+                page.data.post?.thumbnail ||
+                "https://blog.hyochan.site/og-image.png"
+            );
+
+        return "https://blog.hyochan.site/og-image.png";
+    });
+
+    let og_type = $derived.by(() => {
+        const routeId = page.route.id || "";
+        if (routeId?.startsWith("/[...slug]")) return "article";
+        if (routeId?.startsWith("/category")) return "website";
+        if (routeId?.startsWith("/tags")) return "website";
+        if (routeId?.startsWith("/search")) return "website";
+        if (routeId === "/") return "website";
+        if (routeId?.startsWith("/about")) return "profile";
+        return "website";
+    });
+
+    let structuredData = $derived.by(() =>
+        getStructuredData({
+            routeId: page.route.id || "",
+            pathname: page.url.pathname,
+            post: page.data.post,
+            head_title,
+            head_description,
+        }),
+    );
 </script>
 
 <svelte:head>
+    <title>{head_title}</title>
+    <meta name="description" content={head_description} />
+    {#if page.route.id === "/"}
+        <meta
+            name="keywords"
+            content="개발, IT, 클라우드, Svelte, TypeScript, 블로그, 웹개발, Cloudflare, 보안, 일상" />
+    {:else}
+        <meta
+            name="keywords"
+            content={page.data.post?.tags
+                ? page.data.post.tags.join(", ")
+                : ""} />
+    {/if}
+
+    <meta property="og:title" content={head_title} />
+    <meta property="og:description" content={head_description} />
+    <meta property="og:type" content={og_type} />
+    <meta
+        property="og:url"
+        content={"https://blog.hyochan.site" + page.url.pathname} />
+    <meta property="og:image" content={head_image} />
+    <meta property="og:site_name" content="ㅂㄹㄱ" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={head_title} />
+    <meta name="twitter:description" content={head_description} />
+    <meta name="twitter:image" content={head_image} />
+
+    <link
+        rel="canonical"
+        href={"https://blog.hyochan.site" + page.url.pathname} />
+
     <meta name="referrer" content="no-referrer" />
+
+    {#each structuredData as data}
+        {@html `<script type="application/ld+json">
+            ${JSON.stringify(data)}
+        </script>`}
+    {/each}
 </svelte:head>
 
 <button

@@ -73,3 +73,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: "D2Coding";
+  src: url("https://blog-files.hyochan.site/fonts/D2Coding.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

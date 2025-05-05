@@ -41,12 +41,12 @@
             )
             .replace(
                 /<a([^>]*href=['"]?(?!#)[^'">]+['"]?[^>]*)>/g,
-                '<a$1 target="_blank">',
+                '<a$1 target="_blank" rel="noopener noreferrer">',
             )
             .replace(/<img([^>]*)src="([^"]*)"([^>]*)>/g, (match, ...args) => {
                 const resized = args[1].replace(
-                    /https:\/\/blog-files\.hyochan\.site\/(.+?).png/g,
-                    "https://blog-files.hyochan.site/cdn-cgi/image/width=752,quality=80,format=webp/$1.png",
+                    /https:\/\/blog-files\.hyochan\.site\/(.+?).(png|jpg|jpeg|gif|webp)/gi,
+                    "https://blog-files.hyochan.site/cdn-cgi/image/width=752,quality=80,format=webp/$1.$2",
                     // "https://blog-files.hyochan.site/$1.png",
                 );
                 return `<a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a>`;
@@ -135,14 +135,6 @@
 </section>
 
 <style>
-    @font-face {
-        font-family: "D2Coding";
-        src: url("https://blog-files.hyochan.site/fonts/D2Coding.woff")
-            format("woff");
-        font-weight: normal;
-        font-style: normal;
-    }
-
     .markdown-style {
         :global(h1) {
             @apply text-3xl font-bold mt-10 mb-6 pb-2 border-b border-gray-200;
