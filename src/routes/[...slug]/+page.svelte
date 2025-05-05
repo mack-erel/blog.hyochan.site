@@ -50,7 +50,7 @@
     <div class="flex gap-1.5 text-xs flex-wrap mt-2">
         {#each data.post.tags as tag}
             <a
-                href={`/tag/${getPermalink(tag)}`}
+                href={`/tags/${getPermalink(tag)}`}
                 class="text-xs text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded-md">
                 {tag}
             </a>
