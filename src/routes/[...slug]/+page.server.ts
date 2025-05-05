@@ -27,6 +27,6 @@ export function load({ params, locals }) {
 
 export function entries() {
     const posts = getPosts();
-    console.log(posts.map(post => ({ slug: post.permalink })));
-    return posts.map(post => ({ slug: post.permalink }));
+    // console.log(posts.map(post => ({ slug: post.permalink })));
+    return posts.map(post => ({ slug: post.permalink.slice(1) }));
 };
