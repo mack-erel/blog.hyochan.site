@@ -75,7 +75,7 @@
 <a
     class="flex text-left bg-white rounded-lg flex-col
            sm:flex-row"
-    href={`/${post.permalink}`}
+    href={post.permalink}
     title={post.title}>
     <section
         class="w-full flex items-center justify-center shrink-0 grow-0 aspect-video

@@ -40,6 +40,10 @@
     });
 </script>
 
+<svelte:head>
+    <meta name="referrer" content="no-referrer" />
+</svelte:head>
+
 <button
     class="fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity border-0 opacity-0 pointer-events-none"
     class:!opacity-100={sideMenuOpen}

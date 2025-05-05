@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getPermalink(title: string) {
-	return title
+	return "/" + title
 		.normalize("NFC")
 		.replace(/ /g, "-")
 		.toLowerCase()
