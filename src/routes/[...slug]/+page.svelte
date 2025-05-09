@@ -43,13 +43,13 @@
                 /<a([^>]*href=['"]?(?!#)[^'">]+['"]?[^>]*)>/g,
                 '<a$1 target="_blank" rel="noopener noreferrer">',
             )
-            .replace(/<p><img([^>]*)src="([^"]*)"([^>]*)><\/p>/g, (match, ...args) => {
+            .replace(/<img([^>]*)src="([^"]*)"([^>]*)>/g, (match, ...args) => {
                 const resized = args[1].replace(
                     /https:\/\/blog-files\.hyochan\.site\/(.+?).(png|jpg|jpeg|gif|webp)/gi,
                     "https://blog-files.hyochan.site/cdn-cgi/image/width=752,quality=80,format=webp/$1.$2",
                     // "https://blog-files.hyochan.site/$1.png",
                 );
-                return `<figure><a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a></figure>`;
+                return `<a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a>`;
             })
             .replace(/<h4/g, "<h5").replace(/<\/h4>/g, "</h5>")
             .replace(/<h3/g, "<h4").replace(/<\/h3>/g, "</h4>")
