@@ -50,7 +50,11 @@
                     // "https://blog-files.hyochan.site/$1.png",
                 );
                 return `<a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a>`;
-            }),
+            })
+            .replace(/<h4/g, "<h5").replace(/<\/h4>/g, "</h5>")
+            .replace(/<h3/g, "<h4").replace(/<\/h3>/g, "</h4>")
+            .replace(/<h2/g, "<h3").replace(/<\/h2>/g, "</h3>")
+            .replace(/<h1/g, "<h2").replace(/<\/h1>/g, "</h2>")
     );
 </script>
 
@@ -66,15 +70,15 @@
         {/each}
     </div>
     {#if data.post.series}
-        <h2 class="text-base text-gray-500 mt-1.5 leading-4">
+        <h3 class="text-base text-gray-500 mt-1.5 leading-4">
             {data.post.series} #{data.post.seriesIndex}
-        </h2>
+        </h3>
     {/if}
-    <h1 class="text-xl font-bold">{data.post.withOutSeries}</h1>
+    <h2 class="text-xl font-bold">{data.post.withOutSeries}</h2>
     {#if data.post.description}
-        <h2 class="text-sm text-gray-500">
+        <h3 class="text-sm text-gray-500">
             {data.post.description}
-        </h2>
+        </h3>
     {/if}
     <div class="flex gap-1.5 text-xs flex-wrap mt-2">
         {#each data.post.tags as tag}
