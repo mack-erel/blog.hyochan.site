@@ -77,7 +77,7 @@
            sm:flex-row"
     href={post.permalink}
     title={post.title}>
-    <section
+    <div
         class="w-full flex items-center justify-center shrink-0 grow-0 aspect-video
                sm:aspect-auto sm:w-48">
         {#if post.thumbnail}
@@ -91,8 +91,8 @@
                            sm:w-10 sm:h-10" />
             </span>
         {/if}
-    </section>
-    <section class="flex flex-col px-6 py-4 min-w-0">
+    </div>
+    <div class="flex flex-col px-6 py-4 min-w-0">
         <span class="text-xs block mb-1">{post.category.join(" > ")}</span>
         {#if post.series}
             <span
@@ -115,7 +115,7 @@
             {/each}
         </div>
         <span class="text-xs block mt-3">{displayDate}</span>
-    </section>
+    </div>
 </a>
 
 <style>
