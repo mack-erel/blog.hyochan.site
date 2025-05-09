@@ -2,3 +2,4 @@ Contact: https://github.com/mack-erel/blog.hyochan.site/issues
 Contact: mailto:jang@hyochan.site
 Preferred-Languages: ko
 Canonical: https://blog.hyochan.site/.well-known/security.txt
+Signature: https://blog.hyochan.site/.well-known/security.txt.sig
