@@ -36,20 +36,20 @@
                 return `<h${level} id="${id}">${text}</h${level}>`;
             })
             .replace(
-                /<img([^>]*)alt="([^"]*)"([^>]*)>/g,
+                /<p><img([^>]*)alt="([^"]*)"([^>]*)><\/p>/g,
                 '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
             )
             .replace(
                 /<a([^>]*href=['"]?(?!#)[^'">]+['"]?[^>]*)>/g,
                 '<a$1 target="_blank" rel="noopener noreferrer">',
             )
-            .replace(/<img([^>]*)src="([^"]*)"([^>]*)>/g, (match, ...args) => {
+            .replace(/<p><img([^>]*)src="([^"]*)"([^>]*)><\/p>/g, (match, ...args) => {
                 const resized = args[1].replace(
                     /https:\/\/blog-files\.hyochan\.site\/(.+?).(png|jpg|jpeg|gif|webp)/gi,
                     "https://blog-files.hyochan.site/cdn-cgi/image/width=752,quality=80,format=webp/$1.$2",
                     // "https://blog-files.hyochan.site/$1.png",
                 );
-                return `<a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a>`;
+                return `<figure><a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a></figure>`;
             })
             .replace(/<h4/g, "<h5").replace(/<\/h4>/g, "</h5>")
             .replace(/<h3/g, "<h4").replace(/<\/h3>/g, "</h4>")
