@@ -69,12 +69,14 @@
             </a>
         {/each}
     </div>
-    {#if data.post.series}
-        <h3 class="text-base text-gray-500 mt-1.5 leading-4">
-            {data.post.series} #{data.post.seriesIndex}
-        </h3>
-    {/if}
-    <h2 class="text-xl font-bold">{data.post.withOutSeries}</h2>
+    <div class="flex flex-col-reverse">
+        <h2 class="text-xl font-bold">{data.post.withOutSeries}</h2>
+        {#if data.post.series}
+            <h3 class="text-base text-gray-500 mt-1.5 leading-4">
+                {data.post.series} #{data.post.seriesIndex}
+            </h3>
+        {/if}
+    </div>
     {#if data.post.description}
         <h3 class="text-sm text-gray-500">
             {data.post.description}
