@@ -1,4 +1,5 @@
 import { getPosts } from "$lib/utils.server";
+import { marked } from 'marked';
 
 export const prerender = true;
 
@@ -22,6 +23,7 @@ export const GET = async (event) => {
             <guid isPermaLink="false">${post.permalink}</guid>
             <pubDate>${new Date(post.date).toUTCString()}</pubDate>
             <description><![CDATA[${post.description || ''}]]></description>
+            <content:encoded><![CDATA[${marked.parse(post.content || '')}]]></content:encoded>
         </item>`).join('')}
     </channel>
 </rss>`;

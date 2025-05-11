@@ -3,8 +3,6 @@
 
     let { data } = $props();
 
-    $inspect(data);
-
     // 누적 경로 배열 만들어주는 함수
     function getCategoryLinks(categories: string[]) {
         let links = [];
