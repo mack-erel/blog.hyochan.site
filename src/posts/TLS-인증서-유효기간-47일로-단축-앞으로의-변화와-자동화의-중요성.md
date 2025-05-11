@@ -1,11 +1,11 @@
 ---
+uid: 63c99db4-546a-4ec0-910d-072ea4b99631
 title: "TLS 인증서 유효기간 47일로 단축! 앞으로의 변화와 자동화의 중요성"
 description: 2029년까지 TLS 인증서 유효기간이 47일로 단축되며, 인증서 관리 자동화가 필수로 자리잡게 된다.
-date: 2025-04-17 16:30:00
+date: 2025-04-17T16:30:17+09:00
 category:
   - IT Trend
   - Security
-thumbnail: 
 tags:
   - IT Trend
   - Security
@@ -15,8 +15,10 @@ tags:
   - SSL
   - Certificate
   - Automation
+thumbnail: 
+ai-generated: true
 ---
-#### 세줄요약
+### 세줄요약
 - CA/Browser Forum의 결정으로 2029년부터 TLS 인증서 유효기간이 47일로 줄어든다.
 - 인증서 정보의 신뢰성 문제와 폐기 시스템의 한계로 인해 짧은 유효기간과 자동화가 강조된다.
 - 기업과 개발자들은 인증서 갱신 자동화 시스템 도입이 필수적이며, 인증서 관리 방식에 큰 변화가 예상된다.
