@@ -191,7 +191,7 @@
     </aside>
 {/if}
 
-<section class="max-w-3xl w-full">
+<div class="max-w-3xl w-full">
     <header class="flex justify-between my-6 mx-6">
         <a href="/" class="flex flex-col">
             <span class="text-3xl font-bold">ㅂㄹㄱ</span>
@@ -223,7 +223,7 @@
         </button>
     </header>
     {@render children()}
-</section>
+</div>
 
 <style lang="scss">
     :global(body) {
