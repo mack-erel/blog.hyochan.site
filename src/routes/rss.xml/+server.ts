@@ -1,4 +1,4 @@
-import { getPosts } from "$lib/utils.server";
+import { getPosts } from "$lib/utils.server.ts";
 import { marked } from 'marked';
 
 export const prerender = true;

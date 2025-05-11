@@ -1,4 +1,4 @@
-import { getPosts } from "./lib/utils.server";
+import { getPosts } from "./lib/utils.server.ts";
 
 export function handle({ event, resolve }) {
     event.locals.posts = getPosts();

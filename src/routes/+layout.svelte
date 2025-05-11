@@ -6,7 +6,7 @@
     import { fly } from "svelte/transition";
     import { cubicOut } from "svelte/easing";
     import { onMount } from "svelte";
-    import { getStructuredData } from "$lib/utils";
+    import { getStructuredData } from "$lib/utils.ts";
     let menu = $derived.by(() => {
         const routeId = page.route.id || "";
 

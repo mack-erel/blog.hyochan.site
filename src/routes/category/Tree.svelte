@@ -28,9 +28,15 @@
     </a>
     {#if value.children}
         <ul class="mt-0">
-            {#each Object.entries(value.children) as [k, v]}
-                <Tree label={k} value={v} path={path.concat(label)} isDeprecatedParent={isDeprecated} />
-            {/each}
+            {#if Array.isArray(value.children)}
+                {#each value.children as child}
+                    <Tree label={child.name} value={child} path={path.concat(label)} isDeprecatedParent={isDeprecated} />
+                {/each}
+            {:else}
+                {#each Object.entries(value.children) as [k, v]}
+                    <Tree label={k} value={v} path={path.concat(label)} isDeprecatedParent={isDeprecated} />
+                {/each}
+            {/if}
         </ul>
     {/if}
 </li>

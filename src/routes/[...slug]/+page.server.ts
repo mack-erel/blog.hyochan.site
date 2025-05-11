@@ -1,11 +1,6 @@
-// import matter from "gray-matter";
 import { marked } from 'marked';
-// import fs from "fs";
-// import path from "path";
-// import { error, redirect } from '@sveltejs/kit';
-
 import { error } from '@sveltejs/kit';
-import { getPosts } from '$lib/utils.server';
+import { getPosts } from '$lib/utils.server.ts';
 
 export function load({ params, locals }) {
     const post = locals.posts.find(item => item.permalink === "/" + params.slug);

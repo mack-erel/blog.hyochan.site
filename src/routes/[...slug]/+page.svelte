@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getPermalink } from "$lib/utils.js";
+    import { getPermalink } from "$lib/utils.ts";
 
     let { data } = $props();
 

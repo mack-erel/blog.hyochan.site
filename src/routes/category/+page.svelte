@@ -1,6 +1,6 @@
 <script lang="ts">
     import Tree from "./Tree.svelte";
-    export let data;
+    let { data } = $props();
 
     // 전체 카테고리/게시글 수 계산
     function countCategoryAndPosts(obj: any) {
@@ -44,7 +44,7 @@
                 </p>
                 <ul class="space-y-1">
                     {#each Object.entries(categoryWithCount.children) as [key, value]}
-                        <Tree label={key} value={value} path={[]} />
+                        <Tree label={key} {value} path={[]} />
                     {/each}
                 </ul>
             </div>
