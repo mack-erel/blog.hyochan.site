@@ -19,19 +19,16 @@
 </script>
 
 <li class={indentClass}>
-    <div class="flex items-center hover:bg-gray-100 rounded px-2 py-1.5">
-        <a
-            class={`flex-grow ${isDeprecated ? 'text-gray-400' : 'text-gray-700'} hover:text-blue-600 hover:underline`}
-            {href}>{label}</a>
-        {#if typeof value === "number"}
-            <span
-                class="ml-2 text-xs text-gray-500 rounded-full bg-gray-100 px-2 py-0.5"
-                >{value}</span>
-        {/if}
-    </div>
-    {#if typeof value !== "number"}
+    <a
+        class={`flex items-center hover:bg-gray-100 rounded px-2 py-1.5 ${isDeprecated ? 'text-gray-400' : 'text-gray-700'} hover:text-blue-600 hover:underline`}
+        href={href}
+    >
+        <span class="flex-grow">{label}</span>
+        <span class="ml-2 text-xs text-gray-500 rounded-full bg-gray-100 px-2 py-0.5">{value.count}</span>
+    </a>
+    {#if value.children}
         <ul class="mt-0">
-            {#each Object.entries(value) as [k, v]}
+            {#each Object.entries(value.children) as [k, v]}
                 <Tree label={k} value={v} path={path.concat(label)} isDeprecatedParent={isDeprecated} />
             {/each}
         </ul>
