@@ -13,20 +13,8 @@
                 .join("/"),
     );
 
-    // tailwind purge 방지: 미리 쓸 수 있는 ml-0~ml-32까지 배열로 선언
-    const indentClassArr = [
-        "ml-0",
-        "ml-4",
-        "ml-8",
-        "ml-12",
-        "ml-16",
-        "ml-20",
-        "ml-24",
-        "ml-28",
-        "ml-32",
-    ];
-    const indentClass =
-        indentClassArr[Math.min(path.length, indentClassArr.length - 1)];
+    // 1depth면 ml-0, 2depth 이상이면 ml-4
+    const indentClass = path.length === 0 ? "ml-0" : "ml-4";
 </script>
 
 <li class={indentClass}>
@@ -41,7 +29,7 @@
         {/if}
     </div>
     {#if typeof value !== "number"}
-        <ul class="space-y-1">
+        <ul class="mt-0">
             {#each Object.entries(value) as [k, v]}
                 <Tree label={k} value={v} path={path.concat(label)} />
             {/each}
