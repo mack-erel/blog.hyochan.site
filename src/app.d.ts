@@ -18,6 +18,7 @@ declare global {
 				content: string;
 				withOutSeries?: string;
 				seriesIndex?: number;
+				"ai-generated"?: boolean;
 			}[];
 		}
 		// interface PageData {}

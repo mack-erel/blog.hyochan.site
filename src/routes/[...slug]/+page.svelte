@@ -3,6 +3,8 @@
 
     let { data } = $props();
 
+    $inspect(data);
+
     // 누적 경로 배열 만들어주는 함수
     function getCategoryLinks(categories: string[]) {
         let links = [];
@@ -153,6 +155,12 @@
             </nav>
         {/if}
         {@html content}
+        {#if data.post["ai-generated"]}
+            <div
+                class="text-xs text-gray-500 mt-6 border-t border-dashed border-gray-300 pt-4 text-center">
+                이 콘텐츠는 AI가 재구성하였습니다
+            </div>
+        {/if}
     </article>
 </section>
 
@@ -291,7 +299,7 @@
             @apply text-center text-sm text-gray-500 mt-2;
         }
 
-        :global(del){
+        :global(del) {
             @apply text-gray-400;
         }
     }

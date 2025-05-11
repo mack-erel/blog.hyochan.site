@@ -20,7 +20,7 @@ function getCurrentDateTime() {
 
 let main = () => {
     const uuid = uuidv4();
-    const template = `---\nuid: ${uuid}\ntitle: \ndescription: \ndate: ${getCurrentDateTime()}\ncategory: \n  - \ntags: \n  - \nthumbnail: \nseries: \n---\n`;
+    const template = `---\nuid: ${uuid}\ntitle: \ndescription: \ndate: ${getCurrentDateTime()}\ncategory: \n  - \ntags: \n  - \nthumbnail: \nseries: \nai-generated: \n---\n`;
 
     const outDir = path.join(process.cwd(), 'src', 'posts');
     if (!fs.existsSync(outDir)) {

@@ -16,6 +16,7 @@ tags:
   - Claude
   - Cursor
 thumbnail: 
+ai-generated: true
 ---
 ### 세줄요약
 - Cloudflare가 13개의 Model Context Protocol(MCP) 서버를 공개하여 Claude.ai 등 MCP 클라이언트에서 연결 가능해졌다.
