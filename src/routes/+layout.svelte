@@ -194,8 +194,8 @@
 <section class="max-w-3xl w-full">
     <header class="flex justify-between my-6 mx-6">
         <a href="/" class="flex flex-col">
-            <h1 class="text-3xl">ㅂㄹㄱ</h1>
-            <h2 class="text-sm text-gray-500">개발자의 일상을 담은 블로그</h2>
+            <span class="text-3xl font-bold">ㅂㄹㄱ</span>
+            <span class="text-sm text-gray-500">개발자의 일상을 담은 블로그</span>
         </a>
 
         <nav

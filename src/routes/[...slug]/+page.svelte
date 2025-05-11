@@ -86,17 +86,17 @@
         {/each}
     </div>
     <div class="flex flex-col-reverse">
-        <h2 class="text-xl font-bold">{data.post.withOutSeries}</h2>
+        <h1 class="text-xl font-bold">{data.post.withOutSeries}</h1>
         {#if data.post.series}
-            <h3 class="text-base text-gray-500 mt-1.5 leading-4">
+            <h2 class="text-base text-gray-500 mt-1.5 leading-4">
                 {data.post.series} #{data.post.seriesIndex}
-            </h3>
+            </h2>
         {/if}
     </div>
     {#if data.post.description}
-        <h3 class="text-sm text-gray-500">
+        <h2 class="text-sm text-gray-500">
             {data.post.description}
-        </h3>
+        </h2>
     {/if}
     <div class="flex gap-1.5 text-xs flex-wrap mt-2">
         {#each data.post.tags as tag}
