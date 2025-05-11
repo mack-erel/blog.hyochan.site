@@ -273,6 +273,33 @@
                         <li>기획팀과 협업을 통한 사용자 중심 UI/UX 개선</li>
                         <li>최신 웹 기술 도입을 통한 서비스 품질 향상</li>
                     </ul>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-medium">주요 프로젝트</h4>
+                        <div class="mt-3 space-y-4">
+                            <article
+                                class="border-l-2 border-gray-300 pl-4 py-1">
+                                <h5 class="font-medium">
+                                    강의수강 시스템 AI튜터 기능 신규 도입
+                                </h5>
+                                <p class="text-gray-600">
+                                    2024년 10월 - 현재
+                                </p>
+                                <p class="text-gray-600 mt-1">
+                                    <span class="font-medium">담당 역할:</span> 풀스택 개발
+                                </p>
+                                <p class="text-gray-600 mt-1">
+                                    <span class="font-medium">기술 스택:</span> PHP7, JavaScript, TypeScript, SSE, MySQL
+                                </p>
+                                <ul class="list-disc pl-5 mt-1 text-sm">
+                                    <li>실시간 질의응답 및 피드백 제공을 위한 SSE(Server-Sent Events) 적용</li>
+                                    <li>AI를 활용한 강의 내용 요약 및 개인화 피드백 기능 구현</li>
+                                    <li>기획팀, AI팀과의 협업을 통한 요구사항 분석 및 시스템 설계</li>
+                                    <li>실서비스 적용 및 운영, 사용자 피드백 기반 기능 개선</li>
+                                    <li>대용량 트래픽 환경에서의 SSE 연결 안정성 확보 및 성능 최적화</li>
+                                </ul>
+                            </article>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="border-l-4 border-green-500 pl-4 py-1">
