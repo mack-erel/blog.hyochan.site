@@ -290,5 +290,9 @@
         :global(figcaption) {
             @apply text-center text-sm text-gray-500 mt-2;
         }
+
+        :global(del){
+            @apply text-gray-400;
+        }
     }
 </style>
