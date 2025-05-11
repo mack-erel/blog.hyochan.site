@@ -36,12 +36,21 @@
                 return `<h${level} id="${id}">${text}</h${level}>`;
             })
             .replace(
-                /<p><img([^>]*)alt="([^"]*)"([^>]*)><\/p>/g,
-                '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
-            )
-            .replace(
                 /<a([^>]*href=['"]?(?!#)[^'">]+['"]?[^>]*)>/g,
                 '<a$1 target="_blank" rel="noopener noreferrer">',
+            )
+            .replace(
+                /(<a([^>]*href=['"]?(?!#)[^'">]+['"]?[^>]*)><img[^>]*><\/a>)/g,
+                (match, ...args) => {
+                    args[0] = args[0].replace(/<a/g, "__A");
+                    args[0] = args[0].replace(/<\/a>/g, "A__");
+                    args[0] = args[0].replace(/<img/g, "__IMG");
+                    return `${args[0]}`;
+                },
+            )
+            .replace(
+                /<p><img([^>]*)alt="([^"]*)"([^>]*)><\/p>/g,
+                '<figure><img$1alt="$2"$3><figcaption>$2</figcaption></figure>',
             )
             .replace(/<img([^>]*)src="([^"]*)"([^>]*)>/g, (match, ...args) => {
                 const resized = args[1].replace(
@@ -51,10 +60,17 @@
                 );
                 return `<a href="${args[1]}" target="_blank"><img${args[0]}src="${resized}"${args[2]}></a>`;
             })
-            .replace(/<h4/g, "<h5").replace(/<\/h4>/g, "</h5>")
-            .replace(/<h3/g, "<h4").replace(/<\/h3>/g, "</h4>")
-            .replace(/<h2/g, "<h3").replace(/<\/h2>/g, "</h3>")
-            .replace(/<h1/g, "<h2").replace(/<\/h1>/g, "</h2>")
+            .replace(/__A/g, "<a")
+            .replace(/A__/g, "</a>")
+            .replace(/__IMG/g, "<img")
+            .replace(/<h4/g, "<h5")
+            .replace(/<\/h4>/g, "</h5>")
+            .replace(/<h3/g, "<h4")
+            .replace(/<\/h3>/g, "</h4>")
+            .replace(/<h2/g, "<h3")
+            .replace(/<\/h2>/g, "</h3>")
+            .replace(/<h1/g, "<h2")
+            .replace(/<\/h1>/g, "</h2>"),
     );
 </script>
 
