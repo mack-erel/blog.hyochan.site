@@ -27,7 +27,27 @@ export async function load({ params }) {
         }
     }
 
+    //
+
     return {
-        category
+        category: moveDeprecatedLast(category)
     }
+}
+
+function moveDeprecatedLast(obj: any): any {
+    if (typeof obj !== 'object' || obj === null) return obj;
+
+    const keys = Object.keys(obj);
+    const normalKeys = keys.filter(k => k !== 'Deprecated');
+    const result: any = {};
+
+    // 일반 키 먼저
+    for (const key of normalKeys) {
+        result[key] = moveDeprecatedLast(obj[key]);
+    }
+    // Deprecated 키 마지막에
+    if (keys.includes('Deprecated')) {
+        result['Deprecated'] = moveDeprecatedLast(obj['Deprecated']);
+    }
+    return result;
 }
