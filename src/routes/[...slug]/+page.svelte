@@ -213,11 +213,11 @@
         }
 
         :global(ul) {
-            @apply list-disc pl-8 my-4 space-y-2;
+            @apply list-disc pl-8 my-4 flex flex-col gap-y-2;
         }
 
         :global(ol) {
-            @apply list-decimal pl-8 my-4 space-y-2;
+            @apply list-decimal pl-8 my-4 flex flex-col gap-y-2;
         }
 
         :global(li) {
