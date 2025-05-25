@@ -10,9 +10,9 @@ category:
 tags: 
   - SvelteKit
   - Svelte
-  - 프론트엔드
+  - Frontend
   - JavaScript
-  - 웹개발
+  - Web
 thumbnail: 
 series: 
 ai-generated: true
