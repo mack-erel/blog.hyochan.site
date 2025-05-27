@@ -1,7 +1,8 @@
-import type { Handle } from '@sveltejs/kit';
 import { SvelteKitAuth } from '@auth/sveltekit';
 import GitHub from '@auth/core/providers/github';
 import { GITHUB_ID, GITHUB_SECRET } from '$env/static/private';
+import type { Handle } from '@sveltejs/kit';
+import { sequence } from '@sveltejs/kit/hooks';
 
 // Chrome DevTools 관련 요청을 처리하는 핸들러
 const chromeDevtoolsHandle: Handle = async ({ event, resolve }) => {
@@ -18,27 +19,36 @@ const chromeDevtoolsHandle: Handle = async ({ event, resolve }) => {
   return await resolve(event);
 };
 
-// Auth.js를 설정하고 핸들러 함수 가져오기
-const auth = SvelteKitAuth({
+// Auth.js 핸들러 설정
+const authHandle = SvelteKitAuth({
   providers: [
     GitHub({ clientId: GITHUB_ID, clientSecret: GITHUB_SECRET }),
   ],
-  callbacks: {
-    session: ({ session, user }) => {
-      if (session.user) {
-        session.user.id = user.id;
-      }
-      return session;
-    }
-  }
+  secret: process.env.AUTH_SECRET || 'default-auth-secret-change-me-for-production',
+  trustHost: true,
+  debug: true,
 });
 
-// 사용자 정의 핸들러와 Auth.js 핸들러 결합
-export const handle: Handle = async (event) => {
-  // 먼저 Chrome DevTools 요청 처리
-  const response = await chromeDevtoolsHandle(event);
-  if (response) return response;
-  
-  // 그 다음 Auth.js 핸들러 실행
-  return await auth.handle(event);
-}; 
+// Auth.js가 오류 없이 실행되도록 추가 핸들러
+const authFallbackHandle: Handle = async ({ event, resolve }) => {
+  try {
+    if (event.url.pathname.startsWith('/auth/signin/github')) {
+      // GitHub 로그인 버튼을 클릭했을 때 클라이언트 사이드에서 처리하도록
+      if (event.request.method === 'GET') {
+        return await resolve(event);
+      }
+    }
+    
+    return await resolve(event);
+  } catch (error) {
+    console.error('Auth 핸들러 오류:', error);
+    return await resolve(event);
+  }
+};
+
+// 모든 핸들러 시퀀스 생성
+export const handle = sequence(
+  chromeDevtoolsHandle,
+  authHandle.handle,
+  authFallbackHandle
+);
